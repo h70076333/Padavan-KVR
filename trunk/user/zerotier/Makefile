@@ -1,8 +1,8 @@
-SRC_NAME = ZeroTierOne-1.12.1
+SRC_NAME = ZeroTierOne-1.10.6
 THISDIR = $(shell pwd)
 FLAGS := DEFS=""
 CFLAGS := -Os -ffunction-sections -fdata-sections
-LDFLAGS := -Wl,--gc-sections,--as-needed
+LDFLAGS := -Wl,--gc-sections,--as-needed -static-libstdc++
 
 all: extract_test
 	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME)
