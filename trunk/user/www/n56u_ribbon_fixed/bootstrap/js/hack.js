@@ -1,4 +1,4 @@
-restoreLogo('xiaomi-big');
+restoreLogo('asus_logo');
 restoreBackground();
 applyDarkIEImageFix();
 applyHighchartsDarkTheme();
