@@ -1,4 +1,4 @@
-name: MI-NANO
+name: WR1200JS
 
 on: 
   release:
@@ -38,7 +38,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: MI-NANO
+        TNAME: WR1200JS
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
