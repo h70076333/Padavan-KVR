@@ -1,4 +1,4 @@
-name: MI-NANO
+name: HC5761A
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: MI-NANO
+        TNAME: HC5761A
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
