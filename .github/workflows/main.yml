@@ -1,4 +1,4 @@
-name: RT-N14U
+name: MI-3
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: RT-N14U
+        TNAME: MI-3
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
