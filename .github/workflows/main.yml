@@ -1,4 +1,4 @@
-name: OYE-001
+name: RT-N14U
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: OYE-001
+        TNAME: RT-N14U
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
