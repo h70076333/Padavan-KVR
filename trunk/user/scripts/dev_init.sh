@@ -6,7 +6,7 @@ mount -t sysfs sysfs /sys
 
 size_tmp="44M"
 size_var="4M"
-size_etc="16M"
+size_etc="14M"
 
 if [ "$1" == "-l" ] ; then
 	size_tmp="8M"
@@ -14,7 +14,7 @@ if [ "$1" == "-l" ] ; then
 fi
 
 mount -t tmpfs tmpfs /dev   -o size=8K
-mount -t tmpfs tmpfs /etc   -o size=16M,noatime
+mount -t tmpfs tmpfs /etc   -o size=14M,noatime
 mount -t tmpfs tmpfs /home  -o size=1M
 mount -t tmpfs tmpfs /media -o size=8K
 mount -t tmpfs tmpfs /mnt   -o size=8K
