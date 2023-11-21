@@ -1,4 +1,4 @@
-name: GHL
+name: YK-L1
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: GHL
+        TNAME: YK-L1
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
