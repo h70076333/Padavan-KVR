@@ -1,4 +1,4 @@
-name: PSG1208
+name: WR1200JS
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: PSG1208
+        TNAME: WR1200JS
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
