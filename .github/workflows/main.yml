@@ -1,4 +1,4 @@
-name: MSG1500
+name: GHL
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: MSG1500
+        TNAME: GHL
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
