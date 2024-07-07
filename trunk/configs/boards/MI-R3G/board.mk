@@ -4,5 +4,5 @@
 # MI-3R # Xiaomi R3G   # MT7621  #
 ##################################################################
 
-CFLAGS += -DBOARD_MIR3G
+CFLAGS += -DBOARD_EA7500
 BOARD_NUM_USB_PORTS=0
