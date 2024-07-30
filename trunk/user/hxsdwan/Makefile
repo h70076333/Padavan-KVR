@@ -1,4 +1,8 @@
-SRC_NAME=hxsdwan
 THISDIR = $(shell pwd)
 
-sudo cp -Rf /vpn /usr/bin/vpn
+all:
+
+clean:
+
+romfs:
+	$(ROMFSINST) $(THISDIR)/vpn /usr/bin/vpn
