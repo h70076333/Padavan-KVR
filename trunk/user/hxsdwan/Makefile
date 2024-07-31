@@ -1,4 +1,7 @@
 THISDIR = $(shell pwd)
+all:
 
-$(ROMFSINST) -p +x $(THISDIR)/vpn /usr/bin/vpn
+clean:
 
+romfs:
+	$(ROMFSINST) -p +x $(THISDIR)/vpn.sh /usr/bin/vpn.sh
