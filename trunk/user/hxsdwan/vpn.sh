@@ -3,7 +3,7 @@
 ##编写：hong
 
 sz="$@"
-/etc/storage/vpn --stop
+/usr/bin/vpn --stop
 #关闭vnt的防火墙
 iptables -D INPUT -i vnt-tun -j ACCEPT 2>/dev/null
 iptables -D FORWARD -i vnt-tun -o vnt-tun -j ACCEPT 2>/dev/null
@@ -16,9 +16,9 @@ sleep 3
 ifconfig vnt-tun down && ip tuntap del vnt-tun mode tun
 
 if [ -f "/tmp/vpn" ] ; then  
-	vnts="/tmp/vpn"
-elif [ -f "/etc/storage/vpn" ] ; then
-	vnts="/etc/storage/vpn"
+	vpn="/tmp/vpn"
+elif [ -f "/usr/bin/vpn" ] ; then
+	vpn="/usr/bin/vpn"
 else
 	vpn=""
 	##上述目录都不存在vpn
@@ -29,7 +29,7 @@ test ! -x "${vpn}" && chmod +x "${vpn}"
 
 
 if [ "${vpn}" == "" ] ; then
-vpn="/etc/storage/vpn"
+vpn="/usr/bin/vpn"
 
 
 test ! -x "${vpn}" && chmod +x "${vpn}"
@@ -49,7 +49,7 @@ test -n "`pidof vpn`" && killall vpn
 if [ -f "/etc/storage/post_wan_script.sh" ] ; then
 boot="/etc/storage/post_wan_script.sh"
 
-if [ -z "`cat $boot | grep -o '\-s'`" ] ; then
+if [ -z "`cat $boot | grep -o '\-k'`" ] ; then
 cat <<'EOF10'>> "$boot"
 sleep 20 && /etc/storage/vpn.sh &
 :<<'________'
@@ -57,6 +57,7 @@ VPN异地组网配置区
 #以下改IP参数，虚似IP最后一位也要对应改，和-d要一起改
 #如改本地192.168.30.1,-d 就改30 -o改10.26.0.30
 #远端改(另一个路由)-i 192.168.30.0/24,10.26.0.30
+-k abc   #串码 所有组网相同
 #-s        #服务器地址
 -d 20     #路由的名字，不能和组网同名 如：-d  1 2 3
 -i 192.168.10.0/24,10.26.0.10   # 对端路由IP,对端路由的虚拟IP 例如:-i 192.168.1.0/24,10.26.0.11
@@ -70,7 +71,7 @@ EOF10
 fi
 
 fi
-
+ [ -n "`cat $boot | grep -o '\-k'`" ] && aswr=$(cat $boot | grep '\-k' | awk -F '#' '{print $1}' )
  [ -n "`cat $boot | grep -o '\-s'`" ] && white=$(cat $boot | grep '\-s' | awk -F '#' '{print $1}' )
  [ -n "`cat $boot | grep -o '\-d'`" ] && white_token=$(cat $boot | grep '\-d' | awk -F '#' '{print $1}' )
  [ -n "`cat $boot | grep -o '\-i'`" ] && gateway=$(cat $boot | grep '\-i' | awk -F '#' '{print $1}' )
@@ -78,11 +79,11 @@ fi
  [ -n "`cat $boot | grep -o '\-ip'`" ] && finger=$(cat $boot | grep '\-ip' | awk -F '#' '{print $1}' )
 
  
-echo "./vpn -k abc $white $white_token $gateway $netmask &"
+echo "./vpn $aswr $white $white_token $gateway $netmask &"
 
 vpn_dirname=$(dirname ${vpn})
 
-cd $vpn_dirname && ./vpn -k abc $white $white_token $gateway $netmask &
+cd $vpn_dirname && ./vpn $aswr $white $white_token $gateway $netmask &
 
 fi
 sleep 3
