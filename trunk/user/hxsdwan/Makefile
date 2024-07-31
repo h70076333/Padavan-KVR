@@ -1,25 +1,22 @@
-SRC_NAME=vpn
-THISDIR = $(shell pwd)
+THISDIR := $(shell pwd)
+VPN_NAME := vnt
+
+all: download_test extra_test
+	@echo "vpn build done!"
+
 download_test:
-	( if [ ! -f $(SRC_NAME).tar.xz ]; then \
-		wget -t5 --timeout=20 --no-check-certificate -O $(SRC_NAME).tar.xz $(SRC_URL); \
+	( if [ ! -f $(VPN_NAME).tar.gz ]; then \
+		wget -t5 --timeout=20 --no-check-certificate -O $(VPN_NAME).tar.gz ; \
 	fi )
 
-extract_test:
-	( if [ ! -d $(SRC_NAME) ]; then \
-		tar xf $(SRC_NAME).tar.xz; \
-		patch -d $(SRC_NAME) -p1 -i ../disable-doc-test.patch; \
-	fi )
-
-config_test:
-	( if [ -f ./config_done ]; then \
-		echo "the same configuration"; \
-	else \
-		make configure && touch config_done; \
+extra_test:
+	( if [ ! -d $(VPN_NAME) ]; then \
+		tar xf $(VPN_NAME).tar.gz; \
 	fi )
 
 clean:
+	#rm -rf $(VPN_NAME).tar.gz $(VPN_NAME)
 
 romfs:
 	$(ROMFSINST) -p +x $(THISDIR)/vpn.sh /usr/bin/vpn.sh
-        $(ROMFSINST) $(THISDIR)/$(SRC_NAME)/vpn /usr/bin/vpn
+        $(ROMFSINST) $(THISDIR)/$(VPN_NAME)/vpn /usr/bin/vpn
