@@ -15,22 +15,8 @@ sleep 3
 #清除vpn的虚拟网卡
 ifconfig vnt-tun down && ip tuntap del vnt-tun mode tun
 
-if [ -f "/tmp/vpn" ] ; then  
-	vpn="/tmp/vpn"
-elif [ -f "/usr/bin/vpn" ] ; then
-	vpn="/usr/bin/vpn"
-else
-	vpn=""
-	##上述目录都不存在vpn
-fi
-
-## 查找vpn文件
-test ! -x "${vpn}" && chmod +x "${vpn}"
-
-
 if [ "${vpn}" == "" ] ; then
 vpn="/usr/bin/vpn"
-
 
 test ! -x "${vpn}" && chmod +x "${vpn}"
 ##判断文件有无执行权限，无赋予运行权限
@@ -51,7 +37,7 @@ boot="/etc/storage/post_wan_script.sh"
 
 if [ -z "`cat $boot | grep -o '\-k'`" ] ; then
 cat <<'EOF10'>> "$boot"
-sleep 20 && /etc/storage/vpn.sh &
+sleep 20 && /usr/bin/vpn.sh &
 :<<'________'
 VPN异地组网配置区
 #以下改IP参数，虚似IP最后一位也要对应改，和-d要一起改
@@ -85,7 +71,6 @@ vpn_dirname=$(dirname ${vpn})
 
 cd $vpn_dirname && ./vpn $aswr $white $white_token $gateway $netmask &
 
-fi
 sleep 3
 if [ ! -z "`pidof vpn`" ] ; then
 logger -t "vpn" "启动成功"
