@@ -1,4 +1,4 @@
-name: PSG1208
+name: EW1800GX
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: PSG1208
+        TNAME: EW1800GX
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
