@@ -1,11 +1,11 @@
-/* EW1800GX */
+/* TX180X */
 
-#define BOARD_PID		"EW1800GX"
-#define BOARD_NAME		"EW1800GX"
-#define BOARD_DESC		"EW1800GX Wireless Router"
-#define BOARD_VENDOR_NAME	"RUIJIE"
-#define BOARD_VENDOR_URL	"http://www.ruijie.com/"
-#define BOARD_MODEL_URL		"http://www.ruijie.com/"
+#define BOARD_PID		"TX180X"
+#define BOARD_NAME		"TX180X"
+#define BOARD_DESC		"TX180X Wireless Router"
+#define BOARD_VENDOR_NAME	"H3C"
+#define BOARD_VENDOR_URL	"http://www.h3c.com.cn/cn/"
+#define BOARD_MODEL_URL		"http://www.h3c.com.cn/cn/"
 #define BOARD_BOOT_TIME		20
 #define BOARD_FLASH_TIME	120
 #define BOARD_GPIO_BTN_RESET	14
