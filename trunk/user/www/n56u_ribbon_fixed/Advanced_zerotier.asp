@@ -50,25 +50,28 @@ var isMenuopen = 0;
 function initial(){
 	show_banner(2);
 	show_menu(5,17,0);
-	showmenu();
-	fill_status(zerotier_status());
-	showMRULESList();
+showmenu();
+fill_status(zerotier_status());
+showMRULESList();
 	show_footer();
-}
 
+}
 function showmenu(){
 showhide_div('allink', found_app_aliddns());
-showhide_div('dtolink', found_app_ddnsto());
-showhide_div('wirlink', found_app_wireguard());
+showhide_div('ddlink', found_app_ddnsto());
+showhide_div('wilink', 1);
 }
+
 function applyRule(){
-	showLoading();
-	
-	document.form.action_mode.value = " Restart ";
-	document.form.current_page.value = "/Advanced_zerotier.asp";
-	document.form.next_page.value = "";
-	
-	document.form.submit();
+//	if(validForm()){
+		showLoading();
+		
+		document.form.action_mode.value = " Restart ";
+		document.form.current_page.value = "/Advanced_zerotier.asp";
+		document.form.next_page.value = "";
+		
+		document.form.submit();
+//	}
 }
 
 function done_validating(action){
@@ -197,24 +200,24 @@ function showMRULESList(){
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="box well grad_colour_dark_blue">
-							<h2 class="box_head round_top"><#menu5_32#> - <#menu5_30#></h2>
+							<h2 class="box_head round_top"><#menu5_30#> - <#menu5_32#></h2>
 							<div class="round_bottom">
 							<div>
-							    <ul class="nav nav-tabs" style="margin-bottom: 10px;">
+                            <ul class="nav nav-tabs" style="margin-bottom: 10px;">
 								<li id="allink" style="display:none">
-								    <a href="Advanced_aliddns.asp"><#menu5_23_1#></a>
-								</li>
-								<li id="dtolink" style="display:none">
-								    <a href="Advanced_ddnsto.asp"><#menu5_32_2#></a>
-								</li>
+                                    <a href="Advanced_aliddns.asp"><#menu5_23_1#></a>
+                                </li>
 								<li class="active">
-								    <a href="Advanced_zerotier.asp"><#menu5_32_1#></a>
-								</li>
-								<li id="wirlink" style="display:none">
-								    <a href="Advanced_wireguard.asp"><#menu5_35_1#></a>
-								</li>
-							    </ul>
-							</div>
+                                    <a href="Advanced_zerotier.asp"><#menu5_32_1#></a>
+                                </li>
+				    				<li id="ddlink" style="display:none">
+                                    <a href="Advanced_ddnsto.asp"><#menu5_34_1#></a>
+                                </li>
+								<li id="wilink" style="display:none">
+                                    <a href="Advanced_wireguard.asp"><#menu5_35_1#></a>
+                                </li>
+                            </ul>
+                        </div>
 								<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">
@@ -226,7 +229,28 @@ function showMRULESList(){
 									<tr> <th><#running_status#></th>
                                             <td id="zerotier_status" colspan="3"></td>
                                         </tr>
-										<tr>
+										<tr><th>ZeroTier 客户端 ID</th>
+				<td>
+					<input type="text" class="input" name="zerotier_id" id="zerotier_id" style="width: 200px" value="<% nvram_get_x("","zerotier_id"); %>" />
+				</td>
+											</tr>
+											<tr>
+											<th width="30%" style="border-top: 0 none;">允许客户端NAT</th>
+											<td style="border-top: 0 none;">
+													<div class="main_itoggle">
+													<div id="zerotier_nat_on_of">
+														<input type="checkbox" id="zerotier_nat_fake" <% nvram_match_x("", "zerotier_nat", "1", "value=1 checked"); %><% nvram_match_x("", "zerotier_nat", "0", "value=0"); %>  />
+													</div>
+												</div>
+												<div style="position: absolute; margin-left: -10000px;">
+													<input type="radio" value="1" name="zerotier_nat" id="zerotier_nat_1" class="input" value="1" <% nvram_match_x("", "zerotier_nat", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="zerotier_nat" id="zerotier_nat_0" class="input" value="0" <% nvram_match_x("", "zerotier_nat", "0", "checked"); %> /><#checkbox_No#>
+												</div>
+												 允许Zerotier的拨入客户端访问路由器LAN资源（需要在 Zerotier管理页面设定到LAN网段的路由表）
+											</td>
+
+										</tr>
+											<tr>
 											<th width="30%" style="border-top: 0 none;">启用ZeroTier客户端</th>
 											<td style="border-top: 0 none;">
 													<div class="main_itoggle">
@@ -242,32 +266,12 @@ function showMRULESList(){
 
 										</tr>
 										
-<tr><th>ZeroTier World Network ID</th>
-				<td>
-					<input type="text" class="input" name="zerotier_id" id="zerotier_id" style="width: 200px" value="<% nvram_get_x("","zerotier_id"); %>" />
-				</td>
-			</tr>
+
 <tr><th>ZeroTier Moon Network ID</th>
 				<td>
 					<input type="text" class="input" name="zerotier_moonid" id="zerotier_moonid" style="width: 200px" value="<% nvram_get_x("","zerotier_moonid"); %>" />
 				</td>
 			</tr>			
-			<tr>
-											<th width="30%" style="border-top: 0 none;">自动允许客户端NAT</th>
-											<td style="border-top: 0 none;">
-													<div class="main_itoggle">
-													<div id="zerotier_nat_on_of">
-														<input type="checkbox" id="zerotier_nat_fake" <% nvram_match_x("", "zerotier_nat", "1", "value=1 checked"); %><% nvram_match_x("", "zerotier_nat", "0", "value=0"); %>  />
-													</div>
-												</div>
-												<div style="position: absolute; margin-left: -10000px;">
-													<input type="radio" value="1" name="zerotier_nat" id="zerotier_nat_1" class="input" value="1" <% nvram_match_x("", "zerotier_nat", "1", "checked"); %> /><#checkbox_Yes#>
-													<input type="radio" value="0" name="zerotier_nat" id="zerotier_nat_0" class="input" value="0" <% nvram_match_x("", "zerotier_nat", "0", "checked"); %> /><#checkbox_No#>
-												</div>
-												 允许Zerotier的拨入客户端访问路由器LAN资源（需要在 Zerotier管理页面设定到LAN网段的路由表）
-											</td>
-
-										</tr>
 										
 <tr>
 											<th width="30%" style="border-top: 0 none;">启用ZeroTier Moon服务器</th>
@@ -366,3 +370,4 @@ function showMRULESList(){
 </div>
 </body>
 </html>
+
