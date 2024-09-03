@@ -5,7 +5,7 @@ mount -t sysfs sysfs /sys
 [ -d /proc/bus/usb ] && mount -t usbfs usbfs /proc/bus/usb
 
 size_tmp="24M"
-size_var="3M"
+size_var="4M"
 size_etc="6M"
 
 if [ "$1" == "-l" ] ; then
