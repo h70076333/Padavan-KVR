@@ -4,5 +4,5 @@
 # K2P       # K2P              # MT7621  #
 ##################################################################
 
-CFLAGS += -DBOARD_K2P -DBOARD_MT7615_DBDC
+CFLAGS += -DBOARD_EA7500
 BOARD_NUM_USB_PORTS=0
