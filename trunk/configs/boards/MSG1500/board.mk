@@ -4,5 +4,5 @@
 # MSG1500   # MSG1500          # MT7621  #
 ##################################################################
 
-CFLAGS += -DBOARD_MSG1500
+CFLAGS += -DBOARD_XY_C1
 BOARD_NUM_USB_PORTS=1
