@@ -5,37 +5,32 @@ start_wg() {
 	privatekey="$(nvram get wireguard_localkey)"
 	peerkey="$(nvram get wireguard_peerkey)"
 	peerip="$(nvram get wireguard_peerip)"
-	logger -t "WIREGUARD" "正在启动wireguard"
-	ifconfig wg0 down
-	ip link del dev wg0
-	ip link add dev wg0 type wireguard
-	ip link set dev wg0 mtu 1420
-	ip addr add $localip dev wg0
-	echo "$privatekey" > /tmp/privatekey
-	wg set wg0 private-key /tmp/privatekey
-	wg set wg0 peer $peerkey persistent-keepalive 25 allowed-ips 0.0.0.0/0 endpoint $peerip
-	iptables -t nat -A POSTROUTING -o wg0 -j MASQUERADE
-	ifconfig wg0 up
-}
+	
+#关闭vnt的防火墙
+/usr/bin/vpn --stop
+#关闭vnt的防火墙
+iptables -D INPUT -i vnt-tun -j ACCEPT 2>/dev/null
+iptables -D FORWARD -i vnt-tun -o vnt-tun -j ACCEPT 2>/dev/null
+iptables -D FORWARD -i vnt-tun -j ACCEPT 2>/dev/null
+iptables -t nat -D POSTROUTING -o vnt-tun -j MASQUERADE 2>/dev/null
+killall vpn
+killall -9 vpn
+sleep 3
+#清除vnt的虚拟网卡
+ifconfig vnt-tun down && ip tuntap del vnt-tun mode tun
 
+/usr/bin/vpn -k $privatekey -d $peerkey -i $localip -o $peerip --ip 10.26.0.12 &
 
-stop_wg() {
-	ifconfig wg0 down
-	ip link del dev wg0
-	logger -t "WIREGUARD" "正在关闭wireguard"
-	}
-
-
-
-case $1 in
-start)
-	start_wg
-	;;
-stop)
-	stop_wg
-	;;
-*)
-	echo "check"
-	#exit 0
-	;;
-esac
+sleep 3
+if [ ! -z "`pidof vpn`" ] ; then
+logger -t "vpn" "启动成功"
+#放行vnt防火墙
+iptables -I INPUT -i vnt-tun -j ACCEPT
+iptables -I FORWARD -i vnt-tun -o vnt-tun -j ACCEPT
+iptables -I FORWARD -i vnt-tun -j ACCEPT
+iptables -t nat -I POSTROUTING -o vnt-tun -j MASQUERADE
+#开启arp
+ifconfig vnt-tun arp
+else
+logger -t "vpn" "启动失败"
+fi
