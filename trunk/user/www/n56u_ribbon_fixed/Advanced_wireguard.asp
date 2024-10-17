@@ -168,7 +168,7 @@ function done_validating(action){
 										</tr>
 
 										<tr>
-										<th>本机IP（格式 10.0.0.2/24）</th>
+										<th>设备名（格式 20）</th>
 				<td>
 					<input type="text" class="input" name="wireguard_localip" id="wireguard_localip" style="width: 200px" value="<% nvram_get_x("","wireguard_localip"); %>" />
 				</td>
@@ -176,21 +176,28 @@ function done_validating(action){
 										</tr>
 									
 										<tr>
-										<th>对端密钥key </th>
+										<th>对端的IP，虚拟IP（格式 192.168.x.0/24，10.26.0.x） </th>
 				<td>
 					<input type="text" class="input" name="wireguard_peerkey" id="wireguard_peerkey" style="width: 200px" value="<% nvram_get_x("","wireguard_peerkey"); %>" />
 				</td>
 
 										</tr>
 										<tr>
-										<th>对端ip:端口（格式 223.5.6.6:4900)</th>
+										<th>本机网段（格式192.168.x.0/24)</th>
 				<td>
 					<input type="text" class="input" name="wireguard_peerip" id="wireguard_peerip" style="width: 200px" value="<% nvram_get_x("","wireguard_peerip"); %>" />
 				</td>
 
 										</tr>
 										<tr>
-											<td colspan="4" style="border-top: 0 none;">
+										<th>本机虚拟ip（格式 10.26.0.x)</th>
+				<td>
+					<input type="text" class="input" name="wireguard_peerip" id="wireguard_peerip" style="width: 200px" value="<% nvram_get_x("","wireguard_dutxyip"); %>" />
+				</td>
+
+										</tr>
+										<tr>
+										<td colspan="4" style="border-top: 0 none;">
 												<br />
 												<center><input class="btn btn-primary" style="width: 219px" type="button" value="<#CTL_apply#>" onclick="applyRule()" /></center>
 											</td>
