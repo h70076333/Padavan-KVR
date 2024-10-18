@@ -174,6 +174,7 @@ dir_$(CONFIG_FIRMWARE_INCLUDE_HXSDWAN)			+= hxsdwan
 dir_$(CONFIG_FIRMWARE_INCLUDE_HXVPN)			+= hxvpn
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_WIREGUARD),y)
 dir_y += wireguard
+dir_y += wireguard-tools
 endif
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_SMBD36),y)
 dir_$(SAMBA_ENABLED)							+= samba36
