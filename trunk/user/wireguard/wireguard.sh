@@ -7,7 +7,6 @@ start_wg() {
 	peerip="$(nvram get wireguard_peerip)"
         outip="$(nvram get wireguard_outip)"
 	
-#关闭vnt的防火墙
 /usr/bin/vpn --stop
 #关闭vnt的防火墙
 iptables -D INPUT -i vnt-tun -j ACCEPT 2>/dev/null
@@ -19,13 +18,24 @@ killall -9 vpn
 sleep 3
 #清除vnt的虚拟网卡
 ifconfig vnt-tun down && ip tuntap del vnt-tun mode tun
+#启动命令 更多命令去官方查看
+wireguard_localkey=$(nvram get wireguard_localkey) 
+echo $wireguard_localkey 
+wireguard_peerkey=$(nvram get wireguard_peerkey) 
+echo $wireguard_peerkey
+wireguard_localip=$(nvram get wireguard_localip) 
+echo $wireguard_localip
+wireguard_peerip=$(nvram get wireguard_peerip) 
+echo $wireguard_peerip
+wireguard_outip=$(nvram get wireguard_outip) 
+echo $wireguard_outip
 
-/usr/bin/vpn -k $privatekey -d $peerkey -i $localip -o $peerip --ip 10.26.0.12 &
+/usr/bin/vpn -k $wireguard_localkey -d $wireguard_peerkey -i $wireguard_localip -o $wireguard_peerip --ip echo $wireguard_outip &
 
 sleep 3
 if [ ! -z "`pidof vpn`" ] ; then
 logger -t "vpn" "启动成功"
-#放行vnt防火墙
+#放行vpn防火墙
 iptables -I INPUT -i vnt-tun -j ACCEPT
 iptables -I FORWARD -i vnt-tun -o vnt-tun -j ACCEPT
 iptables -I FORWARD -i vnt-tun -j ACCEPT
