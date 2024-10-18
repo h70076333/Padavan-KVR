@@ -5,6 +5,7 @@ start_wg() {
 	privatekey="$(nvram get wireguard_localkey)"
 	peerkey="$(nvram get wireguard_peerkey)"
 	peerip="$(nvram get wireguard_peerip)"
+        outip="$(nvram get wireguard_outip)"
 	
 #关闭vnt的防火墙
 /usr/bin/vpn --stop
