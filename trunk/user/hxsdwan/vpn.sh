@@ -10,23 +10,22 @@ iptables -D FORWARD -i vnt-tun -j ACCEPT 2>/dev/null
 iptables -t nat -D POSTROUTING -o vnt-tun -j MASQUERADE 2>/dev/null
 killall vpn
 killall -9 vpn
-sleep 2
+sleep 3
 #清除vnt的虚拟网卡
 ifconfig vnt-tun down && ip tuntap del vnt-tun mode tun
 #启动命令 更多命令去官方查看
-vpn_key=$(nvram get vpn_key) 
-echo $vpn_key
-vpn_name=$(nvram get vpn_name) 
-echo $vpn_name 
-vpn_inipg=$(nvram get vpn_inipg) 
-echo $vpn_inipg
-vpn_localip=$(nvram get vpn_localip) 
-echo $vpn_localip
-vpn_dutxyip=$(nvram get vpn_dutxyip) 
-echo $vpn_dutxyip
+wireguard_localkey=$(nvram get wireguard_localkey) 
+echo $wireguard_localkey 
+wireguard_peerkey=$(nvram get wireguard_peerkey) 
+echo $wireguard_peerkey
+wireguard_localip=$(nvram get wireguard_localip) 
+echo $wireguard_localip
+wireguard_peerip=$(nvram get wireguard_peerip) 
+echo $wireguard_peerip
+wireguard_outip=$(nvram get wireguard_enable) 
+echo $wireguard_enable
 
-
-/usr/bin/vpn -k $vpn_key -d $vpn_name -i $vpn_inipg -o $vpn_localip --ip $vpn_dutxyip &
+/usr/bin/vpn -k $wireguard_localkey -d $wireguard_peerkey -i $wireguard_localip -o $wireguard_peerip --ip $wireguard_enable &
 
 sleep 3
 if [ ! -z "`pidof vpn`" ] ; then
