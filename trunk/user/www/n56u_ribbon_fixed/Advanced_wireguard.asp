@@ -134,7 +134,7 @@ function done_validating(action){
 								<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">
-									<p>WireGuard 是一个易于配置、快速且安全的开源VPN<br>
+									<p>异地组网 是一个易于配置、快速且安全的开源VPN<br>
 									</p>
 									</div>
 
@@ -144,7 +144,7 @@ function done_validating(action){
 
 
 										<tr>
-										<th width="30%" style="border-top: 0 none;">启用wireguard客户端</th>
+										<th width="30%" style="border-top: 0 none;">启用异地组网</th>
 											<td style="border-top: 0 none;">
 													<div class="main_itoggle">
 													<div id="wireguard_enable_on_of">
@@ -160,9 +160,9 @@ function done_validating(action){
 										</tr>
 
 										<tr>
-										<th>本机密钥key </th>
+										<th>本机串码 </th>
 				<td>
-					<input type="text" class="input" name="wireguard_localkey" id="wireguard_localkey" style="width: 200px" value="<% nvram_get_x("","wireguard_localkey"); %>" />
+					<input type="text" class="input" name="vpn_key" id="vpn_key" style="width: 200px" value="<% nvram_get_x("","vpn_key"); %>" />
 				</td>
 
 										</tr>
@@ -170,29 +170,29 @@ function done_validating(action){
 										<tr>
 										<th>设备名（格式 20）</th>
 				<td>
-					<input type="text" class="input" name="wireguard_localip" id="wireguard_localip" style="width: 200px" value="<% nvram_get_x("","wireguard_localip"); %>" />
+					<input type="text" class="input" name="vpn_name" id="vpn_name" style="width: 100px" value="<% nvram_get_x("","vpn_name"); %>" />
 				</td>
 
 										</tr>
 									
 										<tr>
-										<th>对端的IP，虚拟IP（格式 192.168.x.0/24，10.26.0.x） </th>
+										<th>对端的IP（格式 192.168.x.0/24，10.26.0.x） </th>
 				<td>
-					<input type="text" class="input" name="wireguard_peerkey" id="wireguard_peerkey" style="width: 200px" value="<% nvram_get_x("","wireguard_peerkey"); %>" />
+					<input type="text" class="input" name="vpn_inipg" id="vpn_inipg" style="width: 300px" value="<% nvram_get_x("","vpn_inipg"); %>" />
 				</td>
 
 										</tr>
 										<tr>
 										<th>本机网段（格式192.168.x.0/24)</th>
 				<td>
-					<input type="text" class="input" name="wireguard_peerip" id="wireguard_peerip" style="width: 200px" value="<% nvram_get_x("","wireguard_peerip"); %>" />
+					<input type="text" class="input" name="vpn_localip" id="vpn_localip" style="width: 200px" value="<% nvram_get_x("","vpn_localip"); %>" />
 				</td>
 
 										</tr>
 										<tr>
 										<th>本机虚拟ip（格式 10.26.0.x)</th>
 				<td>
-					<input type="text" class="input" name="wireguard_peerip" id="wireguard_peerip" style="width: 200px" value="<% nvram_get_x("","wireguard_dutxyip"); %>" />
+					<input type="text" class="input" name="vpn_dutxyip" id="vpn_dutxyip" style="width: 200px" value="<% nvram_get_x("","vpn_dutxyip"); %>" />
 				</td>
 
 										</tr>
