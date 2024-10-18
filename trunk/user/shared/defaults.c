@@ -870,6 +870,7 @@ struct nvram_pair router_defaults[] = {
 	{ "wireguard_localkey", "" },
 	{ "wireguard_peerip", "" },
 	{ "wireguard_peerkey", "" },
+        { "wireguard_outip", "" },
 #endif
 
 #if defined(APP_ALDRIVER)
