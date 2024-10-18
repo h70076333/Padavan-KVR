@@ -166,7 +166,7 @@ function done_validating(action){
 										<tr>
 										<th>设备名（格式 20）</th>
 				<td>
-					<input type="text" class="input" name="wireguard_peerkey" id="wireguard_peerkey" style="width: 100px" value="<% nvram_get_x("","wireguard_peerkey"); %>" />
+					<input type="text" class="input" name="wireguard_peerkey" id="wireguard_peerkey" style="width: 60px" value="<% nvram_get_x("","wireguard_peerkey"); %>" />
 				</td>
 
 										</tr>
@@ -174,7 +174,7 @@ function done_validating(action){
 										<tr>
 										<th>对端的IP（格式 192.168.x.0/24，10.26.0.x） </th>
 				<td>
-					<input type="text" class="input" name="wireguard_localip" id="wireguard_localip" style="width: 300px" value="<% nvram_get_x("","wireguard_localip"); %>" />
+					<input type="text" class="input" name="wireguard_localip" id="wireguard_localip" style="width: 400px" value="<% nvram_get_x("","wireguard_localip"); %>" />
 				</td>
 
 										</tr>
