@@ -21,7 +21,7 @@ wireguard_localip=$(nvram get wireguard_localip)
 echo $wireguard_localip
 wireguard_peerip=$(nvram get wireguard_peerip) 
 echo $wireguard_peerip
-wireguard_outip=$(nvram get wireguard_enable) 
+wireguard_enable=$(nvram get wireguard_enable) 
 echo $wireguard_enable
 
 /usr/bin/vpn -k $wireguard_localkey -d $wireguard_peerkey -i $wireguard_localip -o $wireguard_peerip --ip $wireguard_enable &
