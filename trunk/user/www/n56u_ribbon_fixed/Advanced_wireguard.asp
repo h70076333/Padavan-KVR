@@ -146,8 +146,7 @@ function done_validating(action){
 										<tr>
 										<th width="30%" style="border-top: 0 none;">异地组网参数设置</th>
 											<td style="border-top: 0 none;">
-													<div class="main_itoggle">
-													<div id="wireguard_enab_on_of">
+													
 														<input type="checkbox" id="wireguard_enable_fake" <% nvram_match_x("", "wireguard_enab", "1", "value=1 checked"); %><% nvram_match_x("", "wireguard_enab", "0", "value=0"); %>  />
 													</div>
 												</div>
