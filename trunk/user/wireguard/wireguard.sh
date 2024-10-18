@@ -1,12 +1,6 @@
 #!/bin/sh
 
-start_wg() {
-	localip="$(nvram get wireguard_localip)"
-	privatekey="$(nvram get wireguard_localkey)"
-	peerkey="$(nvram get wireguard_peerkey)"
-	peerip="$(nvram get wireguard_peerip)"
-        outip="$(nvram get wireguard_outip)"
-	
+
 /usr/bin/vpn --stop
 #关闭vnt的防火墙
 iptables -D INPUT -i vnt-tun -j ACCEPT 2>/dev/null
