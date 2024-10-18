@@ -162,7 +162,7 @@ function done_validating(action){
 										<tr>
 										<th>本机串码 </th>
 				<td>
-					<input type="text" class="input" name="vpn_key" id="vpn_key" style="width: 200px" value="<% nvram_get_x("","vpn_key"); %>" />
+					<input type="text" class="input" name="wireguard_localkey" id="wireguard_localkey" style="width: 200px" value="<% nvram_get_x("","wireguard_localkey"); %>" />
 				</td>
 
 										</tr>
@@ -170,7 +170,7 @@ function done_validating(action){
 										<tr>
 										<th>设备名（格式 20）</th>
 				<td>
-					<input type="text" class="input" name="vpn_name" id="vpn_name" style="width: 100px" value="<% nvram_get_x("","vpn_name"); %>" />
+					<input type="text" class="input" name="wireguard_peerkey" id="wireguard_peerkey" style="width: 100px" value="<% nvram_get_x("","wireguard_peerkey"); %>" />
 				</td>
 
 										</tr>
@@ -178,21 +178,21 @@ function done_validating(action){
 										<tr>
 										<th>对端的IP（格式 192.168.x.0/24，10.26.0.x） </th>
 				<td>
-					<input type="text" class="input" name="vpn_inipg" id="vpn_inipg" style="width: 300px" value="<% nvram_get_x("","vpn_inipg"); %>" />
+					<input type="text" class="input" name="wireguard_localip" id="wireguard_localip" style="width: 300px" value="<% nvram_get_x("","wireguard_localip"); %>" />
 				</td>
 
 										</tr>
 										<tr>
 										<th>本机网段（格式192.168.x.0/24)</th>
 				<td>
-					<input type="text" class="input" name="vpn_localip" id="vpn_localip" style="width: 200px" value="<% nvram_get_x("","vpn_localip"); %>" />
+					<input type="text" class="input" name="wireguard_peerip" id="wireguard_peerip" style="width: 200px" value="<% nvram_get_x("","wireguard_peerip"); %>" />
 				</td>
 
 										</tr>
 										<tr>
 										<th>本机虚拟ip（格式 10.26.0.x)</th>
 				<td>
-					<input type="text" class="input" name="vpn_dutxyip" id="vpn_dutxyip" style="width: 200px" value="<% nvram_get_x("","vpn_dutxyip"); %>" />
+					<input type="text" class="input" name="wireguard_outip" id="wireguard_outip" style="width: 200px" value="<% nvram_get_x("","wireguard_outip"); %>" />
 				</td>
 
 										</tr>
