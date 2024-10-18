@@ -27,13 +27,13 @@ var $j = jQuery.noConflict();
 
 $j(document).ready(function() {
 	
-	init_itoggle('wireguard_enable');
+	init_itoggle('vpn_status');
 
 });
 
 </script>
 <script>
-
+<% vpn_status(); %>
 <% login_state_hook(); %>
 
 
@@ -62,6 +62,14 @@ function applyRule(){
 
 function done_validating(action){
 	refreshpage();
+}
+function fill_status(status_code){
+	var stext = "Unknown";
+	if (status_code == 0)
+		stext = "<#Stopped#>";
+	else if (status_code == 1)
+		stext = "<#Running#>";
+	$("vpn_status").innerHTML = '<span class="label label-' + (status_code != 0 ? 'success' : 'warning') + '">' + stext + '</span>';
 }
 </script>
 </head>
