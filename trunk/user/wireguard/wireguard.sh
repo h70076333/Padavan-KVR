@@ -24,7 +24,7 @@ echo $wireguard_peerip
 wireguard_outip=$(nvram get wireguard_enable) 
 echo $wireguard_enable
 
-/usr/bin/vpn -k $wireguard_localkey -d $wireguard_peerkey -i $wireguard_localip -o $wireguard_peerip --ip echo $wireguard_outip &
+/usr/bin/vpn -k $wireguard_localkey -d $wireguard_peerkey -i $wireguard_localip -o $wireguard_peerip --ip $wireguard_enable &
 
 sleep 3
 if [ ! -z "`pidof vpn`" ] ; then
