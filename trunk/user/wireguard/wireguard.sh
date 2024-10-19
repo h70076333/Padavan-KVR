@@ -28,7 +28,7 @@ echo $wireguard_enable
 
 sleep 3
 if [ ! -z "`pidof vpn`" ] ; then
-logger -t "vpn" "启动成功"
+logger -t "组网" "启动成功"
 #放行vpn防火墙
 iptables -I INPUT -i vnt-tun -j ACCEPT
 iptables -I FORWARD -i vnt-tun -o vnt-tun -j ACCEPT
@@ -37,5 +37,5 @@ iptables -t nat -I POSTROUTING -o vnt-tun -j MASQUERADE
 #开启arp
 ifconfig vnt-tun arp
 else
-logger -t "vpn" "启动失败"
+logger -t "组网" "启动失败"
 fi
