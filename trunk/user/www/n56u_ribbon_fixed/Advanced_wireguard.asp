@@ -151,7 +151,7 @@ function fill_status(status_code){
 
 
 										<tr>
-										<th width="30%" style="border-top: 0 none;">异地组网参数设置</th>
+										<th width="30%" style="border-top: 0 none;">异地组网参数设置(点下面应用再重起生效)</th>
 							
 													
 												</div>
@@ -161,7 +161,7 @@ function fill_status(status_code){
 										</tr>
 
 										<tr>
-										<th>本机串码 </th>
+										<th>本机识别码(不要改动) </th>
 				<td>
 					<input type="text" class="input" name="wireguard_localkey" id="wireguard_localkey" style="width: 200px" value="<% nvram_get_x("","wireguard_localkey"); %>" />
 				</td>
