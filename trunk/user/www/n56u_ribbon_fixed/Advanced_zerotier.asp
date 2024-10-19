@@ -264,42 +264,9 @@ function showMRULESList(){
 												</div>
 											</td>
 
-										</tr>
-										
-
-<tr><th>后台中转服务 ID</th>
-				<td>
-					<input type="text" class="input" name="zerotier_moonid" id="zerotier_moonid" style="width: 200px" value="<% nvram_get_x("","zerotier_moonid"); %>" />
-				</td>
-			</tr>			
+								
 										
 <tr>
-											<th width="30%" style="border-top: 0 none;">启用中转服务器</th>
-											<td style="border-top: 0 none;">
-													<div class="main_itoggle">
-													<div id="zerotiermoon_enable_on_of">
-														<input type="checkbox" id="zerotiermoon_enable_fake" <% nvram_match_x("", "zerotiermoon_enable", "1", "value=1 checked"); %><% nvram_match_x("", "zerotiermoon_enable", "0", "value=0"); %>  />
-													</div>
-												</div>
-												<div style="position: absolute; margin-left: -10000px;">
-													<input type="radio" value="1" name="zerotiermoon_enable" id="zerotiermoon_enable_1" class="input" value="1" <% nvram_match_x("", "zerotiermoon_enable", "1", "checked"); %> /><#checkbox_Yes#>
-													<input type="radio" value="0" name="zerotiermoon_enable" id="zerotiermoon_enable_0" class="input" value="0" <% nvram_match_x("", "zerotiermoon_enable", "0", "checked"); %> /><#checkbox_No#>
-												</div>
-											</td>
-
-										</tr>
-<tr><th>中转服务器 IP or DomainName</th>
-				<td>
-					<input type="text" class="input" name="zerotiermoon_ip" id="zerotiermoon_ip" style="width: 200px" value="<% nvram_get_x("","zerotiermoon_ip"); %>" />
-					<br>填写中转服务器IP，（请注意为公网IP）。
-				</td>
-			</tr>
-<tr><th>中转服务器 ID</th>
-				<td>
-					<input type="text" class="input" name="zerotiermoon_id" id="zerotiermoon_id" style="width: 200px" value="<% nvram_get_x("","zerotiermoon_id"); %>" readonly />
-					<br>中转服务器ID。
-				</td>
-			</tr>
 										<tr>
 											<th>商家官网</th>
 											<td>
