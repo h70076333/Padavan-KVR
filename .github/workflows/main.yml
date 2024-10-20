@@ -1,4 +1,4 @@
-name: 360P2
+name: MZ-R13
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: 360P2
+        TNAME: MZ-R13
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
