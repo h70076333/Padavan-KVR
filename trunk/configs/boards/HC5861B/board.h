@@ -1,8 +1,8 @@
 /* HIWIFI HC5861B */
 
-#define BOARD_PID		"HC5861B"
-#define BOARD_NAME		"HC5861B"
-#define BOARD_DESC		"HIWIFI HC5861B Wireless Router"
+#define BOARD_PID		"SDWAN L1"
+#define BOARD_NAME		"SDWAN L1"
+#define BOARD_DESC		"HIWIFI SDWAN L1 Wireless Router"
 #define BOARD_VENDOR_NAME	"HiWiFi"
 #define BOARD_VENDOR_URL	"http://www.hiwifi.com/"
 #define BOARD_MODEL_URL		"http://www.hiwifi.com/"
