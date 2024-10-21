@@ -1,9 +1,9 @@
 /* 5K-W20 */
 
-#define BOARD_PID		"5K-W20"
-#define BOARD_NAME		"5K-W20"
-#define BOARD_DESC		"5K Wireless Router"
-#define BOARD_VENDOR_NAME	"5K WIFI"
+#define BOARD_PID		"RG-MA1210A"
+#define BOARD_NAME		"RG-MA1210A"
+#define BOARD_DESC		"RG Wireless Router"
+#define BOARD_VENDOR_NAME	"RG WIFI"
 #define BOARD_VENDOR_URL	"http://www.5ksh.com/"
 #define BOARD_MODEL_URL		"http://www.5ksh.com/product"
 #define BOARD_BOOT_TIME		20
