@@ -1,4 +1,4 @@
-name:5K-W20
+name: 5K-W20
 on: 
   release:
     types: [published]
