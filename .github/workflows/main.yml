@@ -1,4 +1,4 @@
-name: HC5861B
+name:5K-W20
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: HC5861B
+        TNAME: 5K-W20
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
