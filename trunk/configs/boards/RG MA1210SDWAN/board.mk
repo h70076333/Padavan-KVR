@@ -4,5 +4,5 @@
 # PSG1208   # PHICOMM PSG1208  # MT7620  #
 ##################################################################
 
-CFLAGS += -DBOARD_PSG1208
-BOARD_NUM_USB_PORTS=0
+CFLAGS += -DBOARD_OYE_001
+BOARD_NUM_USB_PORTS=1
