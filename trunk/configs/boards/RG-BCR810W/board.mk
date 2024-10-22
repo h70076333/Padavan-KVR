@@ -4,5 +4,5 @@
 # MI-MINI   # Xiaomi Mi Mini   # MT7620  #
 ##################################################################
 
-CFLAGS += -DBOARD_RG-BCR810W
+CFLAGS += -DBOARD_MI-MINI
 BOARD_NUM_USB_PORTS=1
