@@ -4,5 +4,5 @@
 # OYE-001   # OYE-001          # MT7620  #
 ##################################################################
 
-CFLAGS += -DBOARD_5K_W20
+CFLAGS += -DBOARD_OYE-001
 BOARD_NUM_USB_PORTS=1
