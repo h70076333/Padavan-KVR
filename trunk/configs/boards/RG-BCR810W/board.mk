@@ -1,8 +1,8 @@
 ##################################################################
 # Board PID # Board Name       # PRODUCT # Note
 ##################################################################
-# RG-BCR810W   # RG-BCR810W          # MT7620  #
+# MI-MINI   # Xiaomi Mi Mini   # MT7620  #
 ##################################################################
 
-CFLAGS += -DBOARD_RG-BCR810W
+CFLAGS += -DBOARD_MIMINI
 BOARD_NUM_USB_PORTS=1
