@@ -1,8 +1,8 @@
 /* PSG1208 */
 
-#define BOARD_PID		"PSG1208"
-#define BOARD_NAME		"PSG1208"
-#define BOARD_DESC		"PHICOMM PSG1208 Wireless Router"
+#define BOARD_PID		"MA1210SDWAN"
+#define BOARD_NAME		"MA1210SDWAN"
+#define BOARD_DESC		"RG MA1210SDWAN Wireless Router"
 #define BOARD_VENDOR_NAME	"PHICOMM"
 #define BOARD_VENDOR_URL	"http://www.phicomm.com/"
 #define BOARD_MODEL_URL		"http://www.phicomm.com/"
