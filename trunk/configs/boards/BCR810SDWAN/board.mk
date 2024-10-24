@@ -4,5 +4,5 @@
 # BCR810SDWAN   # PHICOMM BCR810SDWAN # MT7620  #
 ##################################################################
 
-CFLAGS += -DBOARD_BCR810SDWAN
+CFLAGS += -DBOARD_RG-BCR810W
 BOARD_NUM_USB_PORTS=1
