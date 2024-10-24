@@ -2,9 +2,9 @@
 
 #define BOARD_PID		"RG-BCR810W"
 #define BOARD_NAME		"RG-BCR810W"
-#define BOARD_VENDOR_NAME	"RUIJIE"
-#define BOARD_VENDOR_URL	"http://www.oyewifi.com"
-#define BOARD_MODEL_URL		"http://www.oyewifi.com"
+#define BOARD_VENDOR_NAME	"PHICOMM"
+#define BOARD_VENDOR_URL	"http://www.phicomm.com/"
+#define BOARD_MODEL_URL		"http://www.phicomm.com/"
 #define BOARD_BOOT_TIME		20
 #define BOARD_FLASH_TIME	120
 #undef BOARD_GPIO_BTN_RESET
