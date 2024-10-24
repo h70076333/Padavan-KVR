@@ -1,8 +1,8 @@
 ##################################################################
 # Board PID # Board Name       # PRODUCT # Note
 ##################################################################
-# MA1210SDWAN   # PHICOMM PSG1208  # MT7620  #
+# FIFREE   # PHICOMM PSG1208  # MT7620  #
 ##################################################################
 
-CFLAGS += -DBOARD_MA1210SDWAN
+CFLAGS += -DBOARD_FIFREE
 BOARD_NUM_USB_PORTS=1
