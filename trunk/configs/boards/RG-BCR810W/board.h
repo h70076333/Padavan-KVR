@@ -1,7 +1,7 @@
 /* RG-BCR810W */
 
 #define BOARD_PID		"RG-BCR810W"
-#define BOARD_NAME	  "RG-BCR810W"
+#define BOARD_NAME		"RG-BCR810W"
 #define BOARD_VENDOR_NAME	"PHICOMM"
 #define BOARD_VENDOR_URL	"http://www.phicomm.com/"
 #define BOARD_MODEL_URL		"http://www.phicomm.com/"
