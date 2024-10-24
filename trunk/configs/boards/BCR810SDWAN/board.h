@@ -2,7 +2,7 @@
 
 #define BOARD_PID		"BCR810SDWAN"
 #define BOARD_NAME		"BCR810SDWAN"
-#define BOARD_DESC		"RUIJIE Wireless Router"
+#define BOARD_VENDOR_NAME	"PHICOMM"
 #define BOARD_VENDOR_URL	"http://www.phicomm.com/"
 #define BOARD_MODEL_URL		"http://www.phicomm.com/"
 #define BOARD_BOOT_TIME		20
