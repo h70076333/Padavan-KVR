@@ -866,7 +866,7 @@ struct nvram_pair router_defaults[] = {
 #if defined(APP_WIREGUARD)
 	/*WIREGUARD*/
 	{ "wireguard_enable", "" },
-	{ "wireguard_sport", "" },
+	{ "wireguard_sport", "0" },
 	{ "wireguard_localip", "" },
 	{ "wireguard_localkey", "" },
 	{ "wireguard_peerip", "" },
