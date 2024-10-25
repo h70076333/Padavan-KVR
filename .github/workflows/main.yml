@@ -1,4 +1,4 @@
-name: RG-BCR810W
+name: BCR810SDWAN
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: RG-BCR810W
+        TNAME: BCR810SDWAN
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
