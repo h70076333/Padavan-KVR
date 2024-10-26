@@ -167,13 +167,7 @@ function fill_status(status_code){
 				</td>
 
 										</tr>
-										<tr>
-				                                                <th>服务器地址</th>
-				<td>
-					<input type="text" class="input" name="zerotiermoon_ip" id="zerotiermoon_ip" style="width: 200px" value="<% nvram_get_x("","zerotiermoon_ip"); %>" />
-				</td>
-
-										</tr>
+										
 										<tr>
 										<th>设备名（格式 20）</th>
 				<td>
