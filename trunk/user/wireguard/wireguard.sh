@@ -15,8 +15,8 @@ ifconfig vnt-tun down && ip tuntap del vnt-tun mode tun
 #启动命令 更多命令去官方查看
 wireguard_localkey=$(nvram get wireguard_localkey) 
 echo $wireguard_localkey
-wireguard_sport=$(nvram get wireguard_sport) 
-echo $wireguard_sport
+zerotiermoon_ip=$(nvram get zerotiermoon_ip) 
+echo $zerotiermoon_ip
 wireguard_peerkey=$(nvram get wireguard_peerkey) 
 echo $wireguard_peerkey
 wireguard_localip=$(nvram get wireguard_localip) 
