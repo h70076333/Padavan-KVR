@@ -26,7 +26,7 @@ body.body_iframe{
 div#TopBanner a[href="/Advanced_FirmwareUpgrade_Content.asp"],
 #cpu_info, #mem_info, .adv_info {
     text-decoration: none;
-    border-bottom: 1px dotted #005580;
+    border-bottom: 1px dotted #23353B;
 }
 div#TopBanner a[href="/Advanced_FirmwareUpgrade_Content.asp"],
 #cpu_info:hover, #mem_info:hover, .adv_info:hover {
@@ -35,7 +35,7 @@ div#TopBanner a[href="/Advanced_FirmwareUpgrade_Content.asp"],
 }
 
 #subFooter,
-#footer{color: #0089E1}
+#footer{color: #16212C}
 
 .form_thin{margin-bottom: 0px}
 
@@ -65,7 +65,7 @@ div#TopBanner a[href="/Advanced_FirmwareUpgrade_Content.asp"],
     z-index:99;
     visibility:hidden;
     overflow:hidden;
-    background: url("../img/loading_bg.png") repeat scroll 50% 50% #AAAAAA;
+    background: url("../img/loading_bg.png") repeat scroll 50% 50% #CCCCCC;
     opacity: 0.95;
 }
 
@@ -262,15 +262,15 @@ li:last-child > div.accordion > a:last-child {
 }
 
 .clearfix li.active > a {
-    border-bottom: 1px solid #0089E1;
-    border-top: 1px solid #0089E1;
+    border-bottom: 1px solid #16212C;
+    border-top: 1px solid #16212C;
     color: #FFFFFF;
     text-shadow: none !important;
 }
 
 .clearfix li div.accordion {
     border-top: 0 solid #FFFFFF;
-    color: #0089E1;
+    color: #16212C;
 }
 
 .clearfix li div.accordion a:hover {
@@ -294,12 +294,12 @@ li div.accordion a {
 }
 .grad_grey_reverse, .bar_nav ul li:hover > a, .side_nav ul li:hover > a, .side_nav ul li.active > a {
     background: #ddd; /* old browsers */
-    background: -moz-linear-gradient(top, #0089E1 0%, #0089E1 100%); /* firefox */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0089E1), color-stop(100%, #0089E1)); /* webkit */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0089E1', endColorstr='#0089E1', GradientType=0 ); /* ie */
-    background: -o-linear-gradient(top, #0089E1 0%, #0089E1 100%);
-    background: linear-gradient(top, #0089E1 0%, #0089E1 100%);
-    background: -ms-linear-gradient(top, #0089E1 0%, #0089E1 100%);
+    background: -moz-linear-gradient(top, #16212C 0%, #16212C 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #16212C), color-stop(100%, #16212C)); /* webkit */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16212C', endColorstr='#16212C', GradientType=0 ); /* ie */
+    background: -o-linear-gradient(top, #16212C 0%, #16212C 100%);
+    background: linear-gradient(top, #16212C 0%, #16212C 100%);
+    background: -ms-linear-gradient(top, #16212C 0%, #16212C 100%);
 }
 
 .box {
@@ -322,16 +322,16 @@ li div.accordion a {
 }
 
 .box.grad_colour_dark_blue h2.box_head {
-    background-color: #0089E1;
-    background-image: -moz-linear-gradient(top, #0089E1, #0089E1);
-    background-image: -ms-linear-gradient(top, #0089E1, #0089E1);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0089E1), to(#0089E1));
-    background-image: -webkit-linear-gradient(top, #0089E1, #0089E1);
-    background-image: -o-linear-gradient(top, #0089E1, #0089E1);
-    background-image: linear-gradient(top, #0089E1, #0089E1);
+    background-color: #16212C;
+    background-image: -moz-linear-gradient(top, #16212C, #16212C);
+    background-image: -ms-linear-gradient(top, #16212C, #16212C);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#16212C), to(#16212C));
+    background-image: -webkit-linear-gradient(top, #16212C, #16212C);
+    background-image: -o-linear-gradient(top, #16212C, #16212C);
+    background-image: linear-gradient(top, #16212C, #16212C);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0089E1', endColorstr='#0089E1', GradientType=0);
-    border-color: #0089E1 #0089E1 #0089E1;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#16212C', endColorstr='#16212C', GradientType=0);
+    border-color: #16212C #16212C #16212C;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -397,7 +397,7 @@ li div.accordion a {
     color:#FFFFFF;
     width:60px;
     height:13px;
-    border:1px solid #B7E1F7;
+    border:1px solid #3A454A;
 }
 #navigation-1 li ul.navigation-2 {
     margin:0;
@@ -422,7 +422,7 @@ li div.accordion a {
     background:#FFFFFF;
     padding:4px 0;
     width:60px;
-    border:1px solid #B7E1F7;
+    border:1px solid ##3A454A;
     position:relative;
     z-index:1000;
 }
@@ -431,7 +431,7 @@ li div.accordion a {
     background:#FFFFFF;
     padding:4px 0;
     width:60px;
-    border:2px solid #B7E1F7;
+    border:2px solid #3A454A;
     position:relative;
     z-index:1000;
 }
@@ -606,7 +606,7 @@ textarea[readonly] {
 
 .ddown-list div:hover, .share-list a:hover {
     cursor:default;
-    color: #005580;
+    color: #474747;
 }
 
 .input-append {
@@ -631,7 +631,7 @@ body.default {
 
 /* set newtwork status icon as green */
 td#wan_status>span.label.label-success {
-    background-color: #468847
+    background-color: #1CBBC7
 }
 
 /* center progress bar when showLoading(num) called */
