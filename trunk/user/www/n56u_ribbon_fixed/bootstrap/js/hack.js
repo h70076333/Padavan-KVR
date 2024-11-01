@@ -1,4 +1,3 @@
-
 restoreBackground();
 applyDarkIEImageFix();
 applyHighchartsDarkTheme();
