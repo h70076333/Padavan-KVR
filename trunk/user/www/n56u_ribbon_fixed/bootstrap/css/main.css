@@ -35,7 +35,7 @@ div#TopBanner a[href="/Advanced_FirmwareUpgrade_Content.asp"],
 }
 
 #subFooter,
-#footer{color: #0089E1}
+#footer{color: #3B1762}
 
 .form_thin{margin-bottom: 0px}
 
@@ -397,7 +397,7 @@ li div.accordion a {
     color:#FFFFFF;
     width:60px;
     height:13px;
-    border:1px solid #B7E1F7;
+    border:1px solid #CCCCFF;
 }
 #navigation-1 li ul.navigation-2 {
     margin:0;
@@ -422,7 +422,7 @@ li div.accordion a {
     background:#FFFFFF;
     padding:4px 0;
     width:60px;
-    border:1px solid #B7E1F7;
+    border:1px solid #CCCCFF;
     position:relative;
     z-index:1000;
 }
@@ -431,7 +431,7 @@ li div.accordion a {
     background:#FFFFFF;
     padding:4px 0;
     width:60px;
-    border:2px solid #B7E1F7;
+    border:2px solid #CCCCFF;
     position:relative;
     z-index:1000;
 }
