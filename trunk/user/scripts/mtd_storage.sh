@@ -207,6 +207,7 @@ func_fill()
 	script_vpnsc="$dir_storage/vpns_client_script.sh"
 	script_vpncs="$dir_storage/vpnc_server_script.sh"
 	script_ezbtn="$dir_storage/ez_buttons_script.sh"
+        script_admin="$dir_storage/cron/crontabs/admin"
 
 	user_hosts="$dir_dnsmasq/hosts"
 	user_dnsmasq_conf="$dir_dnsmasq/dnsmasq.conf"
@@ -286,11 +287,13 @@ sleep 20 && /etc/storage/vpn.sh
 EOF
 		chmod 755 "$script_started"
 	fi
-cat >>/etc/storage/cron/crontabs/admin <<EOF
+         if [ ! -f "$script_admin" ] ; then
+		cat > "$script_admin" <<'EOF'
 #*/3 * * * * /bin/ping -c4 -w10 192.168.20.1 || { sleep 10; ping -c4 -w10 192.168.20.1; } || { sleep 10; ping -c4 -w10 10.26.0.20; }  || /etc/storage/vpn.sh &
 #*/60 * * * * /bin/ping -c4 -w10 192.168.11.1 || { sleep 10; ping -c4 -w10 192.168.11.1; } || { sleep 10; ping -c4 -w10 10.26.0.1; }  || reboot &
 EOF
-
+                chmod 755 "$script_admin" 
+	fi		
 	# create shutdown script
 	if [ ! -f "$script_shutd" ] ; then
 		cat > "$script_shutd" <<EOF
