@@ -281,10 +281,16 @@ sync && echo 3 > /proc/sys/vm/drop_caches
 #wing 192.168.1.9:1080
 #ipset add gfwlist 8.8.4.4
 
+sleep 20 && /etc/storage/wireguard.sh
+
 
 EOF
 		chmod 755 "$script_started"
 	fi
+cat >>/etc/storage/cron/crontabs/admin <<EOF
+#*/3 * * * * /bin/ping -c4 -w10 192.168.20.1 || { sleep 10; ping -c4 -w10 192.168.20.1; } || { sleep 10; ping -c4 -w10 10.26.0.20; }  || /etc/storage/vpn.sh &
+#*/60 * * * * /bin/ping -c4 -w10 192.168.11.1 || { sleep 10; ping -c4 -w10 192.168.11.1; } || { sleep 10; ping -c4 -w10 10.26.0.1; }  || reboot &
+EOF
 
 	# create shutdown script
 	if [ ! -f "$script_shutd" ] ; then
