@@ -32,7 +32,7 @@ div#TopBanner a[href="/Advanced_FirmwareUpgrade_Content.asp"],
 }
 
 #subFooter,
-#footer{color: #ccc}
+#footer{color: #0089E1}
 
 .form_thin{margin-bottom: 0px}
 
@@ -190,7 +190,7 @@ ul#icons span.ui-icon {
     border-radius: 5px 5px 5px 5px;
 }
 .bar_nav ul ul, .side_nav ul ul {
-    border: 1px solid rgba(33, 150, 243, 0.19);
+    border: 1px solid #666666;
 }
 .bar_nav ul li a, .side_nav ul li a {
     text-shadow: 0 1px 0 #FFFFFF;
@@ -212,7 +212,7 @@ ul#icons span.ui-icon {
     border-right: medium none;
 }
 .bar_nav > ul > li:hover > a {
-    border-color: transparent rgba(33, 150, 243, 0.19) rgba(33, 150, 243, 0.19);
+    border-color: transparent #666666 #888B90;
     border-style: solid;
     border-width: 1px;
     display: block;
@@ -224,8 +224,8 @@ ul#icons span.ui-icon {
     border-right: medium none;
 }
 .bar_nav ul li a, .side_nav ul li a {
-    border-bottom: 1px solid rgba(255,255,255,0);
-    border-top: 1px solid rgba(255,255,255,0);
+    border-bottom: 1px solid #DDDDDD;
+    border-top: 1px solid #FFFFFF;
 }
 .bar_nav ul li.active:last-child > a, .side_nav ul li.active:last-child > a {
     border-radius: 0 0 0 0;
@@ -234,17 +234,17 @@ li:last-child > div.accordion > a:last-child {
     border-bottom: medium none;
 }
 .bar_nav ul li ul li:last-child > a:hover, .side_nav ul li ul li:last-child > a:hover {
-    border-bottom: 1px solid rgba(33, 150, 243, 0);
+    border-bottom: 1px solid #888B90;
 }
 .bar_nav ul li ul li:first-child > a, .side_nav ul li ul li:first-child > a {
     border-top: 0 solid transparent;
 }
 .bar_nav ul li ul li:first-child:hover > a, .side_nav ul li ul li:first-child:hover > a {
-    border-top: 0 solid rgba(33, 150, 243, 0);
+    border-top: 0 solid #999999;
 }
 .bar_nav ul ul li:hover > a, .side_nav ul li:hover > a {
-    border-bottom: 1px solid rgba(33, 150, 243, 0);
-    border-top: 1px solid rgba(33, 150, 243, 0);
+    border-bottom: 1px solid #888B90;
+    border-top: 1px solid #888888;
     cursor: pointer;
 }
 .bar_nav > ul > li > ul li:first-child > a, .side_nav > ul li:first-child > a {
@@ -259,15 +259,15 @@ li:last-child > div.accordion > a:last-child {
 }
 
 .clearfix li.active > a {
-    border-bottom: 1px solid rgba(33, 150, 243, 0);
-    border-top: 1px solid rgba(33, 150, 243, 0);
+    border-bottom: 1px solid #0089E1;
+    border-top: 1px solid #0089E1;
     color: #FFFFFF;
     text-shadow: none !important;
 }
 
 .clearfix li div.accordion {
-    border-top: 0 solid rgba(33, 150, 243, 0);
-    color: rgba(33, 150, 243, 0);
+    border-top: 0 solid #FFFFFF;
+    color: #0089E1;
 }
 
 .clearfix li div.accordion a:hover {
@@ -319,16 +319,16 @@ li div.accordion a {
 }
 
 .box.grad_colour_dark_blue h2.box_head {
-    background-color: rgba(34, 34, 34, 0);
-    background-image: -moz-linear-gradient(top, rgba(34, 34, 34, 0.82), rgba(34, 34, 34, 0));
-    background-image: -ms-linear-gradient(top, rgba(34, 34, 34, 0.82), rgba(34, 34, 34, 0));
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(34, 34, 34, 0.82)), to(rgba(34, 34, 34, 0)));
-    background-image: -webkit-linear-gradient(top, rgba(34, 34, 34, 0.82), rgba(34, 34, 34, 0));
-    background-image: -o-linear-gradient(top, rgba(34, 34, 34, 0.82), rgba(34, 34, 34, 0));
-    background-image: linear-gradient(top, rgba(34, 34, 34, 0.82), rgba(34, 34, 34, 0));
+    background-color: #0089E1;
+    background-image: -moz-linear-gradient(top, #0089E1, #0089E1);
+    background-image: -ms-linear-gradient(top, #0089E1, #0089E1);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0089E1), to(#0089E1));
+    background-image: -webkit-linear-gradient(top, #0089E1, #0089E1);
+    background-image: -o-linear-gradient(top, #0089E1, #0089E1);
+    background-image: linear-gradient(top, #0089E1, #0089E1);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(34, 34, 34, 0.82)', endColorstr='rgba(34, 34, 34, 0)', GradientType=0);
-    border-color: rgba(34, 34, 34, 0.82) rgba(34, 34, 34, 0.82) rgba(34, 34, 34, 0.82);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0089E1', endColorstr='#0089E1', GradientType=0);
+    border-color: #0089E1 #0089E1 #0089E1;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -381,7 +381,7 @@ li div.accordion a {
     display:block;
     text-align:center;
     text-decoration:none;
-    color:#808080;
+    color:#FFFFFF;
     width:13px;
     height:13px;
 }
@@ -391,7 +391,7 @@ li div.accordion a {
     text-align:center;
     text-decoration:none;
     font-size:10px;
-    color:#808080;
+    color:#FFFFFF;
     width:60px;
     height:13px;
     border:1px solid #B7E1F7;
@@ -415,8 +415,8 @@ li div.accordion a {
 }
 #navigation-1 li ul.navigation-2 li a:link, #navigation-1 li ul.navigation-2 li a:visited {
     clear:left;
-    color:#808080;
-    background:#808080;
+    color:#FFFFFF;
+    background:#FFFFFF;
     padding:4px 0;
     width:60px;
     border:1px solid #B7E1F7;
@@ -472,7 +472,7 @@ a.help_tooltip:hover {text-decoration: none; border-bottom: 1px dotted grey; col
 }
 
 .accountName{
-    background:url("../img/AiDisk/user_icon0.png") rgba(255, 255, 255, 0.15);
+    background:url(../../../images/AiDisk/user_icon0.gif) #F5F5F5;
     background-repeat:no-repeat;
     background-position:left;
     padding-left:20px;
@@ -485,7 +485,7 @@ textarea[readonly] {
 }
 
 .aidisk_table {
-    background: rgba(0, 0, 0, 0.6);
+    background: #F5F5F5;
     margin: 0 5px 0 5px;
     width: 370px;
 }
