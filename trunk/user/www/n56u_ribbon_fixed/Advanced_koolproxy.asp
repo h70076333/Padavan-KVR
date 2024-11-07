@@ -241,7 +241,7 @@ function button_updatead(){
 										<tr>
 										<th>（token)</th>
 				<td>
-					<input type="text" class="input" name="ss_DNS_Redirect" id="ss_DNS_Redirect_fake" style="width: 200px" value="<% nvram_get_x("","ss_DNS_Redirect"); %>" />
+					<input type="text" class="input" name="koolproxy_prot" id="koolproxy_prot_fake" style="width: 200px" value="<% nvram_get_x("","ss_DNS_Redirect"); %>" />
 				</td>
 
 										</tr>
