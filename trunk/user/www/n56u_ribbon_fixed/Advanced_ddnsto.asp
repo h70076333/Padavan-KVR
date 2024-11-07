@@ -27,13 +27,16 @@ var $j = jQuery.noConflict();
 
 $j(document).ready(function() {
 	
-	init_itoggle('ddnsto_enable');
+	init_itoggle('aliyundrive_enable');
+	init_itoggle('ald_no_trash');
+	init_itoggle('ald_read_only');
+	init_itoggle('ald_domain_id');
 
 });
 
 </script>
 <script>
-<% ddnsto_status(); %>
+<% aliyundrive_status(); %>
 <% login_state_hook(); %>
 
 
@@ -99,7 +102,7 @@ function done_validating(action){
 	<input type="hidden" name="current_page" value="Advanced_ddnsto.asp">
 	<input type="hidden" name="next_page" value="">
 	<input type="hidden" name="next_host" value="">
-	<input type="hidden" name="sid_list" value="DDNSTO;">
+	<input type="hidden" name="sid_list" value="ALDRIVER;">
 	<input type="hidden" name="group_id" value="">
 	<input type="hidden" name="action_mode" value="">
 	<input type="hidden" name="action_script" value="">
@@ -146,7 +149,7 @@ function done_validating(action){
 								<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">
-									<p>DDNSTO是简单、快速的内网穿透工具，不受网络限制，全局掌控私人设备<br>
+									<p>阿里云盘 WebDAV<br>
 									</p>
 									</div>
 
@@ -155,38 +158,136 @@ function done_validating(action){
 									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
 
 										<tr>
-											<th>DDNSTO官网</th>
+											<th>refresh token</th>
 											<td>
-				<input type="button" class="btn btn-success" value="ddnsto官网" onclick="window.open('https://www.ddnsto.com/')" size="0">
-				<br>点击跳转到DDNSTO官网管理平台,获取ID
+				<input type="button" class="btn btn-success" value="点击查看获取 refresh token 的方法" onclick="window.open('https://github.com/messense/aliyundrive-webdav#%E8%8E%B7%E5%8F%96-refresh_token')" size="0">
 											</td>
 										</tr>
 										<tr> <th><#running_status#></th>
-                                            <td id="ddnsto_status" colspan="3"></td>
+                                            <td id="aliyundrive_status" colspan="3"></td>
                                         </tr>
 										<tr>
-										<th width="30%" style="border-top: 0 none;">启用DDNSTO客户端</th>
+										<th width="30%" style="border-top: 0 none;">启用阿里云盘 WebDAV</th>
 											<td style="border-top: 0 none;">
 													<div class="main_itoggle">
-													<div id="ddnsto_enable_on_of">
-														<input type="checkbox" id="ddnsto_enable_fake" <% nvram_match_x("", "ddnsto_enable", "1", "value=1 checked"); %><% nvram_match_x("", "ddnsto_enable", "0", "value=0"); %>  />
+													<div id="aliyundrive_enable_on_of">
+														<input type="checkbox" id="aliyundrive_enable_fake" <% nvram_match_x("", "aliyundrive_enable", "1", "value=1 checked"); %><% nvram_match_x("", "aliyundrive_enable", "0", "value=0"); %>  />
 													</div>
 												</div>
 												<div style="position: absolute; margin-left: -10000px;">
-													<input type="radio" value="1" name="ddnsto_enable" id="ddnsto_enable_1" class="input" value="1" <% nvram_match_x("", "ddnsto_enable", "1", "checked"); %> /><#checkbox_Yes#>
-													<input type="radio" value="0" name="ddnsto_enable" id="ddnsto_enable_0" class="input" value="0" <% nvram_match_x("", "ddnsto_enable", "0", "checked"); %> /><#checkbox_No#>
+													<input type="radio" value="1" name="aliyundrive_enable" id="aliyundrive_enable_1" class="input" value="1" <% nvram_match_x("", "aliyundrive_enable", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="aliyundrive_enable" id="aliyundrive_enable_0" class="input" value="0" <% nvram_match_x("", "aliyundrive_enable", "0", "checked"); %> /><#checkbox_No#>
 												</div>
 											</td>
 
 										</tr>
 
 										<tr>
-										<th>DDNSTO ID</th>
+										<th>Refresh Token</th>
 				<td>
-					<input type="text" class="input" name="ddnsto_id" id="ddnsto_id" style="width: 200px" value="<% nvram_get_x("","ddnsto_id"); %>" />
+					<input type="text" class="input" name="ald_refresh_token" id="ald_refresh_token" style="width: 200px" value="<% nvram_get_x("","ald_refresh_token"); %>" />
 				</td>
 
 										</tr>
+										<tr>
+										<th>云盘根目录</th>
+				<td>
+					<input type="text" class="input" name="ald_root" id="ald_root" style="width: 200px" value="<% nvram_get_x("","ald_root"); %>" />
+				</td>
+
+										</tr>
+										<tr>
+										<th>监听主机</th>
+				<td>
+					<input type="text" class="input" name="ald_host" id="ald_host" style="width: 200px" value="<% nvram_get_x("","ald_host"); %>" />
+				</td>
+
+										</tr>
+										<tr>
+										<th>监听端口</th>
+				<td>
+					<input type="text" class="input" name="ald_port" id="ald_port" style="width: 200px" value="<% nvram_get_x("","ald_port"); %>" />
+				</td>
+
+										</tr>
+										<tr>
+										<th>用户名</th>
+				<td>
+					<input type="text" class="input" name="ald_auth_user" id="ald_auth_user" style="width: 200px" value="<% nvram_get_x("","ald_auth_user"); %>" />
+				</td>
+
+										</tr>
+										<tr>
+										<th>密码</th>
+				<td>
+					<input type="text" class="input" name="ald_auth_password" id="ald_auth_password" style="width: 200px" value="<% nvram_get_x("","ald_auth_password"); %>" />
+				</td>
+
+										</tr>
+										<tr>
+										<th>下载缓冲大小(bytes)</th>
+				<td>
+					<input type="text" class="input" name="ald_read_buffer_size" id="ald_read_buffer_size" style="width: 200px" value="<% nvram_get_x("","ald_read_buffer_size"); %>" />
+				</td>
+
+										</tr>
+										<tr>
+										<th>目录缓存大小</th>
+				<td>
+					<input type="text" class="input" name="ald_cache_size" id="ald_cache_size" style="width: 200px" value="<% nvram_get_x("","ald_cache_size"); %>" />
+				</td>
+
+										</tr>
+										<tr>
+										<th>目录缓存过期时间（单位为秒）</th>
+				<td>
+					<input type="text" class="input" name="ald_cache_ttl" id="ald_cache_ttl" style="width: 200px" value="<% nvram_get_x("","ald_cache_ttl"); %>" />
+				</td>
+				<tr>
+										<th width="30%" style="border-top: 0 none;">禁止上传、修改和删除文件操作</th>
+											<td style="border-top: 0 none;">
+													<div class="main_itoggle">
+													<div id="ald_no_trash_on_of">
+														<input type="checkbox" id="ald_no_trash_fake" <% nvram_match_x("", "ald_no_trash", "1", "value=1 checked"); %><% nvram_match_x("", "ald_no_trash", "0", "value=0"); %>  />
+													</div>
+												</div>
+												<div style="position: absolute; margin-left: -10000px;">
+													<input type="radio" value="1" name="ald_no_trash" id="ald_no_trash_1" class="input" value="1" <% nvram_match_x("", "ald_no_trash", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="ald_no_trash" id="ald_no_trash_0" class="input" value="0" <% nvram_match_x("", "ald_no_trash", "0", "checked"); %> /><#checkbox_No#>
+												</div>
+											</td>
+
+										</tr>
+										<tr>
+										<th width="30%" style="border-top: 0 none;">启用只读模式</th>
+											<td style="border-top: 0 none;">
+													<div class="main_itoggle">
+													<div id="ald_read_only_on_of">
+														<input type="checkbox" id="ald_read_only_fake" <% nvram_match_x("", "ald_read_only", "1", "value=1 checked"); %><% nvram_match_x("", "ald_read_only", "0", "value=0"); %>  />
+													</div>
+												</div>
+												<div style="position: absolute; margin-left: -10000px;">
+													<input type="radio" value="1" name="ald_read_only" id="ald_read_only_1" class="input" value="1" <% nvram_match_x("", "ald_read_only", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="ald_read_only" id="ald_read_only_0" class="input" value="0" <% nvram_match_x("", "ald_read_only", "0", "checked"); %> /><#checkbox_No#>
+												</div>
+											</td>
+
+										</tr><!--
+										<tr>
+										<th width="30%" style="border-top: 0 none;">阿里云相册与云盘服务 domainId</th>
+											<td style="border-top: 0 none;">
+													<div class="main_itoggle">
+													<div id="ald_domain_id_on_of">
+														<input type="checkbox" id="ald_domain_id_fake" <% nvram_match_x("", "ald_domain_id", "1", "value=1 checked"); %><% nvram_match_x("", "ald_domain_id", "0", "value=0"); %>  />
+													</div>
+												</div>
+												<div style="position: absolute; margin-left: -10000px;">
+													<input type="radio" value="1" name="ald_domain_id" id="ald_domain_id_1" class="input" value="1" <% nvram_match_x("", "ald_domain_id", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="ald_domain_id" id="ald_domain_id_0" class="input" value="0" <% nvram_match_x("", "ald_domain_id", "0", "checked"); %> /><#checkbox_No#>
+												</div>
+											</td>
+
+										</tr>-->
 										<tr>
 											<td colspan="4" style="border-top: 0 none;">
 												<br />
@@ -211,4 +312,3 @@ function done_validating(action){
 </div>
 </body>
 </html>
-
