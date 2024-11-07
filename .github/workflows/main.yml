@@ -1,4 +1,4 @@
-name: FIFREE
+name: PSG1208
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: FIFREE
+        TNAME: PSG1208
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
