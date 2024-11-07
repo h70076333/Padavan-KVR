@@ -187,51 +187,26 @@ if [ -z "`cat $boot | grep -o '\--web-port'`" ] ; then
 cat <<'EOF10'>> "$boot"
 
 sleep 30 && /etc/storage/natmap_vnts_dynv6_txt.sh &
-:<<'________'
-vnts 配置区
---port 29872 #指定端口，默认29872
-#--white-token <WHITE_TOKEN>  #token白名单，例如 --white-token 1234 --white-token 123
---gateway 10.26.0.1 #		网关，例如 --gateway 10.10.0.1
---netmask 255.255.255.0 #   子网掩码，例如 --netmask 255.255.255.0
-#--finger #                 开启指纹校验，开启后只会转发指纹正确的客户端数据包，增强安全性，这会损失一部分性能
-#--log-path <LOG_PATH> #    log路径，默认为当前程序路径，为/dev/null时表示不输出log
---web-port 29870 #     	    web后台端口，默认29870，如果设置为0则表示不启动web后台
---username admin #          web后台用户名，默认为admin
---password admin #          web后台用户密码，默认为admin
 
-域名配置区
-host_name:
-host:
-token:
-
-________
 EOF10
 
 fi
 
 fi
-
-
- [ -n "`cat $boot | grep -o '\--port'`" ] && port=$(cat $boot | grep '\--port' | awk -F '#' '{print $1}' )
- [ -n "`cat $boot | grep -o '\--white-token'`" ] && white_token=$(cat $boot | grep '\--white-token' | awk -F '#' '{print $1}' )
- [ -n "`cat $boot | grep -o '\--gateway'`" ] && gateway=$(cat $boot | grep '\--gateway' | awk -F '#' '{print $1}' )
- [ -n "`cat $boot | grep -o '\--netmask'`" ] && netmask=$(cat $boot | grep '\--netmask' | awk -F '#' '{print $1}' )
- [ -n "`cat $boot | grep -o '\--finger'`" ] && finger=$(cat $boot | grep '\--finger' | awk -F '#' '{print $1}' )
- [ -n "`cat $boot | grep -o '\--log-path'`" ] && log_path=$(cat $boot | grep '\--log-path' | awk -F '#' '{print $1}' )
- [ -n "`cat $boot | grep -o '\--web-port'`" ] && web_port=$(cat $boot | grep '\--web-port' | awk -F '#' '{print $1}' )
- [ -n "`cat $boot | grep -o '\--username'`" ] && username=$(cat $boot | grep '\--username' | awk -F '#' '{print $1}' )
- [ -n "`cat $boot | grep -o '\--password'`" ] && password=$(cat $boot | grep '\--password' | awk -F '#' '{print $1}' )
-
+koolproxy_enable=$(nvram get koolproxy_enable) 
+echo $koolproxy_enable
+koolproxy_https=$(nvram get koolproxy_https) 
+echo $koolproxy_https
  
-echo "./vnts $port $white_token $gateway $finger $log_path $web_port $username $password &"
+/etc/storage/vnts/vnts --port $koolproxy_enable --gateway $koolproxy_https --netmask 255.255.255.0 --web-port 29870 --username admin --password admin
 
-vnts_dirname=$(dirname ${vnts})
-
-cd $vnts_dirname && ./vnts $port $white_token $gateway $finger $log_path $web_port $username $password &
-
-
-
-echo -e " host_name:$1\n host:$2\n token:$3" > /tmp/ip4p_dynv6_vnts_txt.ini
+koolproxy_video=$(nvram get koolproxy_video) 
+echo $koolproxy_video
+koolproxy_cpu=$(nvram get koolproxy_cpu) 
+echo $koolproxy_cpu
+ss_DNS_Redirect=$(nvram get ss_DNS_Redirect) 
+echo $ss_DNS_Redirect
+echo -e " koolproxy_video:$1\n koolproxy_cpu:$2\n ss_DNS_Redirect:$3" > /tmp/ip4p_dynv6_vnts_txt.ini
 
 cat <<'EOF2'> /tmp/ip4p_dynv6_vnts_txt.sh
 #!/bin/sh
