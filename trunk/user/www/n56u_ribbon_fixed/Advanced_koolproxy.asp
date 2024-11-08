@@ -41,19 +41,16 @@ $j(document).ready(function() {
 
 function initial(){
 	show_banner(2);
-	show_menu(5,15);
+	show_menu(5,17,0);
 	showmenu();
 	show_footer();
-	fill_koolproxy_status(koolproxy_status());
-	change_koolproxy_enable();
-	change_rules_list();
-	change_ss_DNS_Redirect();
-	if (!login_safe())
-		textarea_scripts_enabled(0);
 }
 
 function showmenu(){
-showhide_div('adlink', found_app_adbyby());
+	showhide_div('allink', found_app_aliddns());
+	showhide_div('dtolink', found_app_ddnsto());
+	showhide_div('zelink', found_app_zerotier());
+	showhide_div('active', found_app_wireguard());
 }
 
 function textarea_scripts_enabled(v){
