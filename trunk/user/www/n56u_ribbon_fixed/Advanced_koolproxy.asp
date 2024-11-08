@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><#Web_Title#> - koolproxy</title>
+<title><#Web_Title#> - <menu5_26#></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
@@ -60,23 +60,25 @@ function textarea_scripts_enabled(v){
 }
 
 function applyRule(){
-//	if(validForm()){
-		showLoading();
-		
-		document.form.action_mode.value = " Apply ";
-		document.form.current_page.value = "/Advanced_koolproxy.asp";
-		document.form.next_page.value = "";
-		
-		document.form.submit();
-//	}
+	showLoading();
+	
+	document.form.action_mode.value = " Restart ";
+	document.form.current_page.value = "/Advanced_koolproxy.asp";
+	document.form.next_page.value = "";
+	
+	document.form.submit();
 }
 
-function button_updatead(){
-	var $j = jQuery.noConflict();
-	$j.post('/apply.cgi',
-	{
-		'action_mode': ' updatekp ',
-	});
+function done_validating(action){
+	refreshpage();
+}
+function fill_status(status_code){
+	var stext = "Unknown";
+	if (status_code == 0)
+		stext = "<#Stopped#>";
+	else if (status_code == 1)
+		stext = "<#Running#>";
+	$("koolproxy_enable").innerHTML = '<span class="label label-' + (status_code != 0 ? 'success' : 'koolproxy') + '">' + stext + '</span>';
 }
 
 </script>
