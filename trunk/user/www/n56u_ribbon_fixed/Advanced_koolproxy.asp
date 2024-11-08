@@ -37,7 +37,6 @@ $j(document).ready(function() {
 
 </script>
 <script>
-<% koolproxy_status(); %>
 <% login_state_hook(); %>
 
 function initial(){
@@ -73,44 +72,6 @@ function applyRule(){
 		
 		document.form.submit();
 //	}
-}
-
-function submitInternet(v){
-	showLoading();
-	document.koolproxy_action.action = "Kp_action.asp";
-	document.koolproxy_action.connect_action.value = v;
-	document.koolproxy_action.submit();
-}
-
-function change_koolproxy_enable(){
-	var m = document.form.koolproxy_enable[0].checked;
-	showhide_div('kp_update_b', m);
-}
-
-function change_rules_list(){
-if(document.form.rules_list_3.checked==true){
-	var m = document.form.rules_list_3.checked;
-	showhide_div('koolproxy_txt', m);
-	showhide_div('daily_txt', m);
-	showhide_div('kp_dat', m);
-	}else{
-	showhide_div('koolproxy_txt', false);
-	showhide_div('daily_txt', false);
-	showhide_div('kp_dat', false);
-}
-}
-function fill_koolproxy_status(status_code){
-	var stext = "Unknown";
-	if (status_code == 0)
-		stext = "<#Stopped#>";
-	else if (status_code == 1)
-		stext = "<#Running#>";
-	$("koolproxy_status").innerHTML = '<span class="label label-' + (status_code != 0 ? 'success' : 'warning') + '">' + stext + '</span>';
-}
-function change_ss_DNS_Redirect(){
-	var m = document.form.ss_DNS_Redirect[0].checked;
-	var is_ss_DNS_Redirect = (m == "1") ? 1 : 0;
-	showhide_div("ss_DNS_Redirect_IP_tr", is_ss_DNS_Redirect);
 }
 
 function button_updatead(){
@@ -174,18 +135,24 @@ function button_updatead(){
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="box well grad_colour_dark_blue">
-							<h2 class="box_head round_top"><#menu5_26_1#> - <#menu5_20#></h2>
+							<h2 class="box_head round_top"><#menu5_32#> - <#menu5_30#></h2>
 							<div class="round_bottom">
 							<div>
-                            <ul class="nav nav-tabs" style="margin-bottom: 10px;">
-								<li id="adlink" style="display:none">
-                                    <a href="Advanced_adbyby.asp"><#menu5_20_1#></a>
-                                </li>
-								 <li class="active">
-                                    <a href="Advanced_koolproxy.asp"><#menu5_26_1#></a>
-                                </li>
-                            </ul>
-                        </div>
+							    <ul class="nav nav-tabs" style="margin-bottom: 10px;">
+								<li id="allink" style="display:none">
+								    <a href="Advanced_aliddns.asp"><#menu5_23_1#></a>
+								</li
+								<li id="zelink" style="display:none">
+								    <a href="Advanced_zerotier.asp"><#menu5_32_1#></a>
+								</li>
+								<li class="active">
+								    <a href="Advanced_wireguard.asp"><#menu5_35_1#></a>
+								</li>
+								<li class="active">
+								    <a href="Advanced_koolproxy.asp"><#menu5_26_1#></a>
+								</li>
+							    </ul>
+							</div>
 								<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">
