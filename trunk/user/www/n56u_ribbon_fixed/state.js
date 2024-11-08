@@ -589,19 +589,19 @@ if (found_app_mentohust()) {
 	tabMenuHash.put('14', mx2);
 }
 if (found_app_adbyby() && !found_app_koolproxy()) {
-	var mx = { "title": "<#menu5_20#>", "link": "Advanced_adbyby.asp", index: "15" };
+	var mx = { "title": "<#menu5_30#>", "link": "Advanced_adbyby.asp", index: "15" };
 	var mx2 = [{ "title": "<#menu5_20_1#>", "link": "Advanced_adbyby.asp" }];
 	menuL2.push(mx);
 	tabMenuHash.put('15', mx2);
 }
 if (!found_app_adbyby() && found_app_koolproxy()) {
-	var mx = { "title": "<#menu5_20#>", "link": "Advanced_koolproxy.asp", index: "15" };
+	var mx = { "title": "<#menu5_30#>", "link": "Advanced_koolproxy.asp", index: "15" };
 	var mx2 = [{ "title": "<#menu5_26_1#>", "link": "Advanced_koolproxy.asp" }];
 	menuL2.push(mx);
 	tabMenuHash.put('15', mx2);
 }
 if (found_app_adbyby() && found_app_koolproxy()) {
-	var mx = { "title": "<#menu5_20#>", "link": "Advanced_adbyby.asp", index: "15" };
+	var mx = { "title": "<#menu5_30#>", "link": "Advanced_adbyby.asp", index: "15" };
 	var mx2 = [{ "title": "<#menu5_20_1#>", "link": "Advanced_adbyby.asp" }, { "title": "<#menu5_26_1#>", "link": "Advanced_koolproxy.asp" }];
 	menuL2.push(mx);
 	tabMenuHash.put('15', mx2);
