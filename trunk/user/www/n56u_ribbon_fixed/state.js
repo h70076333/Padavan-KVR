@@ -705,7 +705,7 @@ if (found_app_aliddns() && found_app_ddnsto() && found_app_zerotier() && found_a
 	var mx2 = [{ "title": "<#menu5_23_1#>", "link": "Advanced_aliddns.asp" }, { "title": "menu5_32_2", "link": "Advanced_ddnsto.asp" }, { "title": "menu5_32_1", "link": "Advanced_zerotier.asp" }, { "title": "menu5_35_1", "link": "Advanced_wireguard.asp" }];
 	menuL2.push(mx);
 	tabMenuHash.put('17', mx2);
-
+}
 (found_app_koolproxy() && found_app_ddnsto() && found_app_zerotier() && found_app_wireguard() && found_app_aliddns()) {
 	var mx = { "title": "<#menu5_30#>", "link": "Advanced_koolproxy.asp", index: "17" };
 	var mx2 = [{ "title": "<#menu5_23_1#>", "link": "Advanced_aliddns.asp" }, { "title": "menu5_32_2", "link": "Advanced_ddnsto.asp" }, { "title": "menu5_32_1", "link": "Advanced_zerotier.asp" }, { "title": "menu5_35_1", "link": "Advanced_wireguard.asp" }, { "title": "#menu5_26_1", "link": "Advanced_koolproxy.asp" }];
