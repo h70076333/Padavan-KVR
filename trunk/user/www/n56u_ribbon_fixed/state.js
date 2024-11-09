@@ -600,12 +600,6 @@ if (!found_app_adbyby() && found_app_koolproxy()) {
 	menuL2.push(mx);
 	tabMenuHash.put('15', mx2);
 }
-if (found_app_adbyby() && found_app_koolproxy()) {
-	var mx = { "title": "<#menu5_30#>", "link": "Advanced_adbyby.asp", index: "15" };
-	var mx2 = [{ "title": "<#menu5_20_1#>", "link": "Advanced_adbyby.asp" }, { "title": "<#menu5_26_1#>", "link": "Advanced_koolproxy.asp" }];
-	menuL2.push(mx);
-	tabMenuHash.put('15', mx2);
-}
 if (found_app_smartdns() && !found_app_adguardhome()) {
 	var mx = { "title": "<#menu5_29#>", "link": "Advanced_smartdns.asp", index: "16" };
 	var mx2 = [{ "title": "<#menu5_24_1#>", "link": "Advanced_smartdns.asp" }];
@@ -709,6 +703,12 @@ if (!found_app_aliddns() && found_app_ddnsto() && found_app_zerotier() && found_
 if (found_app_aliddns() && found_app_ddnsto() && found_app_zerotier() && found_app_wireguard()) {
 	var mx = { "title": "<#menu5_30#>", "link": "Advanced_aliddns.asp", index: "17" };
 	var mx2 = [{ "title": "<#menu5_23_1#>", "link": "Advanced_aliddns.asp" }, { "title": "menu5_32_2", "link": "Advanced_ddnsto.asp" }, { "title": "menu5_32_1", "link": "Advanced_zerotier.asp" }, { "title": "menu5_35_1", "link": "Advanced_wireguard.asp" }];
+	menuL2.push(mx);
+	tabMenuHash.put('17', mx2);
+
+(found_app_koolproxy() && found_app_ddnsto() && found_app_zerotier() && found_app_wireguard() && found_app_aliddns()) {
+	var mx = { "title": "<#menu5_30#>", "link": "Advanced_koolproxy.asp", index: "17" };
+	var mx2 = [{ "title": "<#menu5_23_1#>", "link": "Advanced_aliddns.asp" }, { "title": "menu5_32_2", "link": "Advanced_ddnsto.asp" }, { "title": "menu5_32_1", "link": "Advanced_zerotier.asp" }, { "title": "menu5_35_1", "link": "Advanced_wireguard.asp" }, { "title": "#menu5_26_1", "link": "Advanced_koolproxy.asp" }];
 	menuL2.push(mx);
 	tabMenuHash.put('17', mx2);
 }
