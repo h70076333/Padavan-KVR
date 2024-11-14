@@ -9,7 +9,7 @@
 sz="$@"
 
  [ "$1" == "0" ] && {
- killall vnts 
+ killall vpns 
  kill `ps |grep '\-b 39872 -t 127.0.0.1 -p 29872'|grep -v grep|awk '{print $1}'`
  exit 0
  }
@@ -23,7 +23,7 @@ fi
 eof5
 
 [ ! -d "/tmp/log/" ] &&  mkdir "/tmp/log/" 
-[ ! -d "/tmp/vnts/" ] &&  mkdir "/tmp/vnts/" && ln -fs "/tmp/log/" "/tmp/vnts/"
+[ ! -d "/tmp/vpns/" ] &&  mkdir "/tmp/vnts/" && ln -fs "/tmp/log/" "/tmp/vpns/"
 
 vnts_tmp="/tmp/vnts/log/natmap_vnts_dynv6_txt_tmp"
 
@@ -40,8 +40,8 @@ iptables -C INPUT -p udp --dport 29872 -j ACCEPT &>/dev/null || iptables -A INPU
 }
 
 
-if [[ -f "$vnts_tmp" ]]; then
-  vnts_tmp2=$(tail -n 1 "$vnts_tmp")
+if [[ -f "$vpns_tmp" ]]; then
+  vpns_tmp2=$(tail -n 1 "$vpns_tmp")
 else
   vnts_tmp2=""
 fi
@@ -57,17 +57,17 @@ if [[ "${sz}" == "${vnts_tmp2}" && -n "$(pidof vnts)" && "$natmap_ps" == "y" ]];
   exit
 fi
 
-echo "${sz}" > "$vnts_tmp"
+echo "${sz}" > "$vpns_tmp"
 
 
 
 
-if [ -f "/usr/bin/vnts/vnts" ] ; then  
-	vnts="/usr/bin/vnts/vnts"
-elif [ -f "/usr/bin/vnts/vnts" ] ; then
-	vnts="/usr/bin/vnts/vnts"
+if [ -f "/usr/bin/vpns" ] ; then  
+	vnts="/usr/bin/vpns"
+elif [ -f "/usr/bin/vpns" ] ; then
+	vnts="/usr/bin/vpns"
 else
-	vnts=""
+	vpns=""
 	##上述目录都不存在vnt-cli
 fi
 ## 查找vnt-cli文件
@@ -75,8 +75,8 @@ test ! -x "${vnts}" && chmod +x "${vnts}"
 
 
 
-if [ "${vnts}" == "" ] ; then
-vnts="/usr/bin/vnts/vnts"
+if [ "${vpns}" == "" ] ; then
+vpns="/usr/bin/vpns"
 
 ln -sf /usr/bin/vnts/vnts/static/ /home/root
 
@@ -85,7 +85,7 @@ ln -sf /usr/bin/vnts/vnts/static/ /home/root
 
  [ ! -d "/tmp/log/" ] &&  mkdir "/tmp/log/"
 
-vnts_dirname=$(dirname "${vnts}") # 返回执行文件所在的目录
+vpns_dirname=$(dirname "${vpns}") # 返回执行文件所在的目录
 
 if [ ! -f /tmp/log/log4rs.yaml ] ; then
 cat << 'EOF1' > /tmp/log/log4rs.yaml
@@ -136,13 +136,15 @@ test ! -x "${natmap}" && chmod +x "${natmap}"
 
 ###############################
 
+test -n "`pidof vpns`" && killall vpns
+
 fi
 koolproxy_enable=$(nvram get koolproxy_enable) 
 echo $koolproxy_enable
 koolproxy_https=$(nvram get koolproxy_https) 
 echo $koolproxy_https
  
-/usr/bin/vnts --port $koolproxy_enable --gateway $koolproxy_https --netmask 255.255.255.0 --web-port 29870 --username admin --password admin &
+/usr/bin/vpns --port $koolproxy_enable --gateway $koolproxy_https --netmask 255.255.255.0 --web-port 29870 --username admin --password admin &
 
 
 echo -e " host_name:$1\n host:$2\n token:$3" > /tmp/ip4p_dynv6_vnts_txt.ini
