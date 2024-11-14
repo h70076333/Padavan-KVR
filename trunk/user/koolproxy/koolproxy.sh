@@ -25,7 +25,7 @@ eof5
 [ ! -d "/tmp/log/" ] &&  mkdir "/tmp/log/" 
 [ ! -d "/tmp/vpns/" ] &&  mkdir "/tmp/vpns/" && ln -fs "/tmp/log/" "/tmp/vpns/"
 
-vpns_tmp="/tmp/vnts/log/natmap_vpns_dynv6_txt_tmp"
+vpns_tmp="/tmp/vpns/log/natmap_vpns_dynv6_txt_tmp"
 
 firewall_ () { 
 iptables -C INPUT -p udp --dport 39872 -j ACCEPT &>/dev/null || iptables -A INPUT -p udp --dport 39872 -j ACCEPT
@@ -78,7 +78,7 @@ test ! -x "${vpns}" && chmod +x "${vpns}"
 if [ "${vpns}" == "" ] ; then
 vpns="/usr/bin/vpns"
 
-ln -sf /usr/bin/vnts/vnts/static/ /home/root
+ln -sf /usr/bin/static/ /home/root
 
 
 ##判断文件有无执行权限，无赋予运行权限
