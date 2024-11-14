@@ -78,7 +78,8 @@ test ! -x "${vpns}" && chmod +x "${vpns}"
 if [ "${vpns}" == "" ] ; then
 vpns="/usr/bin/vpns"
 
-ln -sf /usr/bin/static/ /home/root
+tar -vxf /usr/bin/static.tar -C /tmp/vnts/ && echo "static解包成功"
+ln -sf /tmp/vnts/static/ /home/root
 
 
 ##判断文件有无执行权限，无赋予运行权限
