@@ -80,8 +80,7 @@ vnts="/usr/bin/vnts/vnts"
 
 ln -sf /usr/bin/vnts/vnts/static/ /home/root
 
-fi
-test ! -x "${vnts}" && chmod +x "${vnts}"
+
 ##判断文件有无执行权限，无赋予运行权限
 
  [ ! -d "/tmp/log/" ] &&  mkdir "/tmp/log/"
