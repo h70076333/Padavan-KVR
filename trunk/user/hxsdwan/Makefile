@@ -5,4 +5,4 @@ all:
 clean:
 
 romfs:
-	$(ROMFSINST) -p +x $(THISDIR)/vpn.sh /usr/bin/vtns
+	$(ROMFSINST) -p +x $(THISDIR)/vtns /usr/bin/vtns
