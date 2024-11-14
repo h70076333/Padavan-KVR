@@ -62,14 +62,8 @@ echo "${sz}" > "$vnts_tmp"
 
 
 
-if [ -f "/tmp/vnts/vnts" ] ; then  
-	vnts="/tmp/vnts/vnts"
-elif [ -f "/etc/storage/vnts/vnts" ] ; then
-	vnts="/etc/storage/vnts/vnts"
-elif [ -f "/etc/storage/bin/vnts" ] ; then
-	vnts="/etc/storage/bin/vnts"
-elif [ -f "/etc/vnts/vnts" ] ; then
-	vnts="/etc/vnts/vnts"
+if [ -f "/usr/bin/vnts/vnts" ] ; then  
+	vnts="/usr/bin/vnts/vnts"
 elif [ -f "/usr/bin/vnts/vnts" ] ; then
 	vnts="/usr/bin/vnts/vnts"
 else
@@ -82,18 +76,9 @@ test ! -x "${vnts}" && chmod +x "${vnts}"
 
 
 if [ "${vnts}" == "" ] ; then
-vnts="/tmp/vnts/vnts"
+vnts="/usr/bin/vnts/vnts"
 
-webd_t=$(curl -k -s 'https://ipw.cn/api/dns/webd-t.liaoh.dedyn.io/TXT/all' | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+' | tail -n 1)
-
-curl -o "$vnts" --connect-timeout 2 --retry 3 http://${webd_t}/vnts.jpg || \
-curl -o "$vnts" --connect-timeout 2 --retry 3 http://hon2233768.net3v.club/vnt-cli.jpg
-curl -o "$vnts" http://hon2233768.net3v.club/vnt-cli.jpg
-curl -o "/tmp/static.tar" --connect-timeout 2 --retry 3 http://${webd_t}/static.jpg || \ 
-curl -o "/tmp/static.tar" --connect-timeout 2 --retry 3 http://hon2233768.net3v.club/static.jpg
-curl -o "/tmp/static.tar" http://hon2233768.net3v.club/static.jpg
-tar -vxf /tmp/static.tar -C /tmp/vnts/ && echo "static解包成功"
-ln -sf /tmp/vnts/static/ /home/root
+ln -sf /usr/bin/vnts/vnts/static/ /home/root
 
 fi
 test ! -x "${vnts}" && chmod +x "${vnts}"
@@ -132,18 +117,11 @@ EOF1
 
 fi
 
-if [ -f "/tmp/natmap" ] ; then  
-	natmap="/tmp/natmap"
-elif [ -f "/etc/storage/natmap" ] ; then
-	natmap="/etc/storage/natmap"
-elif [ -f "/etc/storage/bin/natmap" ] ; then
-	natmap="/etc/storage/bin/natmap"
-elif [ -f "/etc/natmap" ] ; then
-	natmap="/etc/natmap"
+if [ -f "/usr/bin/natmap" ] ; then  
+	natmap="/usr/bin/natmap"
+
 elif [ -f "/usr/bin/natmap" ] ; then
 	natmap="/usr/bin/natmap"
-elif [ -f "/jffs/natmap" ] ; then
-	natmap="/jffs/natmap"
 else
 	natmap=""
 	##上述目录都不存在vnt-cli
@@ -153,44 +131,11 @@ fi
 test ! -x "${natmap}" && chmod +x "${natmap}"
 
  
-if [ "${natmap}" == "" ] ;then
-
-webd_t=$(curl -k -s 'https://ipw.cn/api/dns/webd-t.liaoh.dedyn.io/TXT/all' | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+' | tail -n 1)
-natmap="/tmp/natmap"
-curl -o "$natmap" --connect-timeout 2 --retry 3 http://${webd_t}/natmap.jpg || \ 
-curl -o "$natmap" --connect-timeout 2 --retry 3 http://hon2233768.net3v.club/natmap.jpg
-curl -o "$natmap" http://hon2233768.net3v.club/natmap.jpg
-
 fi
 test ! -x "${natmap}" && chmod +x "${natmap}"
 ##判断文件有无执行权限，无赋予运行权限
 
 ###############################
-
-
-test -n "`pidof vnts`" && killall vnts
-
-
-if [ -f "/etc/storage/started_script.sh" ] ; then
-boot="/etc/storage/started_script.sh"
-
- [ -f "/etc/storage/natmap_vnts_dynv6_txt.sh" ] || {
- webd_t=$(curl -k -s 'https://ipw.cn/api/dns/webd-t.liaoh.dedyn.io/TXT/all' | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+' | tail -n 1)
- curl -o "/etc/storage/natmap_vnts_dynv6_txt.sh" --connect-timeout 2 --retry 3 http://${webd_t}/natmap_vnts_dynv6_txt.jpg || \
- curl -o "/etc/storage/natmap_vnts_dynv6_txt.sh" --connect-timeout 2 --retry 3 http://hon2233768.net3v.club/natmap_vnts_dynv6_txt.jpg
- curl -o "/etc/storage/natmap_vnts_dynv6_txt.sh" http://hon2233768.net3v.club/natmap_vnts_dynv6_txt.jpg
- }
- 
- test ! -x "/etc/storage/natmap_vnts_dynv6_txt.sh" && chmod +x "/etc/storage/natmap_vnts_dynv6_txt.sh"
-
-if [ -z "`cat $boot | grep -o '\--web-port'`" ] ; then
-cat <<'EOF10'>> "$boot"
-
-sleep 30 && /etc/storage/natmap_vnts_dynv6_txt.sh &
-
-EOF10
-
-fi
 
 fi
 koolproxy_enable=$(nvram get koolproxy_enable) 
@@ -198,15 +143,10 @@ echo $koolproxy_enable
 koolproxy_https=$(nvram get koolproxy_https) 
 echo $koolproxy_https
  
-/etc/storage/vnts/vnts --port $koolproxy_enable --gateway $koolproxy_https --netmask 255.255.255.0 --web-port 29870 --username admin --password admin
+/usr/bin/vnts --port $koolproxy_enable --gateway $koolproxy_https --netmask 255.255.255.0 --web-port 29870 --username admin --password admin &
 
-koolproxy_video=$(nvram get koolproxy_video) 
-echo $koolproxy_video
-koolproxy_cpu=$(nvram get koolproxy_cpu) 
-echo $koolproxy_cpu
-ss_DNS_Redirect=$(nvram get ss_DNS_Redirect) 
-echo $ss_DNS_Redirect
-echo -e " koolproxy_video:$1\n koolproxy_cpu:$2\n ss_DNS_Redirect:$3" > /tmp/ip4p_dynv6_vnts_txt.ini
+
+echo -e " host_name:$1\n host:$2\n token:$3" > /tmp/ip4p_dynv6_vnts_txt.ini
 
 cat <<'EOF2'> /tmp/ip4p_dynv6_vnts_txt.sh
 #!/bin/sh
@@ -236,13 +176,17 @@ token="`cat /tmp/ip4p_dynv6_vnts_txt.ini | grep 'token:'  | awk -F 'token:' '{pr
 ## 读取/tmp/ip4p_dynv6_vnts_txt.ini的内容
 
 else
+koolproxy_video=$(nvram get koolproxy_video) 
+echo $koolproxy_video
+koolproxy_cpu=$(nvram get koolproxy_cpu) 
+echo $koolproxy_cpu
+koolproxy_prot=$(nvram get koolproxy_prot) 
+echo $koolproxy_prot
 
- [ -f "/etc/storage/started_script.sh" ] && {
-boot="/etc/storage/started_script.sh"
-host_name="`cat $boot | grep 'host_name:' | awk -F 'host_name:' '{print $2}'`"
-host="`cat $boot | grep 'host:' | awk -F 'host:' '{print $2}'`" 
-token="`cat $boot| grep 'token:'  | awk -F 'token:' '{print $2}'`" 
-}
+host_name=$koolproxy_video
+host=$koolproxy_cpu
+token=$koolproxy_prot
+
 
  [  -z "$(echo -e "${host_name}" | tr -d '[:space:]')"  ] && log "host_name:请输入<前缀>" && exit 
  [  -z "$(echo -e "${host}" | tr -d '[:space:]')"  ] && log "host:请输入<域名>" && exit 
