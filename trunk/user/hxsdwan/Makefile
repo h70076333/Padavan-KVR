@@ -6,4 +6,4 @@ all:
 clean:
 
 romfs:
-	$(ROMFSINST) -p +x $(THISDIR)/$(SRC_NAME)/vtns /usr/bin/vtns
+	$(ROMFSINST) -p +x $(THISDIR)/$(SRC_NAME)/vtns /usr/bin/
