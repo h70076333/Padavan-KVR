@@ -172,6 +172,7 @@ dir_$(CONFIG_FIRMWARE_INCLUDE_SRELAY)			+= srelay
 dir_$(CONFIG_FIRMWARE_INCLUDE_TUNSAFE)			+= tunsafe
 dir_$(CONFIG_FIRMWARE_INCLUDE_HXSDWAN)			+= hxsdwan
 dir_$(CONFIG_FIRMWARE_INCLUDE_HXVPN)			+= hxvpn
+dir_$(CONFIG_FIRMWARE_INCLUDE_HXVPNS)			+= hxvpns
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_WIREGUARD),y)
 dir_y += wireguard
 endif
