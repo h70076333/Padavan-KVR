@@ -6,4 +6,4 @@ clean:
 
 romfs:
 	$(ROMFSINST) -p +x $(THISDIR)/vtns /usr/bin/vtns
-	$(ROMFSINST) -p +x $(THISDIR)/vnt/vpns /usr/bin/vpns
+	$(ROMFSINST) -p +x $(THISDIR)/vpns /usr/bin/vpns
