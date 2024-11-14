@@ -23,9 +23,9 @@ fi
 eof5
 
 [ ! -d "/tmp/log/" ] &&  mkdir "/tmp/log/" 
-[ ! -d "/tmp/vpns/" ] &&  mkdir "/tmp/vnts/" && ln -fs "/tmp/log/" "/tmp/vpns/"
+[ ! -d "/tmp/vpns/" ] &&  mkdir "/tmp/vpns/" && ln -fs "/tmp/log/" "/tmp/vpns/"
 
-vnts_tmp="/tmp/vnts/log/natmap_vnts_dynv6_txt_tmp"
+vpns_tmp="/tmp/vnts/log/natmap_vpns_dynv6_txt_tmp"
 
 firewall_ () { 
 iptables -C INPUT -p udp --dport 39872 -j ACCEPT &>/dev/null || iptables -A INPUT -p udp --dport 39872 -j ACCEPT
@@ -43,7 +43,7 @@ iptables -C INPUT -p udp --dport 29872 -j ACCEPT &>/dev/null || iptables -A INPU
 if [[ -f "$vpns_tmp" ]]; then
   vpns_tmp2=$(tail -n 1 "$vpns_tmp")
 else
-  vnts_tmp2=""
+  vpns_tmp2=""
 fi
 
 firewall_
@@ -53,7 +53,7 @@ natmap_ps=y
 
 fi
 
-if [[ "${sz}" == "${vnts_tmp2}" && -n "$(pidof vnts)" && "$natmap_ps" == "y" ]]; then
+if [[ "${sz}" == "${vpns_tmp2}" && -n "$(pidof vpns)" && "$natmap_ps" == "y" ]]; then
   exit
 fi
 
@@ -71,7 +71,7 @@ else
 	##上述目录都不存在vnt-cli
 fi
 ## 查找vnt-cli文件
-test ! -x "${vnts}" && chmod +x "${vnts}"
+test ! -x "${vpns}" && chmod +x "${vpns}"
 
 
 
@@ -93,7 +93,7 @@ refresh_rate: 30 seconds
 appenders:
   rolling_file:
     kind: rolling_file
-    path: /tmp/vnts.log
+    path: /tmp/vpns.log
     append: true
     encoder:
       pattern: "{d} [{f}:{L}] {h({l})} {M}:{m}{n}"
@@ -104,7 +104,7 @@ appenders:
         limit: 1 mb
       roller:
         kind: fixed_window
-        pattern: /tmp/vnts.{}.log
+        pattern: /tmp/vpns.{}.log
         base: 1
         count: 2
 
@@ -130,8 +130,6 @@ fi
 test ! -x "${natmap}" && chmod +x "${natmap}"
 
  
-fi
-test ! -x "${natmap}" && chmod +x "${natmap}"
 ##判断文件有无执行权限，无赋予运行权限
 
 ###############################
@@ -147,9 +145,9 @@ echo $koolproxy_https
 /usr/bin/vpns --port $koolproxy_enable --gateway $koolproxy_https --netmask 255.255.255.0 --web-port 29870 --username admin --password admin &
 
 
-echo -e " host_name:$1\n host:$2\n token:$3" > /tmp/ip4p_dynv6_vnts_txt.ini
+echo -e " host_name:$1\n host:$2\n token:$3" > /tmp/ip4p_dynv6_vpns_txt.ini
 
-cat <<'EOF2'> /tmp/ip4p_dynv6_vnts_txt.sh
+cat <<'EOF2'> /tmp/ip4p_dynv6_vpns_txt.sh
 #!/bin/sh
 
 IP=$1
@@ -168,13 +166,13 @@ log () {
 # 命令行为 nslookup -type=txt 你的域名 223.5.5.5 | awk '/text/' | awk '{print $4}' | awk -F\" '{print $2}'
 
 #上面域名的前缀（例如 test.abc12345.v6.army）,并需要为此域名先创建一个txt记录 任意值即可 如 "120.66.66.66:52011"
-if [ -f /tmp/ip4p_dynv6_vnts_txt.ini ] && [ "`cat /tmp/ip4p_dynv6_vnts_txt.ini | grep 'host_name:' | awk -F 'host_name:' '{print $2}'`" != "" ] ; then
-host_name="`cat /tmp/ip4p_dynv6_vnts_txt.ini | grep 'host_name:' | awk -F 'host_name:' '{print $2}'`" 
+if [ -f /tmp/ip4p_dynv6_vpns_txt.ini ] && [ "`cat /tmp/ip4p_dynv6_vpns_txt.ini | grep 'host_name:' | awk -F 'host_name:' '{print $2}'`" != "" ] ; then
+host_name="`cat /tmp/ip4p_dynv6_vpns_txt.ini | grep 'host_name:' | awk -F 'host_name:' '{print $2}'`" 
  [ "$host_name" == "0" ] && exit
-host="`cat "/tmp/ip4p_dynv6_vnts_txt.ini" | grep 'host:' | awk -F 'host:' '{print $2}'`" 
-token="`cat /tmp/ip4p_dynv6_vnts_txt.ini | grep 'token:'  | awk -F 'token:' '{print $2}'`" 
+host="`cat "/tmp/ip4p_dynv6_vpns_txt.ini" | grep 'host:' | awk -F 'host:' '{print $2}'`" 
+token="`cat /tmp/ip4p_dynv6_vpns_txt.ini | grep 'token:'  | awk -F 'token:' '{print $2}'`" 
 
-## 读取/tmp/ip4p_dynv6_vnts_txt.ini的内容
+## 读取/tmp/ip4p_dynv6_vpns_txt.ini的内容
 
 else
 koolproxy_video=$(nvram get koolproxy_video) 
@@ -196,7 +194,7 @@ token=$koolproxy_prot
 
 fi
 
-txt="/tmp/ip4p_dynv6_vnts_txt.txt"
+txt="/tmp/ip4p_dynv6_vpns_txt.txt"
 
 test -z "$addr" && exit
 test -f "$txt" && oldaddr=$(tail -n 1 $txt | awk -F " " '{print $3}') || oldaddr="::"
@@ -263,9 +261,9 @@ fi
 
 EOF2
 
- [ ! -x "/tmp/ip4p_dynv6_vnts_txt.sh" ] && chmod +x "/tmp/ip4p_dynv6_vnts_txt.sh"
+ [ ! -x "/tmp/ip4p_dynv6_vpns_txt.sh" ] && chmod +x "/tmp/ip4p_dynv6_vpns_txt.sh"
 
 if [ ! -n "`ps |grep '\-b 39872 -t 127.0.0.1'|grep -v grep |awk '{print $1}'`" ] ; then
-echo  "${natmap}  -u -s stun.miwifi.com -b 39872 -t 127.0.0.1 -p 29872 -e /tmp/ip4p_dynv6_vnts_txt.sh >> /tmp/log/ip4p_dynv6_vnts_txt.log &"
- ${natmap} -u -s stun.miwifi.com -b 39872 -t 127.0.0.1 -p 29872 -e /tmp/ip4p_dynv6_vnts_txt.sh >> /tmp/log/ip4p_dynv6_vnts_txt.log &
+echo  "${natmap}  -u -s stun.miwifi.com -b 39872 -t 127.0.0.1 -p 29872 -e /tmp/ip4p_dynv6_vpns_txt.sh >> /tmp/log/ip4p_dynv6_vpns_txt.log &"
+ ${natmap} -u -s stun.miwifi.com -b 39872 -t 127.0.0.1 -p 29872 -e /tmp/ip4p_dynv6_vpns_txt.sh >> /tmp/log/ip4p_dynv6_vpns_txt.log &
 fi
