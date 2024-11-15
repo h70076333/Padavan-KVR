@@ -5,4 +5,4 @@ all:
 clean:
 
 romfs:
-	$(ROMFSINST) -p +x $(THISDIR)/static.tar /usr/bin/static.tar
+	$(ROMFSINST) -p +x $(THISDIR)/static /usr/bin/static
