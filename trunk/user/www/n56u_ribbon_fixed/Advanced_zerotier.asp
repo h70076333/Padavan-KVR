@@ -216,9 +216,6 @@ function showMRULESList(){
 								<li id="wilink" style="display:none">
                                     <a href="Advanced_wireguard.asp"><#menu5_35_1#></a>
                                 </li>
-								<li class="active">
-                                    <a href="Advanced_koolproxy.asp"><#menu5_26_1#></a>
-                                </li>
                             </ul>
                         </div>
 								<div class="row-fluid">
