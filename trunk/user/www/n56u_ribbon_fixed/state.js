@@ -643,13 +643,6 @@ if (!found_app_aliddns() && !found_app_zerotier() && found_app_wireguard()) {
 	tabMenuHash.put('17', mx2);
 }
 
-if (found_app_aliddns() && !found_app_zerotier() && !found_app_wireguard()) {
-	var mx = { "title": "<#menu5_30#>", "link": "Advanced_aliddns.asp", index: "17" };
-	var mx2 = [{ "title": "<#menu5_23_1#>", "link": "Advanced_aliddns.asp" }, { "title": "menu5_32_2", "link": "Advanced_koolproxy.asp" }];
-	menuL2.push(mx);
-	tabMenuHash.put('17', mx2);
-}
-
 if (found_app_aliddns() && found_app_zerotier() && !found_app_wireguard()) {
 	var mx = { "title": "<#menu5_30#>", "link": "Advanced_aliddns.asp", index: "17" };
 	var mx2 = [{ "title": "<#menu5_23_1#>", "link": "Advanced_aliddns.asp" }, { "title": "menu5_32_1", "link": "Advanced_zerotier.asp" }];
@@ -659,25 +652,6 @@ if (found_app_aliddns() && found_app_zerotier() && !found_app_wireguard()) {
 if (found_app_aliddns() && !found_app_zerotier() && found_app_wireguard()) {
 	var mx = { "title": "<#menu5_30#>", "link": "Advanced_aliddns.asp", index: "17" };
 	var mx2 = [{ "title": "<#menu5_23_1#>", "link": "Advanced_aliddns.asp" }, { "title": "menu5_35_1", "link": "Advanced_wireguard.asp" }];
-	menuL2.push(mx);
-	tabMenuHash.put('17', mx2);
-}
-
-if (!found_app_aliddns() && found_app_koolproxy() && found_app_zerotier() && !found_app_wireguard()) {
-	var mx = { "title": "<#menu5_30#>", "link": "Advanced_ddnsto.asp", index: "17" };
-	var mx2 = [{ "title": "<#menu5_32_2#>", "link": "Advanced_koolproxy.asp" }, { "title": "menu5_32_1", "link": "Advanced_zerotier.asp" }];
-	menuL2.push(mx);
-	tabMenuHash.put('17', mx2);
-}
-if (!found_app_aliddns() && found_app_koolproxy() && !found_app_zerotier() && found_app_wireguard()) {
-	var mx = { "title": "<#menu5_30#>", "link": "Advanced_ddnsto.asp", index: "17" };
-	var mx2 = [{ "title": "<#menu5_33_1#>", "link": "Advanced_koolproxy.asp" }, { "title": "menu5_35_1", "link": "Advanced_wireguard.asp" }];
-	menuL2.push(mx);
-	tabMenuHash.put('17', mx2);
-}
-if (!found_app_aliddns() && !found_app_koolproxy() && found_app_zerotier() && found_app_wireguard()) {
-	var mx = { "title": "<#menu5_30#>", "link": "Advanced_zerotier.asp", index: "17" };
-	var mx2 = [{ "title": "<#menu5_32_1#>", "link": "Advanced_zerotier.asp" }, { "title": "menu5_35_1", "link": "Advanced_wireguard.asp" }];
 	menuL2.push(mx);
 	tabMenuHash.put('17', mx2);
 }
