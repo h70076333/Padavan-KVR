@@ -67,7 +67,7 @@ function applyRule(){
 		showLoading();
 		
 		document.form.action_mode.value = " Restart ";
-		document.form.current_page.value = "/Advanced_zerotier.asp";
+		document.form.current_page.value = "/Advanced_vpnkey.asp";
 		document.form.next_page.value = "";
 		
 		document.form.submit();
@@ -171,7 +171,7 @@ function showMRULESList(){
 
 	<form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame">
 
-	<input type="hidden" name="current_page" value="Advanced_zerotier.asp">
+	<input type="hidden" name="current_page" value="Advanced_vpnkey.asp">
 	<input type="hidden" name="next_page" value="">
 	<input type="hidden" name="next_host" value="">
 	<input type="hidden" name="sid_list" value="ZeroConf;">
@@ -208,13 +208,13 @@ function showMRULESList(){
                                     <a href="Advanced_aliddns.asp"><#menu5_23_1#></a>
                                 </li>
 								<li class="active">
-                                    <a href="Advanced_zerotier.asp"><#menu5_32_1#></a>
+                                    <a href="Advanced_vpnkey.asp"><#menu5_32_1#></a>
                                 </li>
 				    				<li id="ddlink" style="display:none">
                                     <a href="Advanced_ddnsto.asp"><#menu5_34_1#></a>
                                 </li>
 								<li id="wilink" style="display:none">
-                                    <a href="Advanced_wireguard.asp"><#menu5_35_1#></a>
+                                    <a href="Advanced_hxsdwan.asp"><#menu5_35_1#></a>
                                 </li>
                             </ul>
                         </div>
