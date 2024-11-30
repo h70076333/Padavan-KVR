@@ -682,7 +682,7 @@ if (!found_app_aliddns() && found_app_ddnsto() && !found_app_zerotier() && found
 	tabMenuHash.put('17', mx2);
 }
 if (!found_app_aliddns() && !found_app_ddnsto() && found_app_zerotier() && found_app_wireguard()) {
-	var mx = { "title": "<#menu5_30#>", "link": "Advanced_zerotier.asp", index: "17" };
+	var mx = { "title": "<#menu5_30#>", "link": "Advanced_vpnkey.asp", index: "17" };
 	var mx2 = [{ "title": "<#menu5_32_1#>", "link": "Advanced_vpnkey.asp" }, { "title": "menu5_35_1", "link": "Advanced_hxsdwan.asp" }];
 	menuL2.push(mx);
 	tabMenuHash.put('17', mx2);
