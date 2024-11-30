@@ -1,8 +1,8 @@
-/* ZTE E8820V2 */
+/* ZTE 8800SDWAN */
 
-#define BOARD_PID		"E8820V2"
-#define BOARD_NAME		"E8820V2"
-#define BOARD_DESC		"ZTE E8820V2 Wireless Router"
+#define BOARD_PID		"ZX8800SDWAN"
+#define BOARD_NAME		"ZX8800SDWAN"
+#define BOARD_DESC		"ZTE 8800SDWAN Wireless Router"
 #define BOARD_VENDOR_NAME	"ZTE Corporation"
 #define BOARD_VENDOR_URL	"http://www.ztehome.com.cn/"
 #define BOARD_MODEL_URL		"http://www.ztehome.com.cn/"
@@ -21,11 +21,11 @@
 #undef BOARD_GPIO_LED_USB
 #undef BOARD_GPIO_LED_ROUTER
 #undef  BOARD_GPIO_PWR_USB
-#define BOARD_HAS_5G_11AC	1
-#define BOARD_NUM_ANT_5G_TX	2
-#define BOARD_NUM_ANT_5G_RX	2
-#define BOARD_NUM_ANT_2G_TX	2
-#define BOARD_NUM_ANT_2G_RX	2
+#define BOARD_HAS_5G_11AC	0
+#define BOARD_NUM_ANT_5G_TX	0
+#define BOARD_NUM_ANT_5G_RX	0
+#define BOARD_NUM_ANT_2G_TX	0
+#define BOARD_NUM_ANT_2G_RX	0
 #define BOARD_NUM_ETH_LEDS	1
 #define BOARD_HAS_EPHY_L1000	1
 #define BOARD_HAS_EPHY_W1000	1
