@@ -15,9 +15,9 @@ body.body_iframe{
 
 #logo {
     background-image: url("/bootstrap/img/asus_logo.png");
-    width: 213px;
-    height: 122px;
-    margin-top: 10px;
+    width: 150px;
+    height: 71px;
+    margin-top: 40px;
 }
 #logo:hover {
     cursor: pointer;
