@@ -1,4 +1,4 @@
-name: XY-C1
+name: ZX8800SDWAN
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: XY-C1
+        TNAME: ZX8800SDWAN
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
