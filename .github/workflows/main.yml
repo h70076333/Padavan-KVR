@@ -1,4 +1,4 @@
-name: TX180X
+name: MA1210SDWAN
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: TX180X
+        TNAME: MA1210SDWAN
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
