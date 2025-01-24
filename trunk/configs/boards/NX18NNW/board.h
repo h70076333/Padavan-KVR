@@ -8,8 +8,8 @@
 #define BOARD_MODEL_URL		"http://www.h3c.com.cn/cn/"
 #define BOARD_BOOT_TIME		20
 #define BOARD_FLASH_TIME	120
-#define BOARD_GPIO_BTN_RESET	14
-#define  BOARD_GPIO_BTN_WPS	13
+#define BOARD_GPIO_BTN_RESET	13
+#define  BOARD_GPIO_BTN_WPS	14
 #undef  BOARD_GPIO_LED_ALL
 #undef  BOARD_GPIO_LED_WIFI
 #define  BOARD_GPIO_LED_WAN	16
