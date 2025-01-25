@@ -6,7 +6,7 @@
 #define BOARD_VENDOR_NAME	"H3C"
 #define BOARD_VENDOR_URL	"http://www.h3c.com.cn/cn/"
 #define BOARD_MODEL_URL		"http://www.h3c.com.cn/cn/"
-#define BOARD_BOOT_TIME		30
+#define BOARD_BOOT_TIME		20
 #define BOARD_FLASH_TIME	120
 #define BOARD_GPIO_BTN_RESET	14
 #undef  BOARD_GPIO_BTN_WPS
