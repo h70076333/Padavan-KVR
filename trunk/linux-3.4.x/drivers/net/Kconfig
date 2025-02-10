@@ -25,9 +25,6 @@ menuconfig NETDEVICES
 # that for each of the symbols.
 if NETDEVICES
 
-config MII
-	tristate
-
 config NET_CORE
 	default y
 	bool "Network core driver support"
@@ -69,20 +66,35 @@ config DUMMY
 	  <http://www.tldp.org/docs.html#guide>.
 
 	  To compile this driver as a module, choose M here: the module
-	  will be called dummy.
+	  will be called dummy.  If you want to use more than one dummy
+	  device at a time, you need to compile this driver as a module.
+	  Instead of 'dummy', the devices will then be called 'dummy0',
+	  'dummy1' etc.
 
 config EQUALIZER
 	tristate "EQL (serial line load balancing) support"
 
-config NET_VRF
-	tristate "Virtual Routing and Forwarding (Lite)"
-	depends on IP_MULTIPLE_TABLES
-	depends on NET_L3_MASTER_DEV
-	depends on IPV6 || IPV6=n
-	depends on IPV6_MULTIPLE_TABLES || IPV6=n
+	  Please read <file:Documentation/networking/tuntap.txt> for more
+	  information.
+
+	  To compile this driver as a module, choose M here: the module
+	  will be called tun.
+
+	  If you don't know what to use this for, you don't need it.
+
+config VETH
+	tristate "Virtual ethernet pair device"
 	---help---
-	  This option enables the support for mapping interfaces into VRF's. The
-	  support enables VRF devices.
+	  This device is a local ethernet tunnel. Devices are created in pairs.
+	  When one end receives the packet it appears on its pair and vice
+	  versa.
+
+config VIRTIO_NET
+	tristate "Virtio network driver (EXPERIMENTAL)"
+	depends on EXPERIMENTAL && VIRTIO
+	---help---
+	  This is the virtual network driver for virtio.  It can be used with
+	  lguest or QEMU based VMMs (like KVM or Xen).  Say Y or M.
 
 endif # NET_CORE
 
@@ -145,8 +157,6 @@ source "drivers/net/wimax/Kconfig"
 
 source "drivers/net/wan/Kconfig"
 
-source "drivers/net/ieee802154/Kconfig"
-
 config XEN_NETDEV_FRONTEND
 	tristate "Xen network device frontend driver"
 	depends on XEN
@@ -189,20 +199,10 @@ config XEN_NETDEV_BACKEND
 config VMXNET3
 	tristate "VMware VMXNET3 ethernet driver"
 	depends on PCI && INET
-	depends on !(PAGE_SIZE_64KB || ARM64_64K_PAGES || \
-		     IA64_PAGE_SIZE_64KB || MICROBLAZE_64K_PAGES || \
-		     PARISC_PAGE_SIZE_64KB || PPC_64K_PAGES)
 	help
 	  This driver supports VMware's vmxnet3 virtual ethernet NIC.
 	  To compile this driver as a module, choose M here: the
 	  module will be called vmxnet3.
-
-config FUJITSU_ES
-	tristate "FUJITSU Extended Socket Network Device driver"
-	depends on ACPI
-	help
-	  This driver provides support for Extended Socket network device
-          on Extended Partitioning of FUJITSU PRIMEQUEST 2000 E2 series.
 
 source "drivers/net/hyperv/Kconfig"
 
