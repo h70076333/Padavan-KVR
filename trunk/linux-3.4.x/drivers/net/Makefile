@@ -1,4 +1,3 @@
-#
 # Makefile for the Linux network device drivers.
 #
 
