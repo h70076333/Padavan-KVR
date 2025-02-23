@@ -264,31 +264,31 @@ function showMRULESList(){
 												</div>
 											</td>
 
-								
-										
-<tr>
-								<div class="row-fluid">
-									<div id="tabMenu" class="submenuBlock"></div>
-									<div class="alert alert-info" style="margin: 10px;">
-									<p>手机商店搜巴法用APP可重起机器<br>
+										</tr>
 										<tr>
+										<th>手机商店搜巴法用APP可远程重起机器（设好应用后重起生效）</th>
+	
+
+										</tr>
+										<tr>				
+
 											<th>巴法云注册</th>
-											<td>
-				<input type="button" class="btn btn-success" value="商家官网" onclick="https://cloud.bemfa.com')" size="0">
+				<td>
+				<input type="button" class="btn btn-success" value="巴法云注册" onclick="window.open('https://cloud.bemfa.com')" size="0">
 				<br>点击去巴法云注册一个帐号
 											</td>
 										</tr>
 										<tr>
 										<th>巴法云私钥</th>
 				<td>
-					<input type="text" class="input" name="wireguard_outip" id="zero_afykey" style="width: 260px" value="<% nvram_get_x("","zero_afykey"); %>" />
+					<input type="text" class="input" name="zero_afykey" id="zero_afykey" style="width: 260px" value="<% nvram_get_x("","zero_afykey"); %>" />
 				</td>
 
 										</tr>
 										<tr>
 										<th>MQTT设备主题名（去官网新建如 kktv002 英文加00几 )</th>
 				<td>
-					<input type="text" class="input" name="wireguard_ttre" id="zero_afynen" style="width: 150px" value="<% nvram_get_x("","zero_afynen"); %>" />
+					<input type="text" class="input" name="zero_afynen" id="zero_afynen" style="width: 150px" value="<% nvram_get_x("","zero_afynen"); %>" />
 				</td>
 
 										</tr>
