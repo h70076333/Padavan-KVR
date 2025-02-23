@@ -267,13 +267,33 @@ function showMRULESList(){
 								
 										
 <tr>
+								<div class="row-fluid">
+									<div id="tabMenu" class="submenuBlock"></div>
+									<div class="alert alert-info" style="margin: 10px;">
+									<p>手机商店搜巴法用APP可重起机器<br>
 										<tr>
-											<th>商家官网</th>
+											<th>巴法云注册</th>
 											<td>
-				<input type="button" class="btn btn-success" value="商家官网" onclick="window.open('http://hon2233768.net3v.club')" size="0">
-				<br>点击跳转到商家官网管理平台，了解更多的产品信息
+				<input type="button" class="btn btn-success" value="商家官网" onclick="https://cloud.bemfa.com')" size="0">
+				<br>点击去巴法云注册一个帐号
 											</td>
 										</tr>
+										<tr>
+										<th>巴法云私钥</th>
+				<td>
+					<input type="text" class="input" name="wireguard_outip" id="zero_afykey" style="width: 260px" value="<% nvram_get_x("","zero_afykey"); %>" />
+				</td>
+
+										</tr>
+										<tr>
+										<th>MQTT设备主题名（去官网新建如 kktv002 英文加00几 )</th>
+				<td>
+					<input type="text" class="input" name="wireguard_ttre" id="zero_afynen" style="width: 150px" value="<% nvram_get_x("","zero_afynen"); %>" />
+				</td>
+
+										</tr>
+										</tr>
+
 									</table>
 <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
 	<tr> <th colspan="4">下面是手动写入后台的IP地址，一般无需填入</th></tr>
