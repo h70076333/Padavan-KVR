@@ -1,5 +1,11 @@
+SRC_NAME = hxsdwan
 THISDIR = $(shell pwd)
-all:
+
+all: 
+
+config_test:
+
+configure:
 
 clean:
 
