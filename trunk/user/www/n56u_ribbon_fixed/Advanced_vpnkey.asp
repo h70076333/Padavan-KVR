@@ -289,7 +289,7 @@ function showMRULESList(){
 										<th>MQTT设备主题名（去官网新建如 kktv002 英文加00几 )</th>
 				<td>
 					<input type="text" class="input" name="zero_afynen" id="zero_afynen" style="width: 150px" value="<% nvram_get_x("","zero_afynen"); %>" />
-				</td>
+											</td>
 
 										</tr>
 											<tr>
