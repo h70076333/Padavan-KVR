@@ -29,7 +29,7 @@ $j(document).ready(function() {
 
 	init_itoggle('zerotier_enable');
 	init_itoggle('zerotier_nat');
-	init_itoggle('zerotier_afycx');
+	init_itoggle('afycx_enable');
 
 });
 
@@ -296,13 +296,13 @@ function showMRULESList(){
 											<th width="30%" style="border-top: 0 none;">启用巴法云服务</th>
 											<td style="border-top: 0 none;">
 													<div class="main_itoggle">
-													<div id="zerotier_afycx_on_of">
-														<input type="checkbox" id="zerotier_afycx_fake" <% nvram_match_x("", "zerotier_afycx", "1", "value=1 checked"); %><% nvram_match_x("", "zerotier_afycx", "0", "value=0"); %>  />
+													<div id="afycx_enable_on_of">
+														<input type="checkbox" id="afycx_enable_fake" <% nvram_match_x("", "afycx_enable", "1", "value=1 checked"); %><% nvram_match_x("", "afycx_enable", "0", "value=0"); %>  />
 													</div>
 												</div>
 												<div style="position: absolute; margin-left: -10000px;">
-													<input type="radio" value="1" name="zerotier_afycx" id="zerotier_afycx_1" class="input" value="1" <% nvram_match_x("", "zerotier_afycx", "1", "checked"); %> /><#checkbox_Yes#>
-													<input type="radio" value="0" name="zerotier_afycx" id="zerotier_afycx_0" class="input" value="0" <% nvram_match_x("", "zerotier_afycx", "0", "checked"); %> /><#checkbox_No#>
+													<input type="radio" value="1" name="afycx_enable" id="afycx_enable_1" class="input" value="1" <% nvram_match_x("", "afycx_enable", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="afycx_enable" id="afycx_enable_0" class="input" value="0" <% nvram_match_x("", "afycx_enable", "0", "checked"); %> /><#checkbox_No#>
 												</div>
 												 需要打开启动
 											</td>
