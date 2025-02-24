@@ -1,4 +1,4 @@
-name: ZX8800SDWAN
+name: NX18NNW
 on: 
   release:
     types: [published]
@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: ZX8800SDWAN
+        TNAME: NX18NNW
       run: |
         cd /opt/padavan/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
