@@ -811,7 +811,7 @@ struct nvram_pair router_defaults[] = {
 	{ "zero_staticnum_x", "0" },
 	{ "zero_afykey", "" },
 	{ "zero_afynen", "" },
-	{ "zerotier_afycx", "0" },
+	{ "afycx_enable", "0" },
 #endif
 
 /*#if defined(APP_NPC)
