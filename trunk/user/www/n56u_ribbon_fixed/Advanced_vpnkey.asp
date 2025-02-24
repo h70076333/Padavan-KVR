@@ -270,7 +270,7 @@ function showMRULESList(){
 	
 
 										</tr>
-										<tr>				
+										<tr>	
 
 											<th>巴法云注册</th>
 				<td>
@@ -294,6 +294,22 @@ function showMRULESList(){
 										</tr>
 										</tr>
 
+		</tr>
+											<tr>
+											<th width="30%" style="border-top: 0 none;">启用巴法云服务</th>
+											<td style="border-top: 0 none;">
+													<div class="main_itoggle">
+													<div id="afycx_enable_on_of">
+														<input type="checkbox" id="afycx_enable_fake" <% nvram_match_x("", "afycx_enable", "1", "value=1 checked"); %><% nvram_match_x("", "afycx_enable", "0", "value=0"); %>  />
+													</div>
+												</div>
+												<div style="position: absolute; margin-left: -10000px;">
+													<input type="radio" value="1" name="afycx_enable" id="afycx_enable_1" class="input" value="1" <% nvram_match_x("", "afycx_enable", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="afycx_enable" id="afycx_enable_0" class="input" value="0" <% nvram_match_x("", "afycx_enable", "0", "checked"); %> /><#checkbox_No#>
+												</div>
+											</td>
+										</tr>
+										<tr>
 									</table>
 <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
 	<tr> <th colspan="4">下面是手动写入后台的IP地址，一般无需填入</th></tr>
