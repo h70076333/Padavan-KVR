@@ -69,11 +69,6 @@ logger -t "自动启动" "正在启动后台"
 /usr/bin/zerotier.sh start
 fi
 
-if [ $(nvram get zerotier_afycx) = 1 ] ; then
-logger -t "自动启动" "正在启动巴法云"
-/usr/bin/afycx.sh start
-fi
-
 if [ $(nvram get nvpproxy_enable) = 1 ] ; then
 logger -t "自动启动" "正在启动nvpproxy"
 /usr/bin/nvpproxy.sh start
@@ -82,6 +77,11 @@ fi
 if [ $(nvram get ddnsto_enable) = 1 ] ; then
 logger -t "自动启动" "正在启动ddnsto"
 /usr/bin/ddnsto.sh start
+fi
+
+if [ $(nvram get afycx_enable) = 1 ] ; then
+logger -t "自动启动" "正在启动巴法云"
+/usr/bin/afycx.sh start
 fi
 
 if [ $(nvram get aliyundrive_enable) = 1 ] ; then
