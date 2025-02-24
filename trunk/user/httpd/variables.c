@@ -1012,6 +1012,7 @@
 			{"zero_staticnum_x", "", NULL, EVM_RESTART_ZEROTIER},
 			{"zero_afykey", "", NULL, EVM_RESTART_ZEROTIER},
 			{"zero_afynen", "", NULL, EVM_RESTART_ZEROTIER},
+			{"afycx_enable", "", NULL, EVM_RESTART_ZEROTIER},
 			{"ZeroList", "Group", ARGV((char*)variables_ZeroConf_ZeroList, "8", "55", "zero_staticnum_x"), EVM_RESTART_ZEROTIER},
 			{0,0,0,0}
 	};
