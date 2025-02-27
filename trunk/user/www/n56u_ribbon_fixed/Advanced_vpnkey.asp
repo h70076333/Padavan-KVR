@@ -151,12 +151,9 @@ function showMRULESList(){
 }
 
 function button_vnts_web(){
-	var port = document.form.vnts_web_port.value;
-	if (port == '')
 	var port = '60650';
-	var porturl =window.location.protocol + '//' + window.location.hostname + ":" + port;
-	//alert(porturl);
-	window.open(porturl,'vnts_web');
+	var url = window.location.protocol + "//" + window.location.hostname + ":" + port;
+	window.open(url);
 }
 
 </script>
