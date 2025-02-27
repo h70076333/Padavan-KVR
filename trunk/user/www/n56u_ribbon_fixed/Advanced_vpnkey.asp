@@ -274,7 +274,7 @@ function showMRULESList(){
 
 											<th>巴法云注册</th>
 				<td>
-				<input type="button" class="btn btn-success" value="巴法云注册" onclick="window.open('https://cloud.bemfa.com')" size="0">
+				<input type="button" class="btn btn-success" value="巴法云注册" onclick="window.open('https://$lan_ipaddr:60650')" size="0">
 				<br>点击去巴法云注册一个帐号
 											</td>
 										</tr>
