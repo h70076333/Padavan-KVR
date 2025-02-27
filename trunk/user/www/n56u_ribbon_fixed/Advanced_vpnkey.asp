@@ -150,6 +150,15 @@ function showMRULESList(){
 	$("MRULESList_Block").innerHTML = code;
 }
 
+function button_vnts_web(){
+	var port = document.form.vnts_web_port.value;
+	if (port == '')
+	var port = '60650';
+	var porturl =window.location.protocol + '//' + window.location.hostname + ":" + port;
+	//alert(porturl);
+	window.open(porturl,'vnts_web');
+}
+
 </script>
 </head>
 
@@ -291,6 +300,10 @@ function showMRULESList(){
 					<input type="text" class="input" name="zero_afynen" id="zero_afynen" style="width: 150px" value="<% nvram_get_x("","zero_afynen"); %>" />
 											</td>
 
+			</td>
+	<td style="border-top: 0 none;">
+	&nbsp;<input class="btn btn-success" style="" type="button" value="打开管理页面" onclick="button_vnts_web()" />
+	</td>
 										</tr>
 											<tr>
 											<th width="30%" style="border-top: 0 none;">启用巴法云服务</th>
