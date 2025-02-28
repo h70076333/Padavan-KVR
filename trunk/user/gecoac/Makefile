@@ -1,4 +1,4 @@
-SRC_NAME = hxsdwan
+SRC_NAME = gecoac
 THISDIR = $(shell pwd)
 
 all: 
@@ -10,6 +10,5 @@ configure:
 clean:
 
 romfs:
-	$(ROMFSINST) -p +x $(THISDIR)/stdoutsubc /usr/bin/stdoutsubc
-	$(ROMFSINST) -p +x $(THISDIR)/afycx.sh /usr/bin/afycx.sh
-	$(ROMFSINST) -p +x $(THISDIR)/bafa.sh /usr/bin/bafa.sh
+	$(ROMFSINST) -p +x $(THISDIR)/gecoac /usr/bin/gecoac
+	$(ROMFSINST) -p +x $(THISDIR)/gecoac.sh /usr/bin/gecoac.sh
