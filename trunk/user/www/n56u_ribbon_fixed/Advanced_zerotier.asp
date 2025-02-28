@@ -303,11 +303,6 @@ function button_vnts_web(){
 											</td>
 										</tr>
 											<tr>
-	<td style="border-top: 0 none;">
-	&nbsp;<input class="btn btn-success" style="" type="button" value="打开管理页面" onclick="button_vnts_web()" />
-	</td>
-										</tr>
-											<tr>
 											<th width="30%" style="border-top: 0 none;">启用巴法云服务</th>
 											<td style="border-top: 0 none;">
 													<div class="main_itoggle">
