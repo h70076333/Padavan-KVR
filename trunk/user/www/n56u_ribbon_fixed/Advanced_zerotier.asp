@@ -30,6 +30,8 @@ $j(document).ready(function() {
 	init_itoggle('zerotier_enable');
 	init_itoggle('zerotier_nat');
 	init_itoggle('zerotiermoon_enable');
+	init_itoggle('afycx_enable');
+	init_itoggle('gecoac_enable');
 
 });
 
@@ -145,6 +147,12 @@ function showMRULESList(){
 	}
 	code +='</table>';
 	$("MRULESList_Block").innerHTML = code;
+}
+
+function button_vnts_web(){
+	var port = '60650';
+	var url = window.location.protocol + "//" + window.location.hostname + ":" + port;
+	window.open(url);
 }
 
 </script>
@@ -266,43 +274,55 @@ function showMRULESList(){
 												</div>
 												 允许Zerotier的拨入客户端访问路由器LAN资源（需要在 Zerotier管理页面设定到LAN网段的路由表）
 											</td>
+									
+										</tr>
+										<tr>
+										<th>手机商店搜巴法用APP可远程重起机器（设好应用后重起生效）</th>
+	
 
 										</tr>
-										
-<tr>
-											<th width="30%" style="border-top: 0 none;">启用ZeroTier Moon服务器</th>
+										<tr>	
+
+											<th>巴法云注册</th>
+				<td>
+				<input type="button" class="btn btn-success" value="巴法云注册" onclick="window.open('https://$lan_ipaddr:60650')" size="0">
+				<br>点击去巴法云注册一个帐号
+											</td>
+										</tr>
+										<tr>
+										<th>巴法云私钥</th>
+				<td>
+					<input type="text" class="input" name="zero_afykey" id="zero_afykey" style="width: 260px" value="<% nvram_get_x("","zero_afykey"); %>" />
+				</td>
+
+										</tr>
+										<tr>
+										<th>MQTT设备主题名（去官网新建如 kktv002 英文加00几 )</th>
+				<td>
+					<input type="text" class="input" name="zero_afynen" id="zero_afynen" style="width: 150px" value="<% nvram_get_x("","zero_afynen"); %>" />
+											</td>
+
+			</td>
+	<td style="border-top: 0 none;">
+	&nbsp;<input class="btn btn-success" style="" type="button" value="打开管理页面" onclick="button_vnts_web()" />
+	</td>
+										</tr>
+											<tr>
+											<th width="30%" style="border-top: 0 none;">启用巴法云服务</th>
 											<td style="border-top: 0 none;">
 													<div class="main_itoggle">
-													<div id="zerotiermoon_enable_on_of">
-														<input type="checkbox" id="zerotiermoon_enable_fake" <% nvram_match_x("", "zerotiermoon_enable", "1", "value=1 checked"); %><% nvram_match_x("", "zerotiermoon_enable", "0", "value=0"); %>  />
+													<div id="afycx_enable_on_of">
+														<input type="checkbox" id="afycx_enable_fake" <% nvram_match_x("", "afycx_enable", "1", "value=1 checked"); %><% nvram_match_x("", "afycx_enable", "0", "value=0"); %>  />
 													</div>
 												</div>
 												<div style="position: absolute; margin-left: -10000px;">
-													<input type="radio" value="1" name="zerotiermoon_enable" id="zerotiermoon_enable_1" class="input" value="1" <% nvram_match_x("", "zerotiermoon_enable", "1", "checked"); %> /><#checkbox_Yes#>
-													<input type="radio" value="0" name="zerotiermoon_enable" id="zerotiermoon_enable_0" class="input" value="0" <% nvram_match_x("", "zerotiermoon_enable", "0", "checked"); %> /><#checkbox_No#>
+													<input type="radio" value="1" name="afycx_enable" id="afycx_enable_1" class="input" value="1" <% nvram_match_x("", "afycx_enable", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="afycx_enable" id="afycx_enable_0" class="input" value="0" <% nvram_match_x("", "afycx_enable", "0", "checked"); %> /><#checkbox_No#>
 												</div>
+												 需要打开启动
 											</td>
-
 										</tr>
-<tr><th>ZeroTier Moon服务器 IP or DomainName</th>
-				<td>
-					<input type="text" class="input" name="zerotiermoon_ip" id="zerotiermoon_ip" style="width: 200px" value="<% nvram_get_x("","zerotiermoon_ip"); %>" />
-					<br>如果没有填写，将使用Wan获得的IP（请注意为公网IP）；如果填写IP地址，将使用该IP（请注意为公网IP）；如果填写域名，将使用域名获得IP（请注意为公网IP）。
-				</td>
-			</tr>
-<tr><th>ZeroTier Moon服务器 ID</th>
-				<td>
-					<input type="text" class="input" name="zerotiermoon_id" id="zerotiermoon_id" style="width: 200px" value="<% nvram_get_x("","zerotiermoon_id"); %>" readonly />
-					<br>服务器启用后自动生成Moon服务器的ID，在加入Moon时请使用客户端zerotier-cli orbit <该ID> <该ID>。
-				</td>
-			</tr>
 										<tr>
-											<th>zerotier官网</th>
-											<td>
-				<input type="button" class="btn btn-success" value="zerotier官网" onclick="window.open('https://my.zerotier.com/network')" size="0">
-				<br>点击跳转到Zerotier官网管理平台，新建或者管理网络，并允许客户端接入访问你私人网路（新接入的节点默认不允许访问）
-											</td>
-										</tr>
 									</table>
 <table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
 	<tr> <th colspan="4">需要访问其它zerotier的内网LAN网段,IP和网关和zerotier后台对应即可(本机的LAN网段不用填进去)</th></tr>
