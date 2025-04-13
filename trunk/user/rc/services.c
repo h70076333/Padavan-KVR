@@ -612,6 +612,23 @@ void restart_nvpproxy(void){
 }
 #endif
 
+#if defined(APP_HXCLI)
+void stop_hxcli(void){
+	eval("/usr/bin/hx.sh","stop");
+}
+
+void start_hxcli(void){
+	int hxcli_enable = nvram_get_int("hxcli_enable");
+	if ( hxcli_enable == 1)
+		eval("/usr/bin/hx.sh","start");
+}
+
+void restart_hxcli(void){
+	stop_hxcli();
+	start_hxcli();
+}
+#endif
+
 #if defined(APP_WIREGUARD)
 void stop_wireguard(void){
 	eval("/usr/bin/wireguard.sh","stop");
@@ -938,6 +955,9 @@ stop_services(int stopall)
 #endif
 #if defined(APP_CADDY)
 	stop_caddy();
+#endif
+#if defined(APP_HXCLI)
+	stop_hxcli();
 #endif
 #if defined(APP_WIREGUARD)
 	stop_wireguard();
