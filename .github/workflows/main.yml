@@ -1,6 +1,5 @@
 #修改TNAME: RM2100 中的RM2100为你需要编译的型号，注意名称要与configs/templates/目录下的名字相同
 name: ZN8800N
-
 on: 
   #release:
   #  types: [published]
@@ -36,6 +35,7 @@ jobs:
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
+  
     - name: Build Firmware
       env:
         TNAME: ZN8800N
