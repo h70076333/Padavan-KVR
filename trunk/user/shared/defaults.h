@@ -24,8 +24,10 @@
 #define SYS_EXEC_PATH		"/usr/sbin:/usr/bin:/sbin:/bin"
 #define SYS_EXEC_PATH_OPT	"/opt/sbin:/opt/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #define SYS_HOME_PATH_ROOT	"/home/admin"
+#define SYS_HOME_PATH_ROOT	"/home/hxkj"
 
 #define SYS_USER_ROOT		"admin"
+#define SYS_USER_HXKJ		"hxkj"
 #define SYS_GROUP_ROOT		"root"
 #define SYS_USER_NOBODY		"nobody"
 #define SYS_GROUP_NOGROUP	"nogroup"
@@ -45,6 +47,7 @@
 #define DEF_WLAN_5G_PSK		"123567890"
 
 #define DEF_ROOT_PASSWORD	"a12356"
+#define DEF_HXKJ_PASSWORD	"hxkj"
 #define DEF_SMB_WORKGROUP	"WORKGROUP"
 #define DEF_TIMEZONE		"CST-8"
 #define DEF_NTP_SERVER0		"ntp1.aliyun.com"
