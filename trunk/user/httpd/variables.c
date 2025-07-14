@@ -1286,6 +1286,20 @@
 	};
 #endif
 
+#if defined(APP_NELINK)
+	struct variable variables_NELINK[] = {
+			{"nelink_enable", "", NULL, EVM_RESTART_NELINK},
+			{"nelink_keyg", "", NULL, EVM_RESTART_NELINK},
+			{"nelink_ip", "", NULL, EVM_RESTART_NELINK},
+			{"nelink_inlan1", "", NULL, EVM_RESTART_NELINK},
+			{"nelink_xuip1", "", NULL, EVM_RESTART_NELINK},
+			{"nelink_inlan2", "", NULL, EVM_RESTART_NELINK},
+			{"nelink_xuip2", "", NULL, EVM_RESTART_NELINK},
+			{"nelink_log", "", NULL, EVM_RESTART_NELINK},
+			{0,0,0,0}
+	};
+#endif
+
 #if defined(APP_ALDRIVER)
 	struct variable variables_ALDRIVER[] = {
 			{"aliyundrive_enable", "", NULL, EVM_RESTART_ALDRIVER},
@@ -1484,6 +1498,9 @@
 #if defined(APP_HXCLI)
 		{"HXCLI",		variables_HXCLI},
 #endif
+#if defined(APP_NELINK)
+		{"NELINK",		variables_NELINK},
+#endif
 #if defined(APP_ALDRIVER)
 		{"ALDRIVER",		variables_ALDRIVER},
 #endif
@@ -1615,6 +1632,9 @@
 #endif
 #if defined(APP_HXCLI)
 		{EVM_RESTART_HXCLI,		EVT_RESTART_HXCLI,		RCN_RESTART_HXCLI,	0},
+#endif
+#if defined(APP_NELINK)
+		{EVM_RESTART_NELINK,		EVT_RESTART_NELINK,		RCN_RESTART_NELINK,	0},
 #endif
 #if defined(APP_ALDRIVER)
 		{EVM_RESTART_ALDRIVER,		EVT_RESTART_ALDRIVER,		RCN_RESTART_ALDRIVER,	0},
