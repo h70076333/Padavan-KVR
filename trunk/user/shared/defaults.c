@@ -907,6 +907,18 @@ struct nvram_pair router_defaults[] = {
 	{ "hxcli_mappnum_x", "0" },
 #endif
 
+#if defined(APP_NELINK)
+	/*nelink*/
+	{ "nelink_enable", "0" },
+	{ "nelink_keyg", "abc123" },
+	{ "nelink_ip", "20" },
+	{ "nelink_inlan1", "192.168.x.0" },
+	{ "nelink_xuip1", "" },
+	{ "nelink_inlan2", "" },
+	{ "nelink_xuip2", "" },
+	{ "nelink_log", "#" },
+#endif
+
 #if defined(APP_ALDRIVER)
 	/*阿里云盘*/
 	{ "aliyundrive_enable", "0" },
