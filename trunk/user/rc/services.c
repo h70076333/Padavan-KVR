@@ -629,6 +629,23 @@ void restart_hxcli(void){
 }
 #endif
 
+#if defined(APP_NELINK)
+void stop_nelink(void){
+	eval("/usr/bin/ne.sh","stop");
+}
+
+void start_nelink(void){
+	int nelink_enable = nvram_get_int("nelink_enable");
+	if ( nelink_enable == 1)
+		eval("/usr/bin/ne.sh","start");
+}
+
+void restart_nelink(void){
+	stop_nelink();
+	start_nelink();
+}
+#endif
+
 #if defined(APP_WIREGUARD)
 void stop_wireguard(void){
 	eval("/usr/bin/wireguard.sh","stop");
@@ -958,6 +975,9 @@ stop_services(int stopall)
 #endif
 #if defined(APP_HXCLI)
 	stop_hxcli();
+#endif
+#if defined(APP_NELINK)
+	stop_nelink();
 #endif
 #if defined(APP_WIREGUARD)
 	stop_wireguard();
