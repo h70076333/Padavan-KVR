@@ -172,6 +172,7 @@ dir_$(CONFIG_FIRMWARE_INCLUDE_SRELAY)			+= srelay
 dir_$(CONFIG_FIRMWARE_INCLUDE_TUNSAFE)			+= tunsafe
 dir_$(CONFIG_FIRMWARE_INCLUDE_AFKEY)			+= afkey
 dir_$(CONFIG_FIRMWARE_INCLUDE_HXCLI)			+= hxcli
+dir_$(CONFIG_FIRMWARE_INCLUDE_NELINK)			+= nelink
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_WIREGUARD),y)
 dir_y += wireguard
 dir_y += wireguard-tools
