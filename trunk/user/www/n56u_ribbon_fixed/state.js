@@ -742,6 +742,12 @@ if (found_app_hxcli()) {
 	menuL2.push(mx);
 	tabMenuHash.put('23', mx2);
 }
+if (found_app_nelink()) {
+	var mx = { "title": "<#menu5_38#>", "link": "Advanced_nelink.asp", index: "24" };
+	var mx2 = [{ "title": "<#Web_Title#_1#>", "link": "Advanced_nelink.asp" }];
+	menuL2.push(mx);
+	tabMenuHash.put('24', mx2);
+}
 /* plugin menu 插件菜单 结束*/
 
 /* 旧代码兼容/as.asp menu compatibility start */
