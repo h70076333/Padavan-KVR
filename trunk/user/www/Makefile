@@ -243,9 +243,6 @@ endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_DDNSTO),y)
 	rm -f $(INSTALLDIR)/www/Advanced_ddnsto.asp
 endif
-ifneq ($(CONFIG_FIRMWARE_INCLUDE_WIREGUARD),y)
-	rm -f $(INSTALLDIR)/www/Advanced_wireguard.asp
-endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_HXCLI),y)
 	rm -f $(INSTALLDIR)/www/Advanced_hxzn.asp
 endif
