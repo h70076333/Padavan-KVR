@@ -71,6 +71,13 @@ function  button_restartwg(){
 function done_validating(action){
 	refreshpage();
 }
+
+function button_nelink_web(){
+	var port = '6688';
+	var url = window.location.protocol + "//" + window.location.hostname + ":" + port;
+	window.open(url);
+}
+
 </script>
 </head>
 
@@ -165,7 +172,7 @@ function done_validating(action){
 										<tr>
 										<th>本机虚拟ip（格式 20）</th>
 				<td>
-					<input type="text" class="input" name="nelink_ip" id="nelink_ip" style="width: 60px" value="<% nvram_get_x("","nelink_ip"); %>" />
+					<input type="text" class="input" name="nelink_ip" id="nelink_ip" style="width: 30px" value="<% nvram_get_x("","nelink_ip"); %>" />
 				</td>
 
 										</tr>
@@ -173,44 +180,51 @@ function done_validating(action){
 										<tr>
 										<th>对端的IP（格式 192.168.x.0） </th>
 				<td>
-					<input type="text" class="input" name="nelink_inlan1" id="nelink_inlan1" style="width: 200px" value="<% nvram_get_x("","nelink_inlan1"); %>" />
+					<input type="text" class="input" name="nelink_inlan1" id="nelink_inlan1" style="width: 120px" value="<% nvram_get_x("","nelink_inlan1"); %>" />
 				</td>
 
 										</tr>
 										<tr>
 										<th>对端的虚拟ip（格式 10.26.2.x)</th>
 				<td>
-					<input type="text" class="input" name="nelink_xuip1" id="nelink_xuip1" style="width: 200px" value="<% nvram_get_x("","nelink_xuip1"); %>" />
+					<input type="text" class="input" name="nelink_xuip1" id="nelink_xuip1" style="width: 100px" value="<% nvram_get_x("","nelink_xuip1"); %>" />
 				</td>
 
 										</tr>
 										<tr>
-										<th>开起第2个对端</th>
+										<th>开起第2个设备(不用留空）</th>
 				<td>
-					<input type="text" class="input" name="nelink_log" id="nelink_log" style="width: 50px" value="<% nvram_get_x("","nelink_log"); %>" />
+					<input type="text" class="input" name="nelink_log" id="nelink_log" style="width: 240px" value="<% nvram_get_x("","nelink_log"); %>" />
 				</td>
+
 
 										</tr>
 										<tr>
-											<th>对端的IP2（格式 192.168.x.0） </th>
+										<th>开起第3个设备(不用留空）</th>
 				<td>
-					<input type="text" class="input" name="netink_inlan2" id="netink_inlan2" style="width: 200px" value="<% nvram_get_x("","netink_inlan2"); %>" />
+					<input type="text" class="input" name="nelink_log2" id="nelink_log2" style="width: 240px" value="<% nvram_get_x("","nelink_log2"); %>" />
 				</td>
 
 										</tr>
 										<tr>
-										<th>对端的虚拟ip2（格式 10.26.2.x)</th>
+										<th>开起第4个设备(route add -net inip/24 gw xuip）</th>
 				<td>
-					<input type="text" class="input" name="nelink_xuip2" id="nelink_xuip2" style="width: 200px" value="<% nvram_get_x("","nelink_xuip2"); %>" />
+					<input type="text" class="input" name="nelink_log3" id="nelink_log3" style="width: 240px" value="<% nvram_get_x("","nelink_log3"); %>" />
 				</td>
 
 										</tr>
 										<tr>
+
+									<td style="border-top: 0 none;">
+						&nbsp;<input class="btn btn-success" style="" type="button" value="打开管理页面" onclick="button_nelink_web()" />
+												</div>
+										</td>
 										<td colspan="4" style="border-top: 0 none;">
 												<br />
 												<center><input class="btn btn-primary" style="width: 219px" type="button" value="<#CTL_apply#>" onclick="applyRule()" /></center>
-											</td>
-										</tr>														
+										</tr>
+										<tr>
+													
 	</table>
 
 										
