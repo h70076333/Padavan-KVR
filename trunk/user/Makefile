@@ -173,7 +173,6 @@ dir_$(CONFIG_FIRMWARE_INCLUDE_TUNSAFE)			+= tunsafe
 dir_$(CONFIG_FIRMWARE_INCLUDE_AFKEY)			+= afkey
 dir_$(CONFIG_FIRMWARE_INCLUDE_HXCLI)			+= hxcli
 dir_$(CONFIG_FIRMWARE_INCLUDE_NELINK)			+= nelink
-endif
 
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_SMBD36),y)
 dir_$(SAMBA_ENABLED)							+= samba36
