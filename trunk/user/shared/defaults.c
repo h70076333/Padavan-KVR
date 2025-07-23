@@ -913,10 +913,10 @@ struct nvram_pair router_defaults[] = {
 	{ "nelink_keyg", "abc123" },
 	{ "nelink_ip", "20" },
 	{ "nelink_inlan1", "192.168.x.0" },
-	{ "nelink_xuip1", "" },
-	{ "nelink_inlan2", "" },
-	{ "nelink_xuip2", "" },
-	{ "nelink_log", "#" },
+	{ "nelink_xuip1", "10.26.2.x" },
+	{ "nelink_log", "" },
+	{ "nelink_log2", "" },
+	{ "nelink_log3", "" },
 #endif
 
 #if defined(APP_ALDRIVER)
