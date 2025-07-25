@@ -31,7 +31,7 @@ echo $nelink_log3
 
 /usr/bin/netlink --tun-name nehxkj  -g $nelink_keyg -l 10.26.2.$nelink_ip/24 -p $nelink_log --api-addr $lan_ipaddr:6688 &
 
-sleep 3
+sleep 6
 
 route add -net $nelink_inlan1/24 gw $nelink_xuip1
 $nelink_log
