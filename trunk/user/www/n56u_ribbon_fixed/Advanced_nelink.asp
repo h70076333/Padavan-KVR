@@ -194,7 +194,7 @@ function button_nelink_web(){
 										<tr>
 										<th>节点地址</th>
 				<td>
-					<input type="text" class="input" name="nelink_log" id="nelink_log" style="width: 240px" value="<% nvram_get_x("","nelink_log"); %>" />
+					<input type="text" class="input" readonly name="nelink_log" id="nelink_log" style="width: 240px" value="<% nvram_get_x("","nelink_log"); %>" />
 				</td>
 
 
