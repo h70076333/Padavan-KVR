@@ -627,6 +627,11 @@ void stop_nelink(void);
 void start_nelink(void);
 void restart_nelink(void);
 #endif
+#if defined(APP_ETINK)
+void stop_etink(void);
+void start_etink(void);
+void restart_etink(void);
+#endif
 #if defined(APP_ALDRIVER)
 void stop_aldriver(void);
 void start_aldriver(void);
