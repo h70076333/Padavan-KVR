@@ -101,7 +101,7 @@ typedef u_int8_t u8;
 #define EVM_RESTART_ADGUARDHOME		(1ULL << 57)
 #define EVM_RESTART_WYY				(1ULL << 58)
 #define EVM_RESTART_ZEROTIER		(1ULL << 59)
-#define EVM_RESTART_NVPPROXY		(1ULL << 60)
+#define EVM_RESTART_ETINK		(1ULL << 60)
 #define EVM_RESTART_NELINK	    	(1ULL << 61)
 #define EVM_RESTART_WIREGUARD		(1ULL << 62)
 #define EVM_RESTART_HXCLI		(1ULL << 63)
