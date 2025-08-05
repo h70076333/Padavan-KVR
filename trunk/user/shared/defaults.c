@@ -919,6 +919,18 @@ struct nvram_pair router_defaults[] = {
 	{ "nelink_log3", "" },
 #endif
 
+#if defined(APP_ETINK)
+	/*etink*/
+	{ "etink_enable", "0" },
+	{ "etink_keyg", "abc123" },
+	{ "etink_ip", "20" },
+	{ "etink_inlan1", "192.168.x.0" },
+	{ "etink_xuip1", "10.26.2.x" },
+	{ "etink_log", "" },
+	{ "etink_log2", "" },
+	{ "etink_log3", "" },
+#endif
+
 #if defined(APP_ALDRIVER)
 	/*阿里云盘*/
 	{ "aliyundrive_enable", "0" },
