@@ -646,6 +646,23 @@ void restart_nelink(void){
 }
 #endif
 
+#if defined(APP_ETINK)
+void stop_etink(void){
+	eval("/usr/bin/et.sh","stop");
+}
+
+void start_etink(void){
+	int nelink_enable = nvram_get_int("etink_enable");
+	if ( nelink_enable == 1)
+		eval("/usr/bin/et.sh","start");
+}
+
+void restart_etink(void){
+	stop_etink();
+	start_etink();
+}
+#endif
+
 #if defined(APP_WIREGUARD)
 void stop_wireguard(void){
 	eval("/usr/bin/wireguard.sh","stop");
@@ -979,6 +996,9 @@ stop_services(int stopall)
 #if defined(APP_NELINK)
 	stop_nelink();
 #endif
+#if defined(APP_ETINK)
+	stop_etink();
+#endif	
 #if defined(APP_WIREGUARD)
 	stop_wireguard();
 #endif
