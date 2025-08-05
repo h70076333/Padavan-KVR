@@ -1306,6 +1306,20 @@
 	};
 #endif
 
+#if defined(APP_ETINK)
+	struct variable variables_ETINK[] = {
+			{"etink_enable", "", NULL, EVM_RESTART_ETINK},
+			{"etink_keyg", "", NULL, EVM_RESTART_ETINK},
+			{"etink_ip", "", NULL, EVM_RESTART_ETINK},
+			{"etink_inlan1", "", NULL, EVM_RESTART_ETINK},
+			{"etink_xuip1", "", NULL, EVM_RESTART_ETINK},
+			{"etink_log", "", NULL, EVM_RESTART_ETINK},
+			{"etink_log2", "", NULL, EVM_RESTART_ETINK},
+			{"etink_log3", "", NULL, EVM_RESTART_ETINK},
+			{0,0,0,0}
+	};
+#endif
+
 #if defined(APP_ALDRIVER)
 	struct variable variables_ALDRIVER[] = {
 			{"aliyundrive_enable", "", NULL, EVM_RESTART_ALDRIVER},
@@ -1507,6 +1521,9 @@
 #if defined(APP_NELINK)
 		{"NELINK",		variables_NELINK},
 #endif
+#if defined(APP_ETINK)
+		{"ETINK",		variables_ETINK},
+#endif
 #if defined(APP_ALDRIVER)
 		{"ALDRIVER",		variables_ALDRIVER},
 #endif
@@ -1641,6 +1658,9 @@
 #endif
 #if defined(APP_NELINK)
 		{EVM_RESTART_NELINK,		EVT_RESTART_NELINK,		RCN_RESTART_NELINK,	0},
+#endif
+#if defined(APP_ETINK)
+		{EVM_RESTART_ETINK,		EVT_RESTART_ETINK,		RCN_RESTART_ETINK,	0},
 #endif
 #if defined(APP_ALDRIVER)
 		{EVM_RESTART_ALDRIVER,		EVT_RESTART_ALDRIVER,		RCN_RESTART_ALDRIVER,	0},
