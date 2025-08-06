@@ -54,7 +54,7 @@ function applyRule(){
 	showLoading();
 	
 	document.form.action_mode.value = " Apply ";
-	document.form.current_page.value = "/Advanced_nelink.asp";
+	document.form.current_page.value = "/Advanced_etink.asp";
 	document.form.next_page.value = "";
 	
 	document.form.submit();
@@ -99,7 +99,7 @@ function button_nelink_web(){
 
 	<form method="post" name="form" id="ruleForm" action="/start_apply.htm" target="hidden_frame">
 
-	<input type="hidden" name="current_page" value="Advanced_nelink.asp">
+	<input type="hidden" name="current_page" value="Advanced_etink.asp">
 	<input type="hidden" name="next_page" value="">
 	<input type="hidden" name="next_host" value="">
 	<input type="hidden" name="sid_list" value="NELINK;">
@@ -170,47 +170,33 @@ function button_nelink_web(){
 										</tr>
 
 										<tr>
-										<th>本机虚拟ip（格式 20）</th>
+										<th>本机虚拟ip（密码）</th>
 				<td>
-					<input type="text" class="input" name="etink_ip" id="etink_ip" style="width: 30px" value="<% nvram_get_x("","etink_ip"); %>" />
+					<input type="text" class="input" name="etink_ip" id="etink_ip" style="width: 200px" value="<% nvram_get_x("","etink_ip"); %>" />
 				</td>
 
 										</tr>
 									
 										<tr>
-										<th>对端的IP（格式 192.168.x.0） </th>
+										<th>本地IP（格式 192.168.x.0/24） </th>
 				<td>
 					<input type="text" class="input" name="etink_inlan1" id="etink_inlan1" style="width: 120px" value="<% nvram_get_x("","etink_inlan1"); %>" />
 				</td>
 
 										</tr>
 										<tr>
-										<th>对端的虚拟ip（格式 10.26.2.x)</th>
+										<th>虚拟ip（格式 10.10.10.x)</th>
 				<td>
 					<input type="text" class="input" name="etink_xuip1" id="etink_xuip1" style="width: 100px" value="<% nvram_get_x("","etink_xuip1"); %>" />
 				</td>
 
 										</tr>
 										<tr>
-										<th>节点地址</th>
+										<th>下载版本地址名</th>
 				<td>
 					<input type="text" class="input" readonly name="etink_log" id="etink_log" style="width: 240px" value="<% nvram_get_x("","etink_log"); %>" />
 				</td>
 
-
-										</tr>
-										<tr>
-										<th>开起第2个设备(不用留空）</th>
-				<td>
-					<input type="text" class="input" name="etink_log2" id="etink_log2" style="width: 240px" value="<% nvram_get_x("","etink_log2"); %>" />
-				</td>
-
-										</tr>
-										<tr>
-										<th>开起第3个设备(route add -net inip/24 gw xuip）</th>
-				<td>
-					<input type="text" class="input" name="etink_log3" id="etink_log3" style="width: 240px" value="<% nvram_get_x("","etink_log3"); %>" />
-				</td>
 
 										</tr>
 										<tr>
