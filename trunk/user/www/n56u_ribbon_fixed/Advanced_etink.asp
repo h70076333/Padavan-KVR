@@ -2,7 +2,7 @@
 <!--Copyright by hiboy-->
 <html>
 <head>
-<title><#Web_Title#> - NE异地组网</title>
+<title><#Web_Title#> - ET异地组网</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
@@ -72,7 +72,7 @@ function done_validating(action){
 	refreshpage();
 }
 
-function button_nelink_web(){
+function button_etink_web(){
 	var port = '6688';
 	var url = window.location.protocol + "//" + window.location.hostname + ":" + port;
 	window.open(url);
@@ -102,7 +102,7 @@ function button_nelink_web(){
 	<input type="hidden" name="current_page" value="Advanced_etink.asp">
 	<input type="hidden" name="next_page" value="">
 	<input type="hidden" name="next_host" value="">
-	<input type="hidden" name="sid_list" value="NELINK;">
+	<input type="hidden" name="sid_list" value="ETINK;">
 	<input type="hidden" name="group_id" value="">
 	<input type="hidden" name="action_mode" value="">
 	<input type="hidden" name="action_script" value="">
@@ -127,7 +127,7 @@ function button_nelink_web(){
 	<div class="row-fluid">
 	<div class="span12">
 	<div class="box well grad_colour_dark_blue">
-	<h2 class="box_head round_top">宏兴智能组网</h2>
+	<h2 class="box_head round_top">ET智能组网</h2>
 	<div class="round_bottom">
 	<div class="row-fluid">
 	<div id="tabMenu" class="submenuBlock"></div>
@@ -136,7 +136,7 @@ function button_nelink_web(){
 	<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">
-									<p>NE智能组网是一个易于配置异地组网 直连技术支持IPV6<br>
+									<p>ET智能组网是一个易于配置异地组网 直连技术支持IPV6<br>
 									</p>
 									</div>
 
@@ -149,7 +149,7 @@ function button_nelink_web(){
 										<th width="30%" style="border-top: 0 none;">启用组网客户端</th>
 											<td style="border-top: 0 none;">
 													<div class="main_itoggle">
-													<div id="nelink_enable_on_of">
+													<div id="etink_enable_on_of">
 														<input type="checkbox" id="etink_enable_fake" <% nvram_match_x("", "etink_enable", "1", "value=1 checked"); %><% nvram_match_x("", "etink_enable", "0", "value=0"); %>  />
 													</div>
 												</div>
