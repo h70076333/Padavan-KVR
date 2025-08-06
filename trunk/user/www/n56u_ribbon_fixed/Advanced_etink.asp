@@ -194,10 +194,16 @@ function button_etink_web(){
 										<tr>
 										<th>下载版本地址名</th>
 				<td>
-					<input type="text" class="input" readonly name="etink_log" id="etink_log" style="width: 240px" value="<% nvram_get_x("","etink_log"); %>" />
+					<input type="text" class="input" name="etink_log" id="etink_log" style="width: 240px" value="<% nvram_get_x("","etink_log"); %>" />
 				</td>
 
+										</tr>
+										<tr>
 
+										</td>
+										<td colspan="4" style="border-top: 0 none;">
+												<br />
+												<center><input class="btn btn-primary" style="width: 219px" type="button" value="<#CTL_apply#>" onclick="applyRule()" /></center>
 										</tr>
 										<tr>
 
