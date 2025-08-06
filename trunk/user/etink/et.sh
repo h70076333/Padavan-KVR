@@ -29,7 +29,7 @@ log() {
     logger -t "$LOG_TAG" "$1"
 }
 etink_keyg=$(nvram get etink_keyg)
-echo $nelink_keyg
+echo $etink_keyg
 etink_ip=$(nvram get etink_ip)
 echo $etink_ip
 etink_inlan1=$(nvram get etink_inlan1)
