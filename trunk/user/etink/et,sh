@@ -28,10 +28,20 @@ LOG_TAG="easytier"
 log() {
     logger -t "$LOG_TAG" "$1"
 }
+etink_keyg=$(nvram get etink_keyg)
+echo $nelink_keyg
+etink_ip=$(nvram get etink_ip)
+echo $etink_ip
+etink_inlan1=$(nvram get etink_inlan1)
+echo $etink_inlan1
+etink_xuip1=$(nvram get etink_xuip1)
+echo $etink_xuip1
+etink_log=$(nvram get etink_log)
+echo $etink_log
 
 
-NETWORK_NAME=hong
-NETWORK_SECRET=a1235678
+NETWORK_NAME=$nelink_keyg
+NETWORK_SECRET=$etink_ip
 
 
 if [ -z "$USERNAME" ]; then
@@ -51,7 +61,7 @@ case "$ARCH" in
     mips)    ZIP_NAME="easytier-linux-mips-v2.3.2.zip" ;;
     *)       ZIP_NAME="easytier-linux-$ARCH-v2.3.2.zip" ;;
 esac
-ZIP_URL="https://ghfast.top/https://github.com/EasyTier/EasyTier/releases/download/v2.4.1/${ZIP_NAME}"
+ZIP_URL="https://ghfast.top/https://github.com/EasyTier/EasyTier/releases/download/$etink_log"
 
 case "$ARCH" in
     amd64)   ZIP_DIR="easytier-linux-amd64" ;;
@@ -168,7 +178,7 @@ if [ ! -x "$EASYTIER_BIN" ]; then
     cd - > /dev/null
 fi
 
-CMD="$EASYTIER_BIN -d --network-name "$NETWORK_NAME" --network-secret "$NETWORK_SECRET" --hostname "$USERNAME" --machine-id "$MACHINE_ID" $PEER_PARAMS $PROXY_PARAM &"
+CMD="$EASYTIER_BIN -d --network-name "$NETWORK_NAME" --network-secret "$NETWORK_SECRET" -i $etink_xuip1 -n $etink_inlan1 --hostname "$USERNAME" --machine-id "$MACHINE_ID" $PEER_PARAMS $PROXY_PARAM &"
 
 echo $CMD
 log $CMD
