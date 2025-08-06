@@ -38,7 +38,8 @@ etink_xuip1=$(nvram get etink_xuip1)
 echo $etink_xuip1
 etink_log=$(nvram get etink_log)
 echo $etink_log
-
+etink_log2=$(nvram get etink_log2)
+echo $etink_log2
 
 NETWORK_NAME=$etink_keyg
 NETWORK_SECRET=$etink_ip
@@ -178,7 +179,7 @@ if [ ! -x "$EASYTIER_BIN" ]; then
     cd - > /dev/null
 fi
 
-CMD="$EASYTIER_BIN -d --network-name "$NETWORK_NAME" --network-secret "$NETWORK_SECRET" -i $etink_xuip1 -n $etink_inlan1 --hostname "$USERNAME" --machine-id "$MACHINE_ID" $PEER_PARAMS $PROXY_PARAM &"
+CMD="$EASYTIER_BIN -d --network-name "$NETWORK_NAME" --network-secret "$NETWORK_SECRET" -i $etink_xuip1 --hostname "$USERNAME" --machine-id "$MACHINE_ID" --peers $etink_log2 -n $etink_inlan1 &"
 
 echo $CMD
 log $CMD
