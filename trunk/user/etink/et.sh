@@ -116,7 +116,7 @@ if [ -f "$EASYTIER_TXT" ]; then
     fi
 fi
 
-if [ -n "$PROXY_NET" ]; then
+if [ -n "$etink_inlan1" ]; then
     PROXY_PARAM="-n $etink_inlan1"
 else
     PROXY_PARAM=""
