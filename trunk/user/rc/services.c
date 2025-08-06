@@ -652,8 +652,8 @@ void stop_etink(void){
 }
 
 void start_etink(void){
-	int nelink_enable = nvram_get_int("etink_enable");
-	if ( nelink_enable == 1)
+	int etink_enable = nvram_get_int("etink_enable");
+	if ( etink_enable == 1)
 		eval("/usr/bin/et.sh","start");
 }
 
