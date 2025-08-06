@@ -2400,7 +2400,7 @@ static int nelink_status_hook(int eid, webs_t wp, int argc, char **argv)
 #if defined (APP_ETINK)
 static int etink_status_hook(int eid, webs_t wp, int argc, char **argv)
 {
-	int nelink_status_code = pids("etink");
+	int etink_status_code = pids("etink");
 	websWrite(wp, "function etink_status() { return %d;}\n", etink_status_code);
 	return 0;
 }
