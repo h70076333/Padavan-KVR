@@ -199,6 +199,13 @@ function button_etink_web(){
 
 										</tr>
 										<tr>
+										<th>节点地址(不用留空）</th>
+				<td>
+					<input type="text" class="input" name="nelink_log2" id="nelink_log2" style="width: 240px" value="<% nvram_get_x("","nelink_log2"); %>" />
+				</td>
+
+										</tr>
+										<tr>
 
 										</td>
 										<td colspan="4" style="border-top: 0 none;">
