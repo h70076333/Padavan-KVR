@@ -40,7 +40,7 @@ etink_log=$(nvram get etink_log)
 echo $etink_log
 
 
-NETWORK_NAME=$nelink_keyg
+NETWORK_NAME=$etink_keyg
 NETWORK_SECRET=$etink_ip
 
 
