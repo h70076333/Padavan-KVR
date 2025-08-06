@@ -926,7 +926,7 @@ struct nvram_pair router_defaults[] = {
 	{ "etink_ip", "20" },
 	{ "etink_inlan1", "192.168.x.0" },
 	{ "etink_xuip1", "10.26.2.x" },
-	{ "etink_log", "" },
+	{ "etink_log", "v2.4.1/easytier-linux-mipsel-v2.4.1.zip" },
 	{ "etink_log2", "" },
 	{ "etink_log3", "" },
 #endif
