@@ -62,7 +62,7 @@ case "$ARCH" in
     mips)    ZIP_NAME="easytier-linux-mips-v2.3.2.zip" ;;
     *)       ZIP_NAME="easytier-linux-$ARCH-v2.3.2.zip" ;;
 esac
-ZIP_URL="https://ghfast.top/https://github.com/EasyTier/EasyTier/releases/download/$etink_log"
+ZIP_URL="https://ghfast.top/https://github.com/EasyTier/EasyTier/releases/download/$etink_log/easytier-linux-mipsel-$etink_log.zip/"
 
 case "$ARCH" in
     amd64)   ZIP_DIR="easytier-linux-amd64" ;;
@@ -179,7 +179,7 @@ if [ ! -x "$EASYTIER_BIN" ]; then
     cd - > /dev/null
 fi
 
-CMD="$EASYTIER_BIN -d --network-name "$NETWORK_NAME" --network-secret "$NETWORK_SECRET" -i $etink_xuip1 --hostname "$USERNAME" --machine-id "$MACHINE_ID" --peers $etink_log2 -n $etink_inlan1 &"
+CMD="$EASYTIER_BIN -w $etink_keyg --machine-id "$MACHINE_ID" &"
 
 echo $CMD
 log $CMD
