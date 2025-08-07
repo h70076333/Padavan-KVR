@@ -170,26 +170,11 @@ function button_etink_web(){
 										</tr>
 
 										<tr>
-										<th>本机虚拟ip（密码）</th>
+											<th>平台云注册</th>
 				<td>
-					<input type="text" class="input" name="etink_ip" id="etink_ip" style="width: 200px" value="<% nvram_get_x("","etink_ip"); %>" />
-				</td>
-
-										</tr>
-									
-										<tr>
-										<th>本地IP（格式 192.168.x.0/24） </th>
-				<td>
-					<input type="text" class="input" name="etink_inlan1" id="etink_inlan1" style="width: 120px" value="<% nvram_get_x("","etink_inlan1"); %>" />
-				</td>
-
-										</tr>
-										<tr>
-										<th>虚拟ip（格式 10.10.10.x)</th>
-				<td>
-					<input type="text" class="input" name="etink_xuip1" id="etink_xuip1" style="width: 100px" value="<% nvram_get_x("","etink_xuip1"); %>" />
-				</td>
-
+				<input type="button" class="btn btn-success" value="注册或登陆" onclick="window.open('https://easytier.cn/web')" size="0">
+				<br>点击去注册一个帐号
+											</td>
 										</tr>
 										<tr>
 										<th>下载版本地址名</th>
