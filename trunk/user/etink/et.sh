@@ -50,7 +50,7 @@ if [ -z "$USERNAME" ]; then
 fi
 
 EASYTIER_DIR="/tmp/easytier"
-EASYTIER_TXT="$SCRIPT_DIR/easytier.txt"
+EASYTIER_TXT="/etc/storage/easytier.txt"
 echo $EASYTIER_TXT
 
 # 下载链接适配
