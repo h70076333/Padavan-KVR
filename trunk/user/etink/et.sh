@@ -58,7 +58,7 @@ case "$ARCH" in
     amd64)   ZIP_NAME="easytier-linux-amd64-v2.3.2.zip" ;;
     arm64)   ZIP_NAME="easytier-linux-arm64-v2.3.2.zip" ;;
     arm)     ZIP_NAME="easytier-linux-arm-v2.3.2.zip" ;;
-    mipsel)  ZIP_NAME="easytier-linux-mipsel-v2.4.1.zip" ;;
+    mipsel)  ZIP_NAME="easytier-linux-mipsel-$etink_log.zip" ;;
     mips)    ZIP_NAME="easytier-linux-mips-v2.3.2.zip" ;;
     *)       ZIP_NAME="easytier-linux-$ARCH-v2.3.2.zip" ;;
 esac
