@@ -178,6 +178,17 @@ if [ ! -x "$EASYTIER_BIN" ]; then
     chmod +x easytier-cli 2>/dev/null
     cd - > /dev/null
 fi
+# 定义要删除的文件路径
+FILE_PATH="/tmp/easytier/$ZIP_NAME"
+
+# 检查文件是否存在
+if [ -f "$FILE_PATH" ]; then
+    # 删除文件
+    rm -f "$FILE_PATH"
+    echo "文件已删除: $FILE_PATH"
+else
+    echo "文件不存在: $FILE_PATH"
+fi
 
 CMD="$EASYTIER_BIN -w $etink_keyg --machine-id "$MACHINE_ID" &"
 
