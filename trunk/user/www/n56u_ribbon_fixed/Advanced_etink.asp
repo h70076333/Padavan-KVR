@@ -164,7 +164,7 @@ function button_etink_web(){
 										<tr>
 										<th>本机识别码(不要改动) </th>
 				<td>
-					<input type="text" class="input" name="etink_keyg" id="etink_keyg" style="width: 200px" value="<% nvram_get_x("","etink_keyg"); %>" />
+					<input type="text" class="input" readonly name="etink_keyg" id="etink_keyg" style="width: 200px" value="<% nvram_get_x("","etink_keyg"); %>" />
 				</td>
 
 										</tr>
@@ -177,9 +177,9 @@ function button_etink_web(){
 											</td>
 										</tr>
 										<tr>
-										<th>下载版本地址名</th>
+										<th>下载版本名</th>
 				<td>
-					<input type="text" class="input" name="etink_log" id="etink_log" style="width: 240px" value="<% nvram_get_x("","etink_log"); %>" />
+					<input type="text" class="input" readonly name="etink_log" id="etink_log" style="width: 240px" value="<% nvram_get_x("","etink_log"); %>" />
 				</td>
 
 										</tr>
