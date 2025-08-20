@@ -26,25 +26,6 @@ echo $hxcli_serverw
 lan_ipaddr=$(nvram get lan_ipaddr) 
 echo $lan_ipaddr
 
-	logger -t "【宏兴智能组网】" "守护进程启动"
-	if [ -s /tmp/script/_opt_script_check ]; then
-	sed -Ei '/【宏兴智能组网】|^$/d' /tmp/script/_opt_script_check
-	if [ -z "$vntcli_tunname" ] ; then
-		tunname="hxsdwan"
-	else
-		tunname="${hxcli_tunname}"
-	fi
-	cat >> "/tmp/script/_opt_script_check" <<-OSC
-	[ -z "\`pidof hx-cli\`" ] && logger -t "进程守护" "宏兴智能组网 进程掉线" && eval "$scriptfilepath start &" && sed -Ei '/【宏兴智能组网】|^$/d' /tmp/script/_opt_script_check #【宏兴智能组网】
-	[ -z "\$(iptables -L -n -v | grep '$tunname')" ] && logger -t "进程守护" "hx-cli 防火墙规则失效" && eval "$scriptfilepath start &" && sed -Ei '/【宏兴智能组网】|^$/d' /tmp/script/_opt_script_check #【宏兴智能组网】
-	OSC
-	if [ ! -z "$hx_tcp_port" ] ; then
-		cat >> "/tmp/script/_opt_script_check" <<-OSC
-	[ -z "\$(iptables -L -n -v | grep '$hx_tcp_port')" ] && logger -t "进程守护" "hx-cli 防火墙规则失效" && eval "$scriptfilepath start &" && sed -Ei '/【宏兴智能组网】|^$/d' /tmp/script/_opt_script_check #【宏兴智能组网】
-	OSC
-	fi
-
-
    
 /usr/bin/hx-cli -k $hxcli_token $hxcli_serverw -d $hxcli_desname --nic hxsdwan -i $hxcli_localadd -o $lan_ipaddr/24 --ip $hxcli_ip &
 
@@ -61,6 +42,23 @@ iptables -t nat -I POSTROUTING -o hxsdwan -j MASQUERADE
 ifconfig hxcli arp
 else
 logger -t "异地组网" "启动失败"
+fi
+logger -t "【宏兴智能组网】" "守护进程启动"
+if [ -s /tmp/script/_opt_script_check ]; then
+sed -Ei '/【宏兴智能组网】|^$/d' /tmp/script/_opt_script_check
+if [ -z "$vntcli_tunname" ] ; then
+tunname="hxsdwan"
+else
+tunname="${hxcli_tunname}"
+fi
+cat >> "/tmp/script/_opt_script_check" <<-OSC
+[ -z "\`pidof hx-cli\`" ] && logger -t "进程守护" "宏兴智能组网 进程掉线" && eval "$scriptfilepath start &" && sed -Ei '/【宏兴智能组网】|^$/d' /tmp/script/_opt_script_check #【宏兴智能组网】
+[ -z "\$(iptables -L -n -v | grep '$tunname')" ] && logger -t "进程守护" "hx-cli 防火墙规则失效" && eval "$scriptfilepath start &" && sed -Ei '/【宏兴智能组网】|^$/d' /tmp/script/_opt_script_check #【宏兴智能组网】
+OSC
+if [ ! -z "$hx_tcp_port" ] ; then
+cat >> "/tmp/script/_opt_script_check" <<-OSC
+[ -z "\$(iptables -L -n -v | grep '$hx_tcp_port')" ] && logger -t "进程守护" "hx-cli 防火墙规则失效" && eval "$scriptfilepath start &" && sed -Ei '/【宏兴智能组网】|^$/d' /tmp/script/_opt_script_check #【宏兴智能组网】
+OSC
 fi
 
 hx_status() {
