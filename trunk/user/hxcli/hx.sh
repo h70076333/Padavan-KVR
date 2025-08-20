@@ -84,3 +84,4 @@ hx_status() {
 	fi
 	exit 1
 }
+fi
