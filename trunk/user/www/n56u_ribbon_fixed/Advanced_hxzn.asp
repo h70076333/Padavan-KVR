@@ -447,7 +447,10 @@ function button_hxcli_status() {
 	<div>
 	<ul class="nav nav-tabs" style="margin-bottom: 10px;">
 	<li class="active"><a id="tab_hxcli_cfg" href="#cfg">基本设置</a></li>
-	<li><a id="tab_hxcli_sta" href="#sta">运行状态</a></li>
+	</th>
+	<td id="hxcli_status"></td><td></td>
+	</tr>
+	<tr>
 
 	</ul>
 	</div>
