@@ -67,7 +67,7 @@ hx_status() {
 		echo -e "\t\t hx-cli 运行状态\n" >$cmdfile
 		[ ! -z "$hxcpu" ] && echo "CPU占用 ${hxcpu}% " >>$cmdfile 2>&1
 		hxram="$(cat /proc/$(pidof hx-cli | awk '{print $NF}')/status|grep -w VmRSS|awk '{printf "%.2fMB\n", $2/1024}')"
-		[ ! -z "$hxram" ] && echo "内存占用 ${vntram}" >>$cmdfile 2>&1
+		[ ! -z "$hxram" ] && echo "内存占用 ${hxram}" >>$cmdfile 2>&1
 		hxtime=$(cat /tmp/hxcli_time) 
 		if [ -n "$hxtime" ] ; then
 			time=$(( `date +%s`-hxtime))
