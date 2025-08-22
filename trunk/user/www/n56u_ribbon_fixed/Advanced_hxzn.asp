@@ -448,21 +448,25 @@ function button_hxcli_status() {
 	<ul class="nav nav-tabs" style="margin-bottom: 10px;">
 	<li class="active"><a id="tab_hxcli_cfg" href="#cfg">基本设置</a></li>
 	</th>
-	<td id="hxcli_status"></td><td></td>
 	</tr>
 	<tr>
-
-	</ul>
 	</div>
 	<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">
 									<p>宏兴智能组网是一个易于配置异地组网 直连技术支持IPV6<br>
 									</p>
-									</div>
-
-
-
+										</div>
+	<table width="100%" cellpadding="4" cellspacing="0" class="table">
+	<tr>
+	<th colspan="4" style="background-color: #756c78;">开关</th>
+	</tr>
+	<tr>
+	<th><#running_status#>
+	</th>
+	<td id="vntcli_status"></td><td></td>
+	</tr>
+	<tr>
 									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
 
 
