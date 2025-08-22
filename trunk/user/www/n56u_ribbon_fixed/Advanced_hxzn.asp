@@ -457,14 +457,11 @@ function button_hxcli_status() {
 									<p>宏兴智能组网是一个易于配置异地组网 直连技术支持IPV6<br>
 									</p>
 										</div>
-	<table width="100%" cellpadding="4" cellspacing="0" class="table">
-	<tr>
-	<th colspan="4" style="background-color: #756c78;">开关</th>
 	</tr>
 	<tr>
 	<th><#running_status#>
 	</th>
-	<td id="vntcli_status"></td><td></td>
+	<td id="hxcli_status"></td><td></td>
 	</tr>
 	<tr>
 									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
