@@ -26,9 +26,11 @@ echo $hxcli_serverw
 lan_ipaddr=$(nvram get lan_ipaddr) 
 echo $lan_ipaddr
 
-   
-/usr/bin/hx-cli -k $hxcli_token $hxcli_serverw -d $hxcli_desname --nic hxsdwan -i $hxcli_localadd -o $lan_ipaddr/24 --ip $hxcli_ip &
+hxclicmd="/usr/bin/hx-cli -k $hxcli_token $hxcli_serverw -d $hxcli_desname --nic hxsdwan -i $hxcli_localadd -o $lan_ipaddr/24 --ip $hxcli_ip >/tmp/hx-cli.log 2>&1"   
 
+echo "$hxclicmd" >/tmp/hx-cli.CMD 
+logger -t "【宏兴智能组网】" "运行${hxclicmd}"
+eval "$hxclicmd" &
 
 sleep 4
 if [ ! -z "`pidof hx-cli`" ] ; then
@@ -46,7 +48,7 @@ fi
 logger -t "【宏兴智能组网】" "守护进程启动"
 if [ -s /tmp/script/_opt_script_check ]; then
 sed -Ei '/【宏兴智能组网】|^$/d' /tmp/script/_opt_script_check
-if [ -z "$vntcli_tunname" ] ; then
+if [ -z "$hxcli_tunname" ] ; then
 tunname="hxsdwan"
 else
 tunname="${hxcli_tunname}"
@@ -81,7 +83,7 @@ hx_status() {
 		
 	else
 		echo "$hx_error" >$cmdfile
-	fi
+        fi
 	exit 1
 }
 fi
