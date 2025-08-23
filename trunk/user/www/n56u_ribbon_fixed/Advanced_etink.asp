@@ -24,6 +24,7 @@
 <script type="text/javascript" src="/help.js"></script>
 <script>
 var $j = jQuery.noConflict();
+<% easytier_status(); %>
 <% login_state_hook(); %>
 $j(document).ready(function() {
 	
@@ -42,12 +43,23 @@ function initial(){
 	show_menu(5,17,0);
 	showmenu();
 	show_footer();
+	fill_status(etink_status());
+	change_etink_enable(1);
 	if (!login_safe())
         		textarea_scripts_enabled(0);
 }
 
 function textarea_scripts_enabled(v){
 	inputCtrl(document.form['scripts.wg0.conf'], v);
+}
+
+function fill_status(status_code){
+	var stext = "Unknown";
+	if (status_code == 0)
+		stext = "<#Stopped#>";
+	else if (status_code == 1)
+		stext = "<#Running#>";
+	$("etink_status").innerHTML = '<span class="label label-' + (status_code != 0 ? 'success' : 'warning') + '">' + stext + '</span>';
 }
 
 function applyRule(){
@@ -139,7 +151,13 @@ function button_etink_web(){
 									<p>ET智能组网是一个易于配置异地组网 直连技术支持IPV6<br>
 									</p>
 									</div>
-
+	</tr>
+	<tr>
+	<th><#running_status#>
+	</th>
+	<td id="etink_status"></td><td></td>
+	</tr>
+	<tr>
 
 
 									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
