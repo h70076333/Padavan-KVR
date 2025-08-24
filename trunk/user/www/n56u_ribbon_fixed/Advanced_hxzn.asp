@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><#Web_Title#> - <#menu5_37#></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
@@ -17,10 +16,11 @@
 <script type="text/javascript" src="/bootstrap/js/engage.itoggle.min.js"></script>
 <script type="text/javascript" src="/state.js"></script>
 <script type="text/javascript" src="/general.js"></script>
-<script type="text/javascript" src="/client_function.js"></script>
 <script type="text/javascript" src="/itoggle.js"></script>
+<script type="text/javascript" src="/client_function.js"></script>
 <script type="text/javascript" src="/popup.js"></script>
 <script type="text/javascript" src="/help.js"></script>
+<script type="text/javascript" src="/help_b.js"></script>
 <script>
 var $j = jQuery.noConflict();
 
@@ -460,13 +460,10 @@ function button_hxcli_status() {
 									<p>宏兴智能组网是一个易于配置异地组网 直连技术支持IPV6<br>
 									</p>
 										</div>
-										<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
+									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
 									<tr> <th><#running_status#></th>
                                             <td id="hxcli_status" colspan="3"></td>
-                                        </tr><td></td><td></td><td></td>
-										<tr>
-									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
-
+                                        </tr>
 
 										<tr>
 										<th width="30%" style="border-top: 0 none;">启用组网客户端</th>
