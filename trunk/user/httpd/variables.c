@@ -1372,9 +1372,9 @@
 			{"w_ss", "", NULL, FALSE},
 			{"w_men", "", NULL, FALSE},
 			{"w_adbyby", "", NULL, FALSE},
-			{"w_pdnsd", "", NULL, FALSE}
+			{"w_pdnsd", "", NULL, FALSE},
 			{"w_hxcli", "", NULL, FALSE},
-			{"w_etink", "", NULL, FALSE}
+			{"w_etink", "", NULL, FALSE},
 	};
 
 	struct variable variables_WLANConfig11b[] = {
