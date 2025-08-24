@@ -1682,82 +1682,72 @@ var w_ai = '<% nvram_get_x("", "w_ai"); %>',
 	w_men = '<% nvram_get_x("", "w_men"); %>',
 	w_adbyby = '<% nvram_get_x("", "w_adbyby"); %>',
 	w_pdnsd = '<% nvram_get_x("", "w_pdnsd"); %>';
+	w_hxcli = '<% nvram_get_x("", "w_hxcli"); %>',
+	w_nelink = '<% nvram_get_x("", "w_nelink"); %>';
 
-jQuery.each(menuL1, function (i, m) {
-	var hidden = false;
-	if (w_vpn_s === '0' && m.icon == 'icon-retweet') {
-		hidden = true;
-	}
-	else if (w_vpn_c === '0' && m.icon == 'icon-globe') {
-		hidden = true;
-	}
-	else if (w_wnet === '0' && m.icon == 'icon-tasks') {
-		hidden = true;
-	}
-	else if (w_sys === '0' && m.icon == 'icon-random') {
-		hidden = true;
-	}
-	if (hidden) {
-		m.title = '';
-		m.link = '';
-	}
-});
-jQuery.each(menuL2, function (i, m) {
-	var hidden = false;
-	if (w_usb === '0' && m.index == '6') {
-		hidden = true;
-	}
-	else if (w_net === '0' && m.index == '9') {
-		hidden = true;
-	}
-	else if (w_log === '0' && m.index == '10') {
-		hidden = true;
-	}
-	else if (w_scu === '0' && m.index == '11') {
-		hidden = true;
-	}
-	else if (w_dnsf === '0' && m.index == '12') {
-		hidden = true;
-	}
-	else if (w_ss === '0' && m.index == '13') {
-		hidden = true;
-	}
-	else if (w_men === '0' && m.index == '14') {
-		hidden = true;
-	}
-	else if (w_adbyby === '0' && m.index == '15') {
-		hidden = true;
-	}
-	else if (w_pdnsd === '0' && m.index == '16') {
-		hidden = true;
-	}
-	if (hidden) {
-		m.title = '';
-		m.link = '';
-	}
-});
-
-function mobilestyle() {
-	var sc = document.createElement("meta");
-	sc.setAttribute("name", "viewport");
-	sc.setAttribute("content", "width=device-width, initial-scale=1, user-scalable=yes");
-	document.head.appendChild(sc);
-
-	$j = jQuery.noConflict();
-	setTimeout(function () {
-		if ($j(window).width() < 800) {//body 加载晚
-			var qc = "";
-			$j('.table-big tr').each(function () {
-				var o = $j(this);
-				qc += '<div class="sub" id="' + o.attr('id') + '" style="' + o.attr('style') + '">' + $j('td', o).html() + '</div>';
-			});
-			$j('<div class="quickmenu">' + qc + '</div>').insertBefore("#tabMenu");
-			$j('.table-big').remove();
-
-			$j('#net_chart,#cpu_chart').parents("table").parent().addClass('chart-parent');
-
-		}
-	}, 500);
+if (w_ai==0){
+	menuL1_link[2] = "";
+	menuL1_title[2] = "";
+}
+if (w_vpn_s==0){
+	menuL1_link[3] = "";
+	menuL1_title[3] = "";
+}
+if (w_vpn_c==0){
+	menuL1_link[4] = "";
+	menuL1_title[4] = "";
+}
+if (w_wnet==0){
+	menuL1_link[5] = "";
+	menuL1_title[5] = "";
+}
+if (w_sys==0){
+	menuL1_link[6] = "";
+	menuL1_title[6] = "";
+}
+if (w_usb==0){
+	menuL2_link[6] = "";
+	menuL2_title[6] = "";
+}
+if (w_net==0){
+	menuL2_link[9] = "";
+	menuL2_title[9] = "";
+}
+if (w_log==0){
+	menuL2_link[10] = "";
+	menuL2_title[10] = "";
+}
+if (w_scu==0){
+	menuL2_link[11] = "";
+	menuL2_title[11] = "";
+}
+if (w_dnsf==0){
+	menuL2_link[12] = "";
+	menuL2_title[12] = "";
+}
+if (w_ss==0){
+	menuL2_link[13] = "";
+	menuL2_title[13] = "";
+}
+if (w_men==0){
+	menuL2_link[14] = "";
+	menuL2_title[14] = "";
+}
+if (w_adbyby==0){
+	menuL2_link[15] = "";
+	menuL2_title[15] = "";
+}
+if (w_pdnsd==0){
+	menuL2_link[16] = "";
+	menuL2_title[16] = "";
+}
+if (w_hxcli==0){
+	menuL2_link[17] = "";
+	menuL2_title[17] = "";
+}
+if (w_etlink==0){
+	menuL2_link[18] = "";
+	menuL2_title[18] = "";
 }
 
 (function ($) {
