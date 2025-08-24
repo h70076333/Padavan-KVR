@@ -39,6 +39,8 @@ $j(document).ready(function() {
 	init_itoggle('w_men');
 	init_itoggle('w_adbyby');
 	init_itoggle('w_pdnsd');
+	init_itoggle('w_hxcli');
+	init_itoggle('w_etink');
 
 });
 </script>
@@ -68,6 +70,12 @@ if (found_app_adbyby() || found_app_koolproxy()){
 }
 if (found_app_smartdns() || found_app_adguardhome()){
 	showhide_div('row_wpdnsd', true);
+}
+if (found_app_hxcli()){
+	showhide_div('row_whxcli', true);
+}
+if (found_app_etink()){
+	showhide_div('row_wetink', true);
 }
 }
 
@@ -321,7 +329,34 @@ function applyRule(){
 												</div>
 											</td>
 										</tr>
-										
+										<tr id="row_whxcli" style="display:none">
+											<th width="50%" >宏兴智能组网</th>
+											<td>
+													<div class="main_itoggle">
+													<div id="w_hxcli_on_of">
+														<input type="checkbox" id="w_hxcli_fake" <% nvram_match_x("", "w_hxcli", "1", "value=1 checked"); %><% nvram_match_x("", "w_hxcli", "0", "value=0"); %>  />
+													</div>
+												</div>
+												<div style="position: absolute; margin-left: -10000px;">
+													<input type="radio" value="1" name="w_hxcli" id="w_hxcli_1" class="input" <% nvram_match_x("", "w_hxcli", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="w_hxcli" id="w_hxcli_0" class="input" <% nvram_match_x("", "w_hxcli", "0", "checked"); %> /><#checkbox_No#>
+												</div>
+											</td>
+										</tr>
+										<tr id="row_wetink" style="display:none">
+											<th width="50%" >ET异地组网</th>
+											<td>
+													<div class="main_itoggle">
+													<div id="w_easytier_on_of">
+														<input type="checkbox" id="w_etink_fake" <% nvram_match_x("", "w_etink", "1", "value=1 checked"); %><% nvram_match_x("", "w_etink", "0", "value=0"); %>  />
+													</div>
+												</div>
+												<div style="position: absolute; margin-left: -10000px;">
+													<input type="radio" value="1" name="w_etink" id="w_etink_1" class="input" <% nvram_match_x("", "w_etink", "1", "checked"); %> /><#checkbox_Yes#>
+													<input type="radio" value="0" name="w_etink" id="w_etink_0" class="input" <% nvram_match_x("", "w_etink", "0", "checked"); %> /><#checkbox_No#>
+												</div>
+											</td>
+										</tr>						
 									
 											<td colspan="2">
 												<br />
