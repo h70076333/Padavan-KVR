@@ -3720,14 +3720,14 @@ apply_cgi(const char *url, webs_t wp)
 	else if (!strcmp(value, " Restarthxcli "))
 	{
 #if defined(APP_HXCLI)
-		system("/usr/bin/hxzn.sh restart &");
+		system("/usr/bin/hx.sh restart &");
 #endif
 		return 0;
 	}
 	else if (!strcmp(value, " Updatehxcli "))
 	{
 #if defined(APP_HXCLI)
-		system("/usr/bin/hxzn.sh update &");
+		system("/usr/bin/hx.sh update &");
 #endif
 		return 0;
 	}
@@ -3762,7 +3762,7 @@ apply_cgi(const char *url, webs_t wp)
 	else if (!strcmp(value, " CMDhxstatus "))
 	{
 #if defined(APP_HXCLI)
-		system("/usr/bin/hxzn.sh hxstatus &");
+		system("/usr/bin/hx.sh hxstatus &");
 #endif
 		return 0;
 	}
