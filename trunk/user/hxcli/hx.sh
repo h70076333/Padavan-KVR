@@ -26,6 +26,37 @@ echo $hxcli_serverw
 lan_ipaddr=$(nvram get lan_ipaddr) 
 echo $lan_ipaddr
 
+hxcli_restart () {
+relock="/var/lock/hxcli_restart.lock"
+if [ "$1" = "o" ] ; then
+	nvram set hxcli_renum="0"
+	[ -f $relock ] && rm -f $relock
+	return 0
+fi
+if [ "$1" = "x" ] ; then
+	hxcli_renum=${hxcli_renum:-"0"}
+	hxcli_renum=`expr $hxcli_renum + 1`
+	nvram set hxcli_renum="$hxcli_renum"
+	if [ "$hxcli_renum" -gt "3" ] ; then
+		I=19
+		echo $I > $relock
+		logger -t "【HX客户端】" "多次尝试启动失败，等待【"`cat $relock`"分钟】后自动尝试重新启动"
+		while [ $I -gt 0 ]; do
+			I=$(($I - 1))
+			echo $I > $relock
+			sleep 60
+			[ "$(nvram get hxcli_renum)" = "0" ] && break
+   			#[ "$(nvram get hxcli_enable)" = "0" ] && exit 0
+			[ $I -lt 0 ] && break
+		done
+		nvram set hxcli_renum="1"
+	fi
+	[ -f $relock ] && rm -f $relock
+fi
+start_hxcli
+}
+
+start_hxcli() {
 hxclicmd="/usr/bin/hx-cli -k $hxcli_token $hxcli_serverw -d $hxcli_desname --nic hxsdwan -i $hxcli_localadd -o $lan_ipaddr/24 --ip $hxcli_ip >/tmp/hx-cli.log 2>&1"   
 
 echo "$hxclicmd" >/tmp/hx-cli.CMD 
@@ -62,6 +93,7 @@ cat >> "/tmp/script/_opt_script_check" <<-OSC
 [ -z "\$(iptables -L -n -v | grep '$hx_tcp_port')" ] && logger -t "进程守护" "hx-cli 防火墙规则失效" && eval "$scriptfilepath start &" && sed -Ei '/【宏兴智能组网】|^$/d' /tmp/script/_opt_script_check #【宏兴智能组网】
 OSC
 fi
+}
 
 stop_hx() {
 	logger -t "【HX客户端】" "正在关闭hx-cli..."
