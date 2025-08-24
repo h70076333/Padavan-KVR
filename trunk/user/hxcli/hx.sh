@@ -94,7 +94,7 @@ cat >> "/tmp/script/_opt_script_check" <<-OSC
 OSC
 fi
 }
-
+fi
 stop_hx() {
 	logger -t "【HX客户端】" "正在关闭hx-cli..."
 	sed -Ei '/【HX客户端】|^$/d' /tmp/script/_opt_script_check
