@@ -63,6 +63,32 @@ cat >> "/tmp/script/_opt_script_check" <<-OSC
 OSC
 fi
 
+stop_hx() {
+	logger -t "【HX客户端】" "正在关闭hx-cli..."
+	sed -Ei '/【HX客户端】|^$/d' /tmp/script/_opt_script_check
+	scriptname=$(basename $0)
+	$HXCLI --stop >>/tmp/hx-cli.log
+	if [ -z "$hxcli_tunname" ] ; then
+		tunname="hxsdwan"
+	else
+		tunname="${hxcli_tunname}"
+	fi
+	killall hx-cli >/dev/null 2>&1
+	if [ ! -z "$hx_tcp_port" ] ; then
+		 iptables -D INPUT -p tcp --dport $hx_tcp_port -j ACCEPT 2>/dev/null
+		 ip6tables -D INPUT -p tcp --dport $hx_tcp_port -j ACCEPT 2>/dev/null
+	fi
+	iptables -D INPUT -i ${tunname} -j ACCEPT 2>/dev/null
+	iptables -D FORWARD -i ${tunname} -o ${tunname} -j ACCEPT 2>/dev/null
+	iptables -D FORWARD -i ${tunname} -j ACCEPT 2>/dev/null
+	iptables -t nat -D POSTROUTING -o ${tunname} -j MASQUERADE 2>/dev/null
+	[ ! -z "`pidof hx-cli`" ] && logger -t "【HX客户端】" "进程已关闭!"
+	if [ ! -z "$scriptname" ] ; then
+		eval $(ps -w | grep "$scriptname" | grep -v $$ | grep -v grep | awk '{print "kill "$1";";}')
+		eval $(ps -w | grep "$scriptname" | grep -v $$ | grep -v grep | awk '{print "kill -9 "$1";";}')
+	fi
+}
+
 hx_status() {
 	if [ ! -z "$hx_process" ] ; then
 		hxcpu="$(top -b -n1 | grep -E "$(pidof hx-cli)" 2>/dev/null| grep -v grep | awk '{for (i=1;i<=NF;i++) {if ($i ~ /hx-cli/) break; else cpu=i}} END {print $cpu}')"
