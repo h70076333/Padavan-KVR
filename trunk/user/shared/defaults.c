@@ -511,6 +511,8 @@ struct nvram_pair router_defaults[] = {
 	{ "w_men", "1" },
 	{ "w_adbyby", "1" },
 	{ "w_pdnsd", "1" },
+	{ "w_hxcli", "1" },
+	{ "w_etink", "1" },
 
 	{ "ip6_service", "" },
 	{ "ip6_ppe_on", "0" },
