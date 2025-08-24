@@ -23,8 +23,7 @@
 <script type="text/javascript" src="/help.js"></script>
 <script>
 var $j = jQuery.noConflict();
-<% hxcli_status(); %>
-<% login_state_hook(); %>
+
 $j(document).ready(function() {
 
 	init_itoggle('hxcli_enable');
@@ -45,6 +44,8 @@ $j(document).ready(function() {
 
 </script>
 <script>
+<% hxcli_status(); %>
+<% login_state_hook(); %>
 
 var m_routelist = [<% get_nvram_list("HXCLI", "HXCLIroute"); %>];
 var mroutelist_ifield = 4;
