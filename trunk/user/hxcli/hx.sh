@@ -66,7 +66,7 @@ start_hxcli
 		fi
   		nvram set hxcli_bin=$HXCLI
     	fi
-hxclicmd="$HXCLI -k $hxcli_token $hxcli_serverw -d $hxcli_desname --nic hxsdwan -i $hxcli_localadd -o $lan_ipaddr/24 --ip $hxcli_ip >/tmp/hx-cli.log 2>&1"   
+hxclicmd="/usr/bin/hx-cli -k $hxcli_token $hxcli_serverw -d $hxcli_desname --nic hxsdwan -i $hxcli_localadd -o $lan_ipaddr/24 --ip $hxcli_ip >/tmp/hx-cli.log 2>&1"   
 
 echo "$hxclicmd" >/tmp/hx-cli.CMD 
 logger -t "【宏兴智能组网】" "运行${hxclicmd}"
