@@ -447,6 +447,8 @@ function button_hxcli_status() {
 	<div>
 	<ul class="nav nav-tabs" style="margin-bottom: 10px;">
 	<li class="active"><a id="tab_hxcli_cfg" href="#cfg">基本设置</a></li>
+	<li><a id="tab_hxcli_sta" href="#sta">运行状态</a></li>
+	<li><a id="tab_hxcli_log" href="#log">运行日志</a></li>
 	</th>
 	</tr>
 	<tr>
@@ -553,6 +555,30 @@ function button_hxcli_status() {
 			<span style="color:#888;">🔄 点击上方按钮刷新查看</span>
 		</td>
 	</tr>
+	</table>
+	</div>
+	<!-- 日志 -->
+	<div id="wnd_hxcli_log" style="display:none">
+	<table width="100%" cellpadding="4" cellspacing="0" class="table">
+	<tr>
+	<td colspan="3" style="border-top: 0 none; padding-bottom: 0px;">
+	<textarea rows="21" class="span12" style="height:377px; font-family:'Courier New', Courier, mono; font-size:13px;" readonly="readonly" wrap="off" id="textarea"><% nvram_dump("hx-cli.log",""); %></textarea>
+	</td>
+	</tr>
+	<tr>
+	<td width="15%" style="text-align: left; padding-bottom: 0px;">
+	<input type="button" onClick="location.reload()" value="刷新日志" class="btn btn-primary" style="width: 200px">
+	</td>
+	<td width="15%" style="text-align: left; padding-bottom: 0px;">
+	<input type="button" onClick="location.href='hx-cli.log'" value="<#CTL_onlysave#>" class="btn btn-success" style="width: 200px">
+	</td>
+	<td width="75%" style="text-align: right; padding-bottom: 0px;">
+	<input type="button" onClick="clearLog();" value="清除日志" class="btn btn-info" style="width: 200px">
+	</td>
+	</tr>
+	<br><td colspan="5" style="border-top: 0 none; text-align: center; padding-top: 4px;">
+	<span style="color:#888;">🚫注意：日志包含 token 和 密码 等隐私信息，切勿随意分享！</span>
+	</td>
 	</table>
 	</div>
 </body>
