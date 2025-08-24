@@ -151,18 +151,11 @@ function button_etink_web(){
 									<p>ET智能组网是一个易于配置异地组网 直连技术支持IPV6<br>
 									</p>
 									</div>
-	</tr>
-	<tr>
-	<th><#running_status#>
-	</th>
-	<td id="etink_status"></td><td></td>
-	</tr>
-	<tr>
-
-
-									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
-
-
+										<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
+									<tr> <th><#running_status#></th>
+                                            <td id="etink_status" colspan="3"></td>
+                                        </tr><td></td><td></td><td></td>
+										<tr>
 										<tr>
 										<th width="30%" style="border-top: 0 none;">启用组网客户端</th>
 											<td style="border-top: 0 none;">
