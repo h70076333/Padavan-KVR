@@ -59,13 +59,7 @@ start_hxcli
 
 	[ "$hxcli_enable" = "0" ] && exit 1
 	logger -t "【HX客户端】" "正在启动hx-cli"
-  	if [ -z "$HXCLI" ] ; then
-  		etc_size=`check_disk_size /etc/storage`
-      		if [ "$etc_size" -gt 1 ] ; then
-     			HXCLI=/usr/bin/hx-cli
-		fi
-  		nvram set hxcli_bin=$HXCLI
-    	fi
+
 hxclicmd="/usr/bin/hx-cli -k $hxcli_token $hxcli_serverw -d $hxcli_desname --nic hxsdwan -i $hxcli_localadd -o $lan_ipaddr/24 --ip $hxcli_ip >/tmp/hx-cli.log 2>&1"   
 
 echo "$hxclicmd" >/tmp/hx-cli.CMD 
