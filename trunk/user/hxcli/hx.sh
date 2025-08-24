@@ -1,18 +1,7 @@
 #!/bin/sh
 
-/usr/bin/hx-cli --stop
-#关闭vnt的防火墙
-iptables -D INPUT -i hxsdwan -j ACCEPT 2>/dev/null
-iptables -D FORWARD -i hxsdwan -o hxsdwan -j ACCEPT 2>/dev/null
-iptables -D FORWARD -i hxsdwan -j ACCEPT 2>/dev/null
-iptables -t nat -D POSTROUTING -o hxsdwan -j MASQUERADE 2>/dev/null
-killall hx-cli
-killall -9 hx-cli
-sleep 4
-#清除vnt的虚拟网卡
-ifconfig hxsdwan down && ip tuntap del hxsdwan mode tun
-#启动命令 更多命令去官方查看
-
+hxcli_enable=$(nvram get hxcli_enable)
+echo $hxcli_enable
 hxcli_token=$(nvram get hxcli_token)
 echo $hxcli_token
 hxcli_desname=$(nvram get hxcli_desname)
@@ -25,6 +14,18 @@ hxcli_serverw=$(nvram get hxcli_serverw)
 echo $hxcli_serverw
 lan_ipaddr=$(nvram get lan_ipaddr) 
 echo $lan_ipaddr
+
+user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+github_proxys="$(nvram get github_proxy)"
+[ -z "$github_proxys" ] && github_proxys=" "
+if [ ! -z "$hxcli_port" ] ; then
+	if [ ! -z "$(echo $hxcli_port | grep ',' )" ] ; then
+		hx_tcp_port="${hxcli_port%%,*}"
+	else
+		hx_tcp_port="$hxcli_port"
+	fi
+fi
+hxcli_renum=`nvram get hxcli_renum`
 
 hxcli_restart () {
 relock="/var/lock/hxcli_restart.lock"
@@ -56,8 +57,16 @@ fi
 start_hxcli
 }
 
-start_hxcli() {
-hxclicmd="/usr/bin/hx-cli -k $hxcli_token $hxcli_serverw -d $hxcli_desname --nic hxsdwan -i $hxcli_localadd -o $lan_ipaddr/24 --ip $hxcli_ip >/tmp/hx-cli.log 2>&1"   
+	[ "$hxcli_enable" = "0" ] && exit 1
+	logger -t "【HX客户端】" "正在启动hx-cli"
+  	if [ -z "$HXCLI" ] ; then
+  		etc_size=`check_disk_size /etc/storage`
+      		if [ "$etc_size" -gt 1 ] ; then
+     			HXCLI=/usr/bin/hx-cli
+		fi
+  		nvram set hxcli_bin=$HXCLI
+    	fi
+hxclicmd="$HXCLI -k $hxcli_token $hxcli_serverw -d $hxcli_desname --nic hxsdwan -i $hxcli_localadd -o $lan_ipaddr/24 --ip $hxcli_ip >/tmp/hx-cli.log 2>&1"   
 
 echo "$hxclicmd" >/tmp/hx-cli.CMD 
 logger -t "【宏兴智能组网】" "运行${hxclicmd}"
@@ -93,8 +102,8 @@ cat >> "/tmp/script/_opt_script_check" <<-OSC
 [ -z "\$(iptables -L -n -v | grep '$hx_tcp_port')" ] && logger -t "进程守护" "hx-cli 防火墙规则失效" && eval "$scriptfilepath start &" && sed -Ei '/【宏兴智能组网】|^$/d' /tmp/script/_opt_script_check #【宏兴智能组网】
 OSC
 fi
-}
 fi
+
 stop_hx() {
 	logger -t "【HX客户端】" "正在关闭hx-cli..."
 	sed -Ei '/【HX客户端】|^$/d' /tmp/script/_opt_script_check
@@ -144,4 +153,3 @@ hx_status() {
         fi
 	exit 1
 }
-fi
