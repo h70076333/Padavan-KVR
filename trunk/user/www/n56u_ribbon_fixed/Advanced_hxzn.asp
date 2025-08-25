@@ -80,19 +80,6 @@ function initial(){
 
 }
 
-function done_validating(action){
-	refreshpage();
-}
-
-function fill_status(status_code){
-	var stext = "Unknown";
-	if (status_code == 0)
-		stext = "<#Stopped#>";
-	else if (status_code == 1)
-		stext = "<#Running#>";
-	$("hxcli_status").innerHTML = '<span class="label label-' + (status_code != 0 ? 'success' : 'warning') + '">' + stext + '</span>';
-}
-
 var arrHashes = ["cfg","pri","sta","log","help"];
 function showTab(curHash) {
 	var obj = $('tab_hxcli_' + curHash.slice(1));
@@ -118,6 +105,19 @@ function applyRule(){
 	document.form.next_page.value = "";
 	
 	document.form.submit();
+}
+
+function done_validating(action){
+	refreshpage();
+}
+
+function fill_status(status_code){
+	var stext = "Unknown";
+	if (status_code == 0)
+		stext = "<#Stopped#>";
+	else if (status_code == 1)
+		stext = "<#Running#>";
+	$("hxcli_status").innerHTML = '<span class="label label-' + (status_code != 0 ? 'success' : 'warning') + '">' + stext + '</span>';
 }
 
 function textarea_scripts_enabled(v){
