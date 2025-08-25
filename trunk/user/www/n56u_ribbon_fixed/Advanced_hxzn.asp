@@ -80,6 +80,10 @@ function initial(){
 
 }
 
+function done_validating(action){
+	refreshpage();
+}
+
 function fill_status(status_code){
 	var stext = "Unknown";
 	if (status_code == 0)
@@ -116,14 +120,9 @@ function applyRule(){
 	document.form.submit();
 }
 
-function done_validating(action){
-	refreshpage();
-}
-
 function textarea_scripts_enabled(v){
     	inputCtrl(document.form['scripts.hx.conf'], v);
 }
-
 
 function change_hxcli_model(mflag){
 	var m = document.form.hxcli_model.value;
