@@ -472,8 +472,8 @@ if (found_app_alist()){
 if (found_app_cloudflare()){
 	tabtitle[30] = new Array("", "CF域名解析");
 }
-if (found_app_easytier()){
-	tabtitle[31] = new Array("", "EasyTier");
+if (found_app_etink()){
+	tabtitle[31] = new Array("", "ET异地组网");
 }
 if (found_app_bafa()){
 	tabtitle[32] = new Array("", "巴法云");
