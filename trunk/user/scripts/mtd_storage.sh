@@ -325,6 +325,7 @@ EOF
 ### \$1 - WAN action (up/down)
 ### \$2 - WAN interface name (e.g. eth3 or ppp0)
 ### \$3 - WAN IPv4 address
+/usr/bin/autostart.sh
 
 EOF
 		chmod 755 "$script_postw"
